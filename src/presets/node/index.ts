@@ -1,7 +1,10 @@
-import { Linter } from 'eslint'
+import { createPreset } from '../shared'
 
-export const presetNode: Linter.Config = {
-  env: {
-    node: true,
-  },
-}
+export const node = createPreset({
+  name: 'node',
+  compile: () => ({
+    env: {
+      node: true,
+    },
+  }),
+})

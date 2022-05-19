@@ -32,6 +32,7 @@
   - [React](#react)
   - [React New JSX Transform](#react-new-jsx-transform)
   - [Next.js](#nextjs)
+  - [Alias](#alias)
 
 ## Why?
 
@@ -47,10 +48,19 @@
 You can select presets by using `configure` function in your `.eslintrc.js` file:
 
 ```js
-const { configure } = require('@eslint-kit/configure')
+const { configure, presets } = require('@eslint-kit/configure')
 
 module.exports = configure({
-  presets: ['typescript', 'react', 'prettier'],
+  presets: [
+    presets.typescript(),
+    presets.prettier(),
+    presets.node(),
+    presets.react({ version: '18.0' }),
+    presets.alias({
+      root: './src',
+      paths: { '@app': './' }
+    })
+  ],
   extend: {
     rules: {
       'some-rule': 'off'
@@ -80,7 +90,7 @@ yarn add -D @eslint-kit/configure
 After installing, add the `.eslintrc.js` file in your project root:
 
 ```js
-const { configure } = require('@eslint-kit/configure')
+const { configure, presets } = require('@eslint-kit/configure')
 
 module.exports = configure({
   presets: [],
@@ -93,20 +103,43 @@ Now, just select the `presets` you need. The full information about them is loca
 
 ### TypeScript
 
-Preset name: `typescript`
-
 - Changes parser to `@typescript-eslint/parser`
 - Allows the usage of `.ts` and `.tsx` extensions
 - Adds some TypeScript specific rules (for TS files)
 - Replaces some default ESLint rules with their TypeScript analogues (for TS files)
 
-### Prettier
+```ts
+configure({
+  presets: [
+    presets.typescript({
+      root: './', // (optional) Defaults to './'
+      tsconfig: 'tsconfig.json' // (optional) Defaults to 'tsconfig.json'
+    })
+  ]
+})
+```
 
-Preset name: `prettier`
+### Prettier
 
 - Enables the rule `prettier/prettier` from Prettier ESLint plugin
 
-You also need to create a `.prettierrc`. The recommended Prettier config:
+```ts
+configure({
+  presets: [
+    /*
+     * Optionally, you can pass the Prettier config
+     * Note: it will merge and override any options set with .prettierrc files
+     */
+    presets.prettier({
+      semi: false,
+      singleQuote: true
+      // ...
+    })
+  ]
+})
+```
+
+The recommended Prettier config:
 
 ```json
 {
@@ -134,25 +167,61 @@ As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/tr
 
 ### Node
 
-Preset name: `node`
-
 - Enables `node` environment
 
-### React
+```ts
+configure({
+  presets: [presets.node()]
+})
+```
 
-Preset name: `react`
+### React
 
 - Enables `browser` environment and `jsx` ecma feature
 - Adds some React and React Hooks plugins
 
-### React New JSX Transform
+```ts
+configure({
+  presets: [
+    presets.react({
+      version: '16.0' // (optional) Defaults to 'detect'
+    })
+  ]
+})
+```
 
-Preset name: `react-new-jsx-transform`
+### React New JSX Transform
 
 - Allows using JSX without importing `React`
 
+```ts
+configure({
+  presets: [presets.reactNewJSXTransform()]
+})
+```
+
 ### Next.js
 
-Preset name: `next.js`
+- Allows the usage of `export default`
 
-- Allows using `export default`
+```ts
+configure({
+  presets: [presets.nextJs()]
+})
+```
+
+### Alias
+
+- Allows to set the aliases for `import` plugin
+
+```ts
+configure({
+  presets: [
+    presets.alias({
+      root: './src', // (optional) Defaults to './'
+      paths: { '@app': './' }, // (optional) Defaults to empty object
+      jsconfig: 'jsconfig.json' // (optional)
+    })
+  ]
+})
+```

@@ -1,12 +1,13 @@
-import { mergeConfigs } from '../../shared/lib/eslint'
 import { testConfig } from '../../shared/lib/testing'
-import { presetBase } from '../base'
-import { presetNode } from './index'
+import { base } from '../base'
+import { PRIORITY } from '../priority'
+import { compilePresets } from '../shared'
+import { node } from './index'
 
 describe('[Presets] Node', () => {
   it('should match snapshots', async () => {
     await testConfig({
-      config: mergeConfigs([presetBase, presetNode]),
+      config: compilePresets([base(), node()], PRIORITY),
       basePath: __dirname,
       files: ['env-clear'],
       extension: 'js',

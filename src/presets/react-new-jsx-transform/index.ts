@@ -1,16 +1,19 @@
-import { Linter } from 'eslint'
+import { createPreset } from '../shared'
 
-export const presetReactNewJSXTransform: Linter.Config = {
-  env: {
-    browser: true,
-  },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+export const reactNewJSXTransform = createPreset({
+  name: 'react-new-jsx-transform',
+  compile: () => ({
+    env: {
+      browser: true,
     },
-  },
-  rules: {
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-  },
-}
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+    rules: {
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+    },
+  }),
+})

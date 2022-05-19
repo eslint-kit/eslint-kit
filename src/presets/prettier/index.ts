@@ -1,8 +1,12 @@
-import { Linter } from 'eslint'
+import { Options } from 'prettier'
+import { createPreset } from '../shared'
 
-export const presetPrettier: Linter.Config = {
-  plugins: ['prettier'],
-  rules: {
-    'prettier/prettier': 'warn',
-  },
-}
+export const prettier = createPreset<'prettier', Options | void>({
+  name: 'prettier',
+  compile: ({ options }) => ({
+    plugins: ['prettier'],
+    rules: {
+      'prettier/prettier': options ? ['warn', options] : 'warn',
+    },
+  }),
+})

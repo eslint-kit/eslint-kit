@@ -1,5 +1,8 @@
-export const extensions = {
-  js: ['.js', '.mjs', '.jsx'],
-  ts: ['.ts', '.tsx', '.d.ts'],
-  jsAndTs: ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
+const JS = ['.js', '.mjs', '.jsx', '.json']
+const TS = ['.ts', '.tsx', '.d.ts']
+
+export const EXTENSIONS = {
+  JS,
+  TS,
+  JS_AND_TS: [...JS, ...TS],
 }

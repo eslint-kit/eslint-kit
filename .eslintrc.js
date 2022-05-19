@@ -1,5 +1,5 @@
-const { configure } = require('./dist')
+const { configure, presets } = require('./dist')
 
 module.exports = configure({
-  presets: ['node', 'prettier', 'typescript'],
+  presets: [presets.typescript(), presets.prettier(), presets.node()],
 })

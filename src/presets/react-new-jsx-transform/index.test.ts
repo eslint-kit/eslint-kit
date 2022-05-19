@@ -1,17 +1,17 @@
-import { mergeConfigs } from '../../shared/lib/eslint'
 import { testConfig } from '../../shared/lib/testing'
-import { presetBase } from '../base'
-import { presetReact } from '../react'
-import { presetReactNewJSXTransform } from './index'
+import { base } from '../base'
+import { PRIORITY } from '../priority'
+import { react } from '../react'
+import { compilePresets } from '../shared'
+import { reactNewJSXTransform } from './index'
 
 describe('[Presets] React New JSX Transform', () => {
   it('should match snapshots', async () => {
     await testConfig({
-      config: mergeConfigs([
-        presetBase,
-        presetReact,
-        presetReactNewJSXTransform,
-      ]),
+      config: compilePresets(
+        [base(), react(), reactNewJSXTransform()],
+        PRIORITY
+      ),
       basePath: __dirname,
       files: ['basic-clear'],
       extension: 'js',

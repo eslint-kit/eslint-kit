@@ -1,7 +1,12 @@
 import { Linter } from 'eslint'
-import { Preset, PRESETS, PRIORITY } from './presets'
-import { presetBase } from './presets/base'
-import { mergeConfigs } from './shared/lib/eslint'
+import {
+  compilePresets,
+  Preset,
+  presetExtend,
+  presets,
+  PRIORITY,
+} from './presets'
+import { base } from './presets/base'
 
 interface Options {
   presets: Preset[]
@@ -9,9 +14,7 @@ interface Options {
 }
 
 export function configure({ presets, extend = {} }: Options) {
-  const configs = presets
-    .sort((a, b) => PRIORITY.indexOf(a) - PRIORITY.indexOf(b))
-    .map((name) => PRESETS[name])
-  const merged = mergeConfigs([presetBase, ...configs, extend])
-  return merged
+  return compilePresets([base(), ...presets, presetExtend(extend)], PRIORITY)
 }
+
+export { presets }

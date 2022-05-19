@@ -1,12 +1,13 @@
-import { mergeConfigs } from '../../shared/lib/eslint'
 import { testConfig } from '../../shared/lib/testing'
-import { presetBase } from '../base'
-import { presetTypescript } from './index'
+import { base } from '../base'
+import { PRIORITY } from '../priority'
+import { compilePresets } from '../shared'
+import { typescript } from './index'
 
 describe('[Presets] TypeScript', () => {
   it('should match snapshots', async () => {
     await testConfig({
-      config: mergeConfigs([presetBase, presetTypescript]),
+      config: compilePresets([base(), typescript()], PRIORITY),
       basePath: __dirname,
       files: ['basic-clear', 'basic-warn', 'basic-error'],
       extension: 'ts',

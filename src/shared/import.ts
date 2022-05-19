@@ -1,11 +1,11 @@
 import { Linter } from 'eslint'
-import { extensions } from './constants'
+import { EXTENSIONS } from './constants'
 
 export const importSettings: Linter.Config['settings'] = {
-  'import/extensions': extensions.js,
+  'import/extensions': EXTENSIONS.JS,
   'import/resolver': {
     node: {
-      extensions: extensions.js,
+      extensions: EXTENSIONS.JS,
     },
   },
   'import/core-modules': [],
