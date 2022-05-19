@@ -1,4 +1,5 @@
 import { alias } from './alias'
+import { effector } from './effector'
 import { nextJs } from './nextjs'
 import { node } from './node'
 import { prettier } from './prettier'
@@ -13,6 +14,7 @@ export const presets = {
   typescript,
   react,
   reactNewJSXTransform,
+  effector,
   nextJs,
   alias,
 }

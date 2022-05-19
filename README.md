@@ -31,6 +31,7 @@
   - [Node](#node)
   - [React](#react)
   - [React New JSX Transform](#react-new-jsx-transform)
+  - [Effector](#effector)
   - [Next.js](#nextjs)
   - [Alias](#alias)
 
@@ -197,6 +198,21 @@ configure({
 ```ts
 configure({
   presets: [presets.reactNewJSXTransform()]
+})
+```
+
+### Effector
+
+- Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
+
+```ts
+configure({
+  presets: [
+    presets.typescript({
+      // Enables /future rules
+      onlySample: true // (optional) Defaults to false
+    })
+  ]
 })
 ```
 

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] React should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/effector/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] React should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/effector/tests/basic-error.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 23,
+        "endColumn": 54,
+        "endLine": 6,
+        "line": 5,
+        "message": "Method \`.on\` is called on store \`$users\` more than once for userAdded.",
+        "messageId": "duplicateOn",
+        "nodeType": "CallExpression",
+        "ruleId": "effector/no-duplicate-on",
+        "severity": 2,
+      },
+    ],
+    "source": "import { createEvent, createStore } from 'effector'
+
+const userAdded = createEvent()
+
+export const $users = createStore([])
+  .on(userAdded, (users, user) => users.concat(user))
+  .on(userAdded, (users, user) => [...users, user])
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] React should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/effector/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 3,
+        "endLine": 8,
+        "line": 3,
+        "message": "Order of options should be clock->source->filter->fn->target, but found fn->target->clock->source",
+        "messageId": "invalidOrder",
+        "nodeType": "CallExpression",
+        "ruleId": "effector/keep-options-order",
+        "severity": 1,
+        "suggestions": Array [
+          Object {
+            "desc": "Sort options",
+            "fix": Object {
+              "range": Array [
+                69,
+                168,
+              ],
+              "text": "{ clock: createEvent(), source: createStore(5), fn: value => value, target: createEvent() }",
+            },
+            "messageId": "changeOrder",
+          },
+        ],
+      },
+    ],
+    "source": "import { createEvent, createStore, sample } from \\"effector\\";
+
+sample({
+  fn: value => value,
+  target: createEvent(),
+  clock: createEvent(),
+  source: createStore(5)
+})
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
