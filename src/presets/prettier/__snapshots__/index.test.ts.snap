@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Prettier should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Prettier should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 15,
+        "endColumn": 16,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            14,
+            15,
+          ],
+          "text": "",
+        },
+        "line": 1,
+        "message": "Delete \`;\`",
+        "messageId": "delete",
+        "nodeType": null,
+        "ruleId": "prettier/prettier",
+        "severity": 1,
+      },
+    ],
+    "source": "var meow = 123;
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;

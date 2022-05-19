@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Base should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Base should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            3,
+          ],
+          "text": "let",
+        },
+        "line": 1,
+        "message": "Unexpected var, use let or const instead.",
+        "messageId": "unexpectedVar",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "no-var",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "line": 1,
+        "message": "Exporting mutable 'var' binding, use 'const' instead.",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "import/no-mutable-exports",
+        "severity": 2,
+      },
+    ],
+    "source": "var one = 1
+export { one }
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Base should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 7,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'one' is assigned a value but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "const one = 1
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Base should match snapshots: env-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 7,
+        "endLine": 1,
+        "line": 1,
+        "message": "'module' is not defined.",
+        "messageId": "undef",
+        "nodeType": "Identifier",
+        "ruleId": "no-undef",
+        "severity": 2,
+      },
+    ],
+    "source": "module.exports = 123
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;

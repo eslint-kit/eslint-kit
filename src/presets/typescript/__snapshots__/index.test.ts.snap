@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] TypeScript should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] TypeScript should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-error.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 12,
+        "endColumn": 18,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            11,
+            17,
+          ],
+          "text": "number",
+        },
+        "line": 1,
+        "message": "Don't use \`Number\` as a type. Use number instead",
+        "messageId": "bannedTypeMessage",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/ban-types",
+        "severity": 2,
+      },
+    ],
+    "source": "const one: Number = 1
+export { one }
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] TypeScript should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-warn.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            12,
+          ],
+          "text": "interface Test ",
+        },
+        "line": 1,
+        "message": "Use an \`interface\` instead of a \`type\`.",
+        "messageId": "interfaceOverType",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/consistent-type-definitions",
+        "severity": 1,
+      },
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'Test' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "type Test = {
+  one: number
+}
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;

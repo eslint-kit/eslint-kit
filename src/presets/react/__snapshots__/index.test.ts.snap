@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] React should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] React should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 13,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'React' must be in scope when using JSX",
+        "messageId": "notInScope",
+        "nodeType": "JSXOpeningFragment",
+        "ruleId": "react/react-in-jsx-scope",
+        "severity": 2,
+      },
+    ],
+    "source": "const jsx = <>Foo</>
+export { jsx }
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] React should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<text>",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 13,
+        "endColumn": 23,
+        "endLine": 4,
+        "line": 4,
+        "message": "Must use destructuring props assignment",
+        "messageId": "useDestructAssignment",
+        "nodeType": "MemberExpression",
+        "ruleId": "react/destructuring-assignment",
+        "severity": 1,
+      },
+    ],
+    "source": "import React from 'react'
+
+export const Component = (props) => {
+  return <>{props.text}</>
+}
+",
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
