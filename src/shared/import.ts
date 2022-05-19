@@ -31,6 +31,7 @@ export const importExtensionsRule: ImportExtensionsRule = [
 
 export const importRules: Linter.RulesRecord = {
   'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+  'import/no-default-export': 'warn',
   'import/no-anonymous-default-export': [
     'error',
     {
