@@ -87,7 +87,7 @@ module.exports = configure({
 })
 ```
 
-Now, just to select the `presets` you need. The full information about them is located in [Presets](#presets) section.
+Now, just select the `presets` you need. The full information about them is located in [Presets](#presets) section.
 
 ## Presets
 
