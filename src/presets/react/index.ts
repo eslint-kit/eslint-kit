@@ -53,5 +53,6 @@ export const presetReact: Linter.Config = {
 
     // hooks
     'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 }
