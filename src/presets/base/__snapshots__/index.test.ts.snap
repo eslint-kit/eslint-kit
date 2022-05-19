@@ -5,10 +5,11 @@ Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "<text>",
+    "filePath": "<PROJECT_ROOT>/src/presets/base/tests/basic-clear.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [],
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },
@@ -20,7 +21,7 @@ Array [
   Object {
     "errorCount": 2,
     "fatalErrorCount": 0,
-    "filePath": "<text>",
+    "filePath": "<PROJECT_ROOT>/src/presets/base/tests/basic-error.js",
     "fixableErrorCount": 1,
     "fixableWarningCount": 0,
     "messages": Array [
@@ -56,6 +57,7 @@ Array [
     "source": "var one = 1
 export { one }
 ",
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },
@@ -67,7 +69,7 @@ Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "<text>",
+    "filePath": "<PROJECT_ROOT>/src/presets/base/tests/basic-warn.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [
@@ -85,6 +87,7 @@ Array [
     ],
     "source": "const one = 1
 ",
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 1,
   },
@@ -96,7 +99,7 @@ Array [
   Object {
     "errorCount": 1,
     "fatalErrorCount": 0,
-    "filePath": "<text>",
+    "filePath": "<PROJECT_ROOT>/src/presets/base/tests/env-error.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [
@@ -114,6 +117,7 @@ Array [
     ],
     "source": "module.exports = 123
 ",
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },

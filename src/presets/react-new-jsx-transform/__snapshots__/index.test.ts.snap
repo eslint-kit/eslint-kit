@@ -5,10 +5,11 @@ Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "<text>",
+    "filePath": "<PROJECT_ROOT>/src/presets/react-new-jsx-transform/tests/basic-clear.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [],
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },

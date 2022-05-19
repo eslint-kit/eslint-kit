@@ -1,53 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export type DeepMerge<T1, T2> = T1 extends Array<infer A1>
-  ? T2 extends Array<infer A2>
-    ? Array<A1 | A2>
-    : T2
-  : T1 extends object
-  ? T2 extends object
-    ? MergeToOne<
-        {
-          [K in keyof T2 & keyof T1 & RequiredKeys<T1 | T2>]: DeepMerge<
-            T1[K],
-            T2[K]
-          >
-        } &
-          {
-            [K in keyof T2 & keyof T1 & OptionalKeys<T1 | T2>]?: DeepMerge<
-              T1[K],
-              T2[K]
-            >
-          } &
-          { [K in Exclude<RequiredKeys<T1>, keyof T2>]: T1[K] } &
-          { [K in Exclude<OptionalKeys<T1>, keyof T2>]?: T1[K] } &
-          { [K in Exclude<RequiredKeys<T2>, keyof T1>]: T2[K] } &
-          { [K in Exclude<OptionalKeys<T2>, keyof T1>]?: T2[K] }
-      >
-    : T1 extends object
-    ? T2
-    : T1 | T2
-  : T2 extends object
-  ? T2
-  : T2
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export type MergePrimitives<A, B> = B
 
-// so you don't get "T & {} & {}"
-// also assumes that "undefined" is only ever a value included by optional params... I couldn't find a way around this
-type MergeToOne<T> = T extends object
-  ? {
-      [K in keyof T]: K extends RequiredKeys<T>
-        ? Exclude<T[K], undefined>
-        : T[K]
-    }
-  : never
+export type MergeMaybeObjects<A, B> = A extends object
+  ? B extends object
+    ? A & B
+    : MergePrimitives<A, B>
+  : MergePrimitives<A, B>
 
-type RequiredKeys<T> = {
-  [K in keyof T]-?: {} extends Pick<T, K> ? never : K
-}[keyof T]
-type OptionalKeys<T> = {
-  [K in keyof T]-?: {} extends Pick<T, K> ? K : never
-}[keyof T]
+export type Merge<A, B> = A extends Array<infer I1>
+  ? B extends Array<infer I2>
+    ? Array<I1 & I2>
+    : MergeMaybeObjects<A, B>
+  : MergeMaybeObjects<A, B>
 
 type Join<K, P> = K extends string | number
   ? P extends string | number

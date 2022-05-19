@@ -1,6 +1,7 @@
-export const presetNode = {
+import { Linter } from 'eslint'
+
+export const presetNode: Linter.Config = {
   env: {
-    es6: true,
     node: true,
   },
 }

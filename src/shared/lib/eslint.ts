@@ -1,26 +1,11 @@
-import { deepMerge, Merge } from './deep-merge'
+import { Linter } from 'eslint'
+import { deepMerge, Strategy } from './deep-merge'
 
-export interface ESLintConfig {
-  root?: boolean
-  env?: Record<string, boolean>
-  extends?: string[]
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  settings?: Record<string, any>
-  parser?: string
-  parserOptions?: Record<string, unknown>
-  plugins?: string[]
-  rules?: Record<string, unknown>
-  ignorePatterns?: string[]
-  overrides?: unknown[]
-}
-
-export function mergeConfigs(configs: ESLintConfig[]): ESLintConfig {
+export function mergeConfigs(configs: Linter.Config[]): Linter.Config {
   return configs.reduce((final, current) => {
-    const merged = deepMerge(final, current, (path) => {
-      if (path === 'rules') return Merge.Shallow
-      return Merge.Deep
+    return deepMerge(final, current, (path) => {
+      if (path === 'rules') return Strategy.Shallow
+      return Strategy.Deep
     })
-
-    return merged as ESLintConfig
   })
 }
