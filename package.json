@@ -22,13 +22,13 @@
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
     "babel-eslint": "10.1.0",
-    "prettier": "2.3.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-sonarjs": "0.12.0",
-    "eslint-plugin-unicorn": "41.0.0"
+    "eslint-plugin-unicorn": "41.0.0",
+    "prettier": "2.3.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.2",
@@ -36,6 +36,7 @@
     "esbuild": "^0.14.39",
     "eslint": "7.32.0",
     "jest": "^28.1.0",
+    "jest-serializer-path": "^0.1.15",
     "rollup": "^2.73.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-dts": "^4.2.1",

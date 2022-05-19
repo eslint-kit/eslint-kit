@@ -5,7 +5,7 @@ Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-clear.ts",
+    "filePath": "<PROJECT_ROOT>/src/presets/typescript/tests/basic-clear.ts",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [],
@@ -20,7 +20,7 @@ Array [
   Object {
     "errorCount": 1,
     "fatalErrorCount": 0,
-    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-error.ts",
+    "filePath": "<PROJECT_ROOT>/src/presets/typescript/tests/basic-error.ts",
     "fixableErrorCount": 1,
     "fixableWarningCount": 0,
     "messages": Array [
@@ -57,7 +57,7 @@ Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "/Users/risenforces/Desktop/Projects/eslint-kit-next/src/presets/typescript/tests/basic-warn.ts",
+    "filePath": "<PROJECT_ROOT>/src/presets/typescript/tests/basic-warn.ts",
     "fixableErrorCount": 0,
     "fixableWarningCount": 1,
     "messages": Array [

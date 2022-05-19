@@ -2686,6 +2686,15 @@ jest-runtime@^28.1.0:
     slash "^3.0.0"
     strip-bom "^4.0.0"
 
+jest-serializer-path@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/jest-serializer-path/-/jest-serializer-path-0.1.15.tgz#68528c98e3f8be652484f1c3876228f6864bd662"
+  integrity sha512-sXb+Ckz9LK5bB5sRAXFeG/nwhGn1XBKayy9xhPpgOmAWaljJiS+VN/xJ3P4I19jZ+WejowvO/kES+A9HePTMvQ==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    lodash.iserror "^3.1.1"
+    slash "^2.0.0"
+
 jest-snapshot@^28.1.0:
   version "28.1.0"
   resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-28.1.0.tgz#4b74fa8816707dd10fe9d551c2c258e5a67b53b6"
@@ -2885,6 +2894,16 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.iserror@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.iserror/-/lodash.iserror-3.1.1.tgz#297b9a05fab6714bc2444d7cc19d1d7c44b5ecec"
+  integrity sha1-KXuaBfq2cUvCRE18wZ0dfES17Ow=
 
 lodash.memoize@4.x:
   version "4.1.2"
@@ -3575,6 +3594,11 @@ sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
+
+slash@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
+  integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
 
 slash@^3.0.0:
   version "3.0.0"
