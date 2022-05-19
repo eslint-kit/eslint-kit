@@ -23,7 +23,7 @@
 
 ## Navigation
 
-- [Why](#why)
+- [Why?](#why)
 - [Installation](#installation)
 - [Presets](#presets)
   - [TypeScript](#typescript)
