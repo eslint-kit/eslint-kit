@@ -166,7 +166,7 @@ export const presetBase: Linter.Config = {
     'unicorn/prefer-negative-index': 'warn',
     'unicorn/prefer-dom-node-append': 'error',
     'unicorn/prefer-dom-node-remove': 'error',
-    'unicorn/prefer-number-properties': 'error',
+    'unicorn/prefer-number-properties': ['warn', { checkInfinity: false }],
     'unicorn/prefer-query-selector': 'error',
     'unicorn/prefer-string-starts-ends-with': 'error',
     'unicorn/prefer-string-slice': 'error',
