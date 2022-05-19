@@ -1,13 +1,10 @@
-import { extensions, importRules } from '../../shared'
+import { Linter } from 'eslint'
+import { extensions, importExtensionsRule } from '../../shared'
 
-export const presetTypescript = {
+export const presetTypescript: Linter.Config = {
   plugins: ['import', '@typescript-eslint'],
-  env: {
-    es6: true,
-  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module',
     project: 'tsconfig.json',
     createDefaultProgram: true,
     tsconfigRootDir: './',
@@ -26,17 +23,15 @@ export const presetTypescript = {
     },
   },
   rules: {
-    'import/extensions': importRules['import/extensions']
-      // select base options without extensions
-      .slice(0, 2)
-      // add ts specific extensions object
-      .concat(
-        extensions.jsAndTs.reduce<Record<string, 'never'>>((acc, extension) => {
-          const extensionShort = extension.slice(1)
-          acc[extensionShort] = 'never'
-          return acc
-        }, {})
-      ),
+    'import/extensions': [
+      importExtensionsRule[0],
+      importExtensionsRule[1],
+      extensions.jsAndTs.reduce<Record<string, 'never'>>((acc, extension) => {
+        const extensionShort = extension.slice(1)
+        acc[extensionShort] = 'never'
+        return acc
+      }, {}),
+    ],
   },
   overrides: [
     {

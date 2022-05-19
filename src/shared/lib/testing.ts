@@ -3,7 +3,7 @@ import path from 'path'
 import { ESLint, Linter } from 'eslint'
 
 export interface Options {
-  config: unknown
+  config: Linter.Config
   basePath: string
   files: string[]
   extension: 'js' | 'ts' | 'tsx'
@@ -18,17 +18,14 @@ export async function testConfig({
   const cli = new ESLint({
     baseConfig: config as Linter.Config<Linter.RulesRecord>,
     useEslintrc: false,
-    cwd: process.cwd(),
+    cwd: path.resolve(basePath, './tests'),
     ignore: false,
   })
 
   for (const file of files) {
     const filePath = path.resolve(basePath, `./tests/${file}.${extension}`)
     const code = fs.readFileSync(filePath).toString()
-    const isTS = ['ts', 'tsx'].includes(extension)
-    const result = await cli.lintText(code, {
-      filePath: isTS ? filePath : undefined,
-    })
+    const result = await cli.lintText(code, { filePath })
     expect(result).toMatchSnapshot(`${file}`)
   }
 }

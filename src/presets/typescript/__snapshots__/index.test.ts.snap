@@ -9,6 +9,7 @@ Array [
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [],
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },
@@ -46,6 +47,7 @@ Array [
     "source": "const one: Number = 1
 export { one }
 ",
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,
   },
@@ -95,6 +97,7 @@ Array [
   one: number
 }
 ",
+    "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 2,
   },

@@ -1,4 +1,4 @@
-import { deepMerge, Merge } from './index'
+import { deepMerge, Strategy } from './index'
 
 describe('deepMerge', () => {
   it('should return second argument when there is a primitive in the args', () => {
@@ -47,7 +47,7 @@ describe('deepMerge', () => {
       const merged = deepMerge(
         { yuuki: { xyu: 123, array: [1, 2] } },
         { yuuki: { loh: '123', array: ['321'] } },
-        () => Merge.Override
+        () => Strategy.Override
       )
 
       expect(merged).toEqual({ yuuki: { loh: '123', array: ['321'] } })
@@ -57,7 +57,7 @@ describe('deepMerge', () => {
       const merged = deepMerge(
         { yuuki: { xyu: 123, array: [1, 2] }, test: 123 },
         { yuuki: { loh: '123', array: ['321'] } },
-        () => Merge.Shallow
+        () => Strategy.Shallow
       )
 
       expect(merged).toEqual({
@@ -71,8 +71,8 @@ describe('deepMerge', () => {
         { yuuki: { xyu: 123, array: [1, 2] }, test: { a: 1 } },
         { yuuki: { loh: '123', array: ['321'] }, test: { b: 2 } },
         (path) => {
-          if (path === 'yuuki') return Merge.Shallow
-          return Merge.Deep
+          if (path === 'yuuki') return Strategy.Shallow
+          return Strategy.Deep
         }
       )
 
@@ -87,8 +87,8 @@ describe('deepMerge', () => {
         { yuuki: { xyu: 123, array: [1, 2] }, test: { a: 1 } },
         { yuuki: { loh: '123', array: ['321'] }, test: { b: 2 } },
         (path) => {
-          if (path === 'yuuki') return Merge.Override
-          return Merge.Deep
+          if (path === 'yuuki') return Strategy.Override
+          return Strategy.Deep
         }
       )
 

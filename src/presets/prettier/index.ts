@@ -1,8 +1,7 @@
-export const presetPrettier = {
+import { Linter } from 'eslint'
+
+export const presetPrettier: Linter.Config = {
   plugins: ['prettier'],
-  env: {
-    es6: true,
-  },
   rules: {
     'prettier/prettier': 'warn',
   },

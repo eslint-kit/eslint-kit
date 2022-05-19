@@ -1,17 +1,12 @@
-export const presetReactNewJSXTransform = {
+import { Linter } from 'eslint'
+
+export const presetReactNewJSXTransform: Linter.Config = {
   env: {
-    es6: true,
     browser: true,
   },
   parserOptions: {
-    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
-    },
-  },
-  settings: {
-    react: {
-      version: 'detect',
     },
   },
   rules: {

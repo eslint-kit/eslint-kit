@@ -1,10 +1,13 @@
-export const presetReact = {
+import { Linter } from 'eslint'
+
+export const presetReact: Linter.Config = {
   env: {
-    es6: true,
     browser: true,
   },
   parserOptions: {
-    sourceType: 'module',
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
     ecmaFeatures: {
       jsx: true,
     },

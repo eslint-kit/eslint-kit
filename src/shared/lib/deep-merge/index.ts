@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { DeepMerge, PathsOf } from './types'
+import { Merge, PathsOf } from './types'
 
 function isObject(value: any): value is Record<string, any> {
   return typeof value === 'object' && value !== null
 }
 
-export enum Merge {
+export enum Strategy {
   Shallow,
   Deep,
   Override,
@@ -13,65 +13,58 @@ export enum Merge {
 
 type AllPaths<A, B> = PathsOf<A> | PathsOf<B> | null
 
+function shallowMerge<A, B>(a: A, b: B): Merge<A, B> {
+  let merged: any
+
+  if (Array.isArray(a) && Array.isArray(b)) {
+    merged = [...a, ...b]
+  } else if (isObject(a) && isObject(b)) {
+    merged = { ...a, ...b }
+  } else if (typeof b !== 'undefined') {
+    merged = b
+  } else {
+    merged = a
+  }
+
+  return merged as Merge<A, B>
+}
+
 // eslint-disable-next-line sonarjs/cognitive-complexity
-export function deepMerge<A extends any, B extends any>(
+export function deepMerge<A, B>(
   a: A,
   b: B,
-  strategy: (path: AllPaths<A, B>) => Merge = () => Merge.Deep,
-  basePath: string | null = null,
-  root = true,
-  shallow = false
-): DeepMerge<A, B> {
+  strategy: (path: AllPaths<A, B>) => Strategy = () => Strategy.Deep,
+  basePath: AllPaths<A, B> = null
+): Merge<A, B> {
+  if (strategy(basePath) === Strategy.Shallow) {
+    return shallowMerge(a, b)
+  }
+
+  if (strategy(basePath) === Strategy.Override) {
+    return b as Merge<A, B>
+  }
+
   if (Array.isArray(a) && Array.isArray(b)) {
-    return [...a, ...b] as DeepMerge<A, B>
+    return shallowMerge(a, b)
   }
 
   if (isObject(a) && isObject(b)) {
-    if (shallow) {
-      return { ...a, ...b } as DeepMerge<A, B>
-    }
-
-    if (root) {
-      if (strategy(null) === Merge.Shallow) {
-        return deepMerge(a, b, strategy as any, null, false, true) as DeepMerge<
-          A,
-          B
-        >
-      }
-
-      if (strategy(null) === Merge.Override) {
-        return b as DeepMerge<A, B>
-      }
-    }
-
     const keys = [...Object.keys(a), ...Object.keys(b)]
     const final: any = {}
 
     for (const key of keys) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const path = basePath ? [basePath, key].join('.') : key
-
-      if (strategy(path as any) === Merge.Shallow) {
-        final[key] = deepMerge(
-          a[key],
-          b[key],
-          strategy as any,
-          path,
-          false,
-          true
-        )
-      } else if (strategy(path as any) === Merge.Override) {
-        final[key] = b[key]
-      } else {
-        final[key] = deepMerge(a[key], b[key], strategy as any, path, false)
-      }
+      final[key] = deepMerge(
+        (a as any)[key],
+        (b as any)[key],
+        strategy,
+        path as AllPaths<A, B>
+      )
     }
 
     return final
   }
 
-  if (typeof b !== 'undefined') {
-    return b as DeepMerge<A, B>
-  }
-
-  return a as DeepMerge<A, B>
+  return shallowMerge(a, b)
 }

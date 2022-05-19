@@ -1,1 +1,1 @@
-var meow = 123
+export const meow = 123

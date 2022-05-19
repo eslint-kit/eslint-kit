@@ -1,12 +1,14 @@
+import { Linter } from 'eslint'
 import { importRules, importSettings } from '../../shared'
 
-export const presetBase = {
+export const presetBase: Linter.Config = {
   plugins: ['import', 'unicorn', 'sonarjs'],
   env: {
     es6: true,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
+    requireConfigFile: false,
     ecmaVersion: 2018,
     sourceType: 'module',
   },
