@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Presets] Next.js should match snapshots: env-clear 1`] = `
+exports[`[Presets] Next.js should match snapshots: basic-clear 1`] = `
 Array [
   Object {
     "errorCount": 0,
     "fatalErrorCount": 0,
-    "filePath": "<PROJECT_ROOT>/src/presets/nextjs/tests/env-clear.js",
+    "filePath": "<PROJECT_ROOT>/src/presets/nextjs/tests/basic-clear.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [],
