@@ -218,6 +218,7 @@ configure({
 
 ### Next.js
 
+- Enables `@next/eslint-plugin-next` plugin rules
 - Allows the usage of `export default`
 
 ```ts
