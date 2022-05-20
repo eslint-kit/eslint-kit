@@ -13,7 +13,6 @@
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser"
       ],
-      "matchFiles": ["./package.json"],
       "enabled": true,
       "schedule": ["* */4 * * *"],
       "labels": ["dependencies", "auto update"],
