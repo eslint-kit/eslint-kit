@@ -1,0 +1,26 @@
+{
+  "masterIssue": true,
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "enabled": false
+    },
+    {
+      "groupName": "auto-update TypeScript preset",
+      "groupSlug": "auto-update-ts-preset",
+      "matchPackageNames": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser"
+      ],
+      "matchFiles": ["./package.json"],
+      "enabled": true,
+      "schedule": ["* */4 * * *"],
+      "labels": ["dependencies", "auto update"],
+      "automerge": true,
+      "commitMessageAction": null,
+      "commitMessageTopic": null,
+      "commitMessageExtra": null
+    }
+  ]
+}
