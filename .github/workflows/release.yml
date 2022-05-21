@@ -38,7 +38,7 @@ jobs:
       - name: Set version from release
         uses: reedyuk/npm-version@1.0.1
         with:
-          version: ${{ steps.tag.outputs.version }}
+          version: ${{ steps.tag.outputs.tag }}
 
       - name: Create NPM config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
