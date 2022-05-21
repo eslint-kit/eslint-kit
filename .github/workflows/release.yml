@@ -13,7 +13,7 @@ jobs:
       - name: Merge dev -> main
         uses: everlytic/branch-merge@1.1.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
           source_ref: ${{ github.event.release.tag_name }}
           target_branch: 'main'
           commit_message_template: 'ci: merge {source_ref} tag into {target_branch}'
