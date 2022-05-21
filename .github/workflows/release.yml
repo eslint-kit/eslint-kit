@@ -71,7 +71,7 @@ jobs:
         id: tag
         uses: olegtarasov/get-tag@v2.1.1
         with:
-          tagRegex: 'v(.*)'
+          tagRegex: 'v(?<version>[0-9.]*)(?:-(?<rc>.*))?'
 
       - name: Set version from release
         uses: reedyuk/npm-version@1.0.1
@@ -83,5 +83,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to NPM
+      - name: Publish latest
+        if: ${{ steps.tag.outputs.rc == null }}
         run: npm publish
+
+      - name: Publish RC
+        if: ${{ steps.tag.outputs.rc != null }}
+        run: npm publish --tag ${{ steps.tag.outputs.rc }}

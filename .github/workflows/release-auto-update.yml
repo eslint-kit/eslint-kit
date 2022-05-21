@@ -38,7 +38,7 @@ jobs:
         id: tag
         uses: olegtarasov/get-tag@v2.1.1
         with:
-          tagRegex: 'v(?:[0-9.]*)(?<rc>.*)?'
+          tagRegex: 'v(?<version>[0-9.]*)(?:-(?<rc>.*))?'
 
       # We actually don't update the package in this workflow
       # We just create a Github release, just like in regular release-cycle
