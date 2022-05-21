@@ -2,13 +2,13 @@ name: Test and Build
 
 on:
   pull_request:
-    branches: [dev]
+    branches: [main]
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v1
         with:
