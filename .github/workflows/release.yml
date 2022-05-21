@@ -15,9 +15,19 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - run: yarn build
+      - name: Use build cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ hashFiles('./yarn.lock', './src/**', './rollup.config.js', './jest.config.js') }}
+
+      - name: Create a new build
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+          yarn test
+          yarn build
 
       - name: Save build
         uses: actions/upload-artifact@v3
