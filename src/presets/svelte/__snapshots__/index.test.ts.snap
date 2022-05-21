@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Svelte should correctly lint .js: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .js: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/basic-error.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 1,
+        "line": 1,
+        "message": "Exporting mutable 'var' binding, use 'const' instead.",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "import/no-mutable-exports",
+        "severity": 2,
+      },
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unexpected var, use let or const instead.",
+        "messageId": "unexpectedVar",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "no-var",
+        "severity": 2,
+      },
+    ],
+    "source": "export var value = 123
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .js: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 29,
+        "endColumn": 36,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            57,
+            66,
+          ],
+          "text": ".value",
+        },
+        "line": 2,
+        "message": "[\\"value\\"] is better written in dot notation.",
+        "messageId": "useDot",
+        "nodeType": "Literal",
+        "ruleId": "dot-notation",
+        "severity": 1,
+      },
+    ],
+    "source": "const object = { value: 123 }
+export const value = object['value']
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .svelte with type-checking: svelte-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/svelte-clear.svelte",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .svelte with type-checking: svelte-type-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/svelte-type-warn.svelte",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 8,
+        "endColumn": 21,
+        "endLine": 2,
+        "line": 2,
+        "message": "'value' is assigned a value but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "<script>
+	const value: string = 123;
+</script>
+
+<p>This is a paragraph.</p>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .svelte with type-checking: svelte-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/svelte-warn.svelte",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 23,
+        "endLine": 2,
+        "line": 2,
+        "message": "'UnexistingComponent' is not defined. Consider adding a <script> block with 'export let UnexistingComponent' to declare a prop",
+        "ruleId": "missing-declaration",
+        "severity": 1,
+      },
+    ],
+    "source": "<p>This is a paragraph.</p>
+<UnexistingComponent/>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .svelte: svelte-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/svelte-clear.svelte",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .svelte: svelte-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/svelte-warn.svelte",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 23,
+        "endLine": 2,
+        "line": 2,
+        "message": "'UnexistingComponent' is not defined. Consider adding a <script> block with 'export let UnexistingComponent' to declare a prop",
+        "ruleId": "missing-declaration",
+        "severity": 1,
+      },
+    ],
+    "source": "<p>This is a paragraph.</p>
+<UnexistingComponent/>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Svelte should correctly lint .ts: typescript-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/typescript-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;

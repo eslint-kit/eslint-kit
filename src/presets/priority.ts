@@ -8,6 +8,7 @@ export const PRIORITY: PresetName[] = [
   'node',
   'react',
   'solid.js',
+  'svelte',
 
   // apply after react preset
   'next.js',

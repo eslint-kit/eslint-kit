@@ -38,6 +38,7 @@ Go to [`release`](/tree/release) branch to see the actual README for the latest 
   - [React](#react)
   - [Solid.js](#solidjs)
   - [Effector](#effector)
+  - [Svelte](#svelte)
   - [Next.js](#nextjs)
   - [Alias](#alias)
 
@@ -221,9 +222,27 @@ configure({
 ```ts
 configure({
   presets: [
-    presets.typescript({
+    presets.effector({
       // (optional) Enables /future rules
       onlySample: false
+    })
+  ]
+})
+```
+
+### Svelte
+
+- Adds `svelte3` plugin and configures it
+- Enables some TypeScript settings when `typescript` preset is active
+
+You still need to setup your editor / IDE to lint `.svelte` files. You can use [this guide](https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/INTEGRATIONS.md) from `svelte3` plugin repo. 
+
+```ts
+configure({
+  presets: [
+    presets.svelte({
+      // (optional) Disable type checking for .svelte files
+      noTypeCheck: true
     })
   ]
 })

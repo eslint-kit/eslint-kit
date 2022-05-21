@@ -6,7 +6,9 @@
   "exports": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "repository": "git@github.com:eslint-kit/eslint-kit.git",
   "author": "Evgeny Zakharov <risenforces@gmail.com>",
   "license": "MIT",
@@ -39,6 +41,7 @@
     "eslint-plugin-react-hooks": "4.5.0",
     "eslint-plugin-solid": "0.4.7",
     "eslint-plugin-sonarjs": "0.13.0",
+    "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-unicorn": "42.0.0",
     "prettier": "2.6.2"
   },
@@ -58,6 +61,7 @@
     "rollup-plugin-esbuild": "^4.9.1",
     "rollup-plugin-terser": "^7.0.2",
     "solid-js": "^1.4.2",
+    "svelte": "^3.48.0",
     "ts-jest": "^28.0.2",
     "typescript": "^4.6.4"
   }
