@@ -13,7 +13,9 @@ export function mergeConfigs(configs: Linter.Config[]): Linter.Config {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type OnlyCollections<T> = T extends any[] ? T : T extends object ? T : never
 
-function applier<T extends 'rules' | 'settings' | 'extends'>() {
+function applier<
+  T extends 'rules' | 'settings' | 'extends' | 'parserOptions' | 'overrides'
+>() {
   return (
     condition: unknown,
     entity: OnlyCollections<Linter.Config[T]>
@@ -28,4 +30,6 @@ export const conditional = {
   rules: applier<'rules'>(),
   settings: applier<'settings'>(),
   extends: applier<'extends'>(),
+  parserOptions: applier<'parserOptions'>(),
+  overrides: applier<'overrides'>(),
 }
