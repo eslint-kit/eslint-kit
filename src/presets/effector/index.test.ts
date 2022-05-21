@@ -4,7 +4,7 @@ import { PRIORITY } from '../priority'
 import { compilePresets } from '../shared'
 import { effector } from './index'
 
-describe('[Presets] React', () => {
+describe('[Presets] Effector', () => {
   it('should match snapshots', async () => {
     await testConfig({
       config: compilePresets([base(), effector()], PRIORITY),
