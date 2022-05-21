@@ -6,8 +6,8 @@ export interface Options {
   newJSXTransform?: boolean
 }
 
-export const solid = createPreset({
-  name: 'solid',
+export const solidJs = createPreset({
+  name: 'solid.js',
   compile: ({ meta }) => ({
     env: {
       browser: true,

@@ -9,6 +9,7 @@
     {
       "groupName": "TypeScript Preset",
       "groupSlug": "typescript-preset",
+      "baseBranches": ["release"],
       "matchPackageNames": [
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser"

@@ -6,16 +6,19 @@ on:
       - closed
     paths:
       - './package.json'
+      - './yarn.lock'
 
 jobs:
   release:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'renovate/typescript-preset' }}
     steps:
-      # The auto-update is merged directly into main branch,
-      # since we don't need to include the changes from dev in the auto-release
-      - name: Checkout main branch
+      # The auto-update is merged directly into release branch,
+      # since we don't need to include the dev changes from main in the auto-release
+      - name: Checkout release branch
         uses: actions/checkout@v3
+        with:
+          ref: release
 
       - name: Bump and push tag
         id: bump
@@ -26,6 +29,8 @@ jobs:
 
       - name: Pull the new tag
         uses: actions/checkout@v3
+        with:
+          ref: release
 
       # Just check if the version has a rc-like postfix
       # If so, the Github release should be marked as prerelease

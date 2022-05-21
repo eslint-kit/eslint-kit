@@ -21,6 +21,12 @@
   </a>
 </p>
 
+## Before you start
+
+The README on `main` branch can contain some unreleased changes.
+
+Go to [`release`](/tree/release) branch to see the actual README for the latest version from NPM.
+
 ## Navigation
 
 - [Why?](#why)
@@ -30,6 +36,7 @@
   - [Prettier](#prettier)
   - [Node](#node)
   - [React](#react)
+  - [Solid.js](#solidjs)
   - [Effector](#effector)
   - [Next.js](#nextjs)
   - [Alias](#alias)
@@ -196,14 +203,14 @@ configure({
 })
 ```
 
-### Solid
+### Solid.js
 
 - Adds `solid` plugin and enables `/recommended` rules
 - Enables `/typescript` rules when `typescript` preset is active
 
 ```ts
 configure({
-  presets: [presets.solid()]
+  presets: [presets.solidJs()]
 })
 ```
 

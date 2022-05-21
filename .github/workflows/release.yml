@@ -8,10 +8,10 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      # We haven't yet merged the released tag into main
+      # We haven't yet merged the released tag into release branch
       # So, we should checkout to released tag to create an actual build
       # We do it before merge cause it can fail,
-      # and we don't want to have a broken code in the main branch 
+      # and we don't want to have a broken code in the release branch 
 
       - name: Checkout to released tag
         uses: actions/checkout@v3
@@ -45,16 +45,18 @@ jobs:
           name: build
           path: dist
 
-      - name: Merge released tag into main
+      - name: Merge the tag into release branch
         uses: everlytic/branch-merge@1.1.2
         with:
           github_token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
           source_ref: ${{ github.event.release.tag_name }}
-          target_branch: 'main'
+          target_branch: 'release'
           commit_message_template: 'ci: merge {source_ref} tag into {target_branch}'
 
       - name: Pull the merged changes
         uses: actions/checkout@v3
+        with:
+          ref: release
 
       - name: Restore build
         uses: actions/download-artifact@v3
@@ -62,7 +64,7 @@ jobs:
           name: build
           path: dist
 
-      # Now, after the released tag got merged in main,
+      # Now, after the released tag got merged in release branch,
       # we can extract it to use it as a version for NPM package
 
       - name: Extract version
