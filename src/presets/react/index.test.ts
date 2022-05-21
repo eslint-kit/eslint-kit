@@ -13,4 +13,16 @@ describe('[Presets] React', () => {
       extension: 'js',
     })
   })
+
+  it('should respect newJSXTransform option', async () => {
+    await testConfig({
+      config: compilePresets(
+        [base(), react({ newJSXTransform: true })],
+        PRIORITY
+      ),
+      basePath: __dirname,
+      files: ['new-jsx-transform-clear'],
+      extension: 'js',
+    })
+  })
 })

@@ -1,3 +1,4 @@
+import { conditional } from '../../shared/lib/eslint'
 import { createPreset } from '../shared'
 
 export interface Options {
@@ -7,19 +8,14 @@ export interface Options {
 export const effector = createPreset<'effector', Options | void>({
   name: 'effector',
   compile: ({ options }) => {
-    const basedOn: string[] = [
-      'plugin:effector/recommended',
-      'plugin:effector/scope',
-      'plugin:effector/react',
-    ]
-
-    if (options?.onlySample) {
-      basedOn.push('plugin:effector/future')
-    }
-
     return {
       plugins: ['effector'],
-      extends: basedOn,
+      extends: [
+        'plugin:effector/recommended',
+        'plugin:effector/scope',
+        'plugin:effector/react',
+        ...conditional.extends(options?.onlySample, ['plugin:effector/future']),
+      ],
     }
   },
 })

@@ -1,5 +1,6 @@
 import pathLib from 'path'
 import { Linter } from 'eslint'
+import { conditional } from '../../shared/lib/eslint'
 import { createPreset, Meta } from '../shared'
 
 export interface Options {
@@ -24,23 +25,22 @@ function generateForJavaScript(options: Options, meta: Meta): Linter.Config {
     return [alias, path.startsWith('.') ? pathLib.resolve(root, path) : path]
   })
 
-  const settings: Linter.Config['settings'] = {
-    'import/resolver': {
-      alias: {
-        map,
-        extensions: meta.extensions,
+  return {
+    settings: {
+      'import/resolver': {
+        alias: {
+          map,
+          extensions: meta.extensions,
+        },
+        ...conditional.settings(jsconfig, {
+          jsconfig: {
+            config: jsconfig,
+            extensions: meta.extensions,
+          },
+        }),
       },
     },
   }
-
-  if (jsconfig) {
-    settings['import/resolver'].jsconfig = {
-      config: jsconfig,
-      extensions: meta.extensions,
-    }
-  }
-
-  return { settings }
 }
 
 function generateForTypeScript(meta: Meta): Linter.Config {

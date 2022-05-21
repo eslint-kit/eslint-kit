@@ -113,8 +113,11 @@ Now, just select the `presets` you need. The full information about them is loca
 configure({
   presets: [
     presets.typescript({
-      root: './', // (optional) Defaults to './'
-      tsconfig: 'tsconfig.json' // (optional) Defaults to 'tsconfig.json'
+      // (optional) Project's root
+      root: './',
+
+      // (optional) A path to tsconfig file
+      tsconfig: 'tsconfig.json'
     })
   ]
 })
@@ -185,19 +188,12 @@ configure({
 configure({
   presets: [
     presets.react({
-      version: '16.0' // (optional) Defaults to 'detect'
+      // (optional) Allows to specify React version
+      version: 'detect',
+      // (optional) Allows using JSX without importing `React`
+      newJSXTransform: false
     })
   ]
-})
-```
-
-### React New JSX Transform
-
-- Allows using JSX without importing `React`
-
-```ts
-configure({
-  presets: [presets.reactNewJSXTransform()]
 })
 ```
 
@@ -209,8 +205,8 @@ configure({
 configure({
   presets: [
     presets.typescript({
-      // Enables /future rules
-      onlySample: true // (optional) Defaults to false
+      // (optional) Enables /future rules
+      onlySample: false
     })
   ]
 })
@@ -230,14 +226,23 @@ configure({
 ### Alias
 
 - Allows to set the aliases for `import` plugin
+- Automatically uses `tsconfig.json` when `typescript` preset is applied
 
 ```ts
 configure({
   presets: [
     presets.alias({
-      root: './src', // (optional) Defaults to './'
-      paths: { '@app': './' }, // (optional) Defaults to empty object
-      jsconfig: 'jsconfig.json' // (optional)
+      // (optional) Base path for all aliases
+      // Defaults to './'
+      root: './src',
+
+      // (optional) Alises, all paths should be relative or absolute
+      // Defaults to empty object
+      paths: { '@app': './' },
+
+      // (optional) A path to jsconfig
+      // When specified, also respects jsconfig's "compilerOptions.paths"
+      jsconfig: 'jsconfig.json'
     })
   ]
 })
