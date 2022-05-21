@@ -1,7 +1,7 @@
 name: Test and Build
 
 on:
-  push:
+  pull_request:
     branches: [dev]
 
 jobs:
