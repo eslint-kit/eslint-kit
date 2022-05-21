@@ -181,7 +181,7 @@ configure({
 ### React
 
 - Enables `browser` environment and `jsx` ecma feature
-- Adds some React and React Hooks plugins
+- Adds some React and React Hooks rules
 
 ```ts
 configure({
@@ -193,6 +193,17 @@ configure({
       newJSXTransform: false
     })
   ]
+})
+```
+
+### Solid
+
+- Adds `solid` plugin and enables `/recommended` rules
+- Enables `/typescript` rules when `typescript` preset is active
+
+```ts
+configure({
+  presets: [presets.solid()]
 })
 ```
 

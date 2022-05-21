@@ -7,6 +7,7 @@ export const PRIORITY: PresetName[] = [
   'prettier',
   'node',
   'react',
+  'solid',
 
   // apply after react preset
   'next.js',
