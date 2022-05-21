@@ -1,7 +1,9 @@
+import { conditional } from '../../shared/lib/eslint'
 import { createPreset } from '../shared'
 
 export interface Options {
   version?: string | 'detect'
+  newJSXTransform?: boolean
 }
 
 export const react = createPreset<'react', Options | void>({
@@ -25,7 +27,6 @@ export const react = createPreset<'react', Options | void>({
     },
     plugins: ['react', 'react-hooks'],
     rules: {
-      'react/jsx-uses-react': 'warn',
       'react/jsx-uses-vars': 'warn',
       'react/destructuring-assignment': 'warn',
       'react/no-access-state-in-setstate': 'warn',
@@ -34,7 +35,6 @@ export const react = createPreset<'react', Options | void>({
       'react/no-typos': 'error',
       'react/no-unsafe': 'error',
       'react/no-unknown-property': 'error',
-      'react/react-in-jsx-scope': 'error',
       'react/self-closing-comp': 'warn',
       'react/sort-comp': 'warn',
       'react/state-in-constructor': ['warn', 'never'],
@@ -60,6 +60,14 @@ export const react = createPreset<'react', Options | void>({
       // hooks
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+
+      'react/jsx-uses-react': 'warn',
+      'react/react-in-jsx-scope': 'error',
+
+      ...conditional.rules(options?.newJSXTransform, {
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
+      }),
     },
   }),
 })

@@ -9,9 +9,6 @@ export const PRIORITY: PresetName[] = [
   'react',
 
   // apply after react preset
-  'react-new-jsx-transform',
-
-  // apply after react preset
   'next.js',
 
   // may need next.js integration in future

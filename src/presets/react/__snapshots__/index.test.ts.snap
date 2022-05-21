@@ -80,3 +80,19 @@ export const Component = (props) => {
   },
 ]
 `;
+
+exports[`[Presets] React should respect newJSXTransform option: new-jsx-transform-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/react/tests/new-jsx-transform-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
