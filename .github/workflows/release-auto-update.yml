@@ -49,3 +49,25 @@ jobs:
           body: 'Auto-update dependencies'
           prerelease: ${{ steps.tag.outputs.rc != null }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Setup git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Merge update into main
+        run: |
+          git merge ${{ steps.bump.outputs.new_tag }} -m "ci: merge ${{ steps.bump.outputs.new_tag }} tag into main"
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+          branch: main
+          tags: true
+          unprotect_reviews: true

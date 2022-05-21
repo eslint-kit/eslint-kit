@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Presets] React should match snapshots: basic-clear 1`] = `
+exports[`[Presets] Effector should match snapshots: basic-clear 1`] = `
 Array [
   Object {
     "errorCount": 0,
@@ -16,7 +16,7 @@ Array [
 ]
 `;
 
-exports[`[Presets] React should match snapshots: basic-error 1`] = `
+exports[`[Presets] Effector should match snapshots: basic-error 1`] = `
 Array [
   Object {
     "errorCount": 1,
@@ -52,7 +52,7 @@ export const $users = createStore([])
 ]
 `;
 
-exports[`[Presets] React should match snapshots: basic-warn 1`] = `
+exports[`[Presets] Effector should match snapshots: basic-warn 1`] = `
 Array [
   Object {
     "errorCount": 0,
