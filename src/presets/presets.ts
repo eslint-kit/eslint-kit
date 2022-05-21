@@ -5,6 +5,7 @@ import { node } from './node'
 import { prettier } from './prettier'
 import { react } from './react'
 import { ExtractName } from './shared'
+import { solid } from './solid'
 import { typescript } from './typescript'
 
 export const presets = {
@@ -12,6 +13,7 @@ export const presets = {
   prettier,
   typescript,
   react,
+  solid,
   effector,
   nextJs,
   alias,

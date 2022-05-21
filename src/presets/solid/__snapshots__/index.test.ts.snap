@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Solid should correctly lint .js: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/solid/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Solid should correctly lint .js: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/solid/tests/basic-error.js",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 1,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            0,
+          ],
+          "text": "import { For } from \\"solid-js\\";
+",
+        },
+        "line": 1,
+        "message": "'For' should be imported from 'solid-js'.",
+        "messageId": "autoImport",
+        "nodeType": "Program",
+        "ruleId": "solid/jsx-no-undef",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 37,
+        "endLine": 1,
+        "line": 1,
+        "message": "'numbers' is not defined.",
+        "messageId": "undef",
+        "nodeType": "Identifier",
+        "ruleId": "no-undef",
+        "severity": 2,
+      },
+    ],
+    "source": "export const el = <For each={numbers}>{(number) => number}</For>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Solid should correctly lint .js: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/solid/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 33,
+        "endColumn": 41,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            32,
+            40,
+          ],
+          "text": "\\"font-size\\"",
+        },
+        "line": 1,
+        "message": "Use font-size instead of fontSize.",
+        "messageId": "kebabStyleProp",
+        "nodeType": "Identifier",
+        "ruleId": "solid/style-prop",
+        "severity": 1,
+      },
+    ],
+    "source": "export const el = <div style={{ fontSize: \\"10px\\" }}>Hello, world!</div>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Solid should correctly lint .ts: typescript-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/solid/tests/typescript-error.tsx",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 1,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            0,
+          ],
+          "text": "import { For } from \\"solid-js\\";
+",
+        },
+        "line": 1,
+        "message": "'For' should be imported from 'solid-js'.",
+        "messageId": "autoImport",
+        "nodeType": "Program",
+        "ruleId": "solid/jsx-no-undef",
+        "severity": 2,
+      },
+    ],
+    "source": "export const el = <For each={numbers}>{(number: number) => number}</For>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
