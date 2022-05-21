@@ -1,0 +1,41 @@
+name: Release Auto-Update
+
+on:
+  pull_request:
+    types:
+      - closed
+    paths:
+      - './package.json'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'renovate/typescript-preset' }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Bump version and push tag
+        id: bump
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          WITH_V: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.bump.outputs.tag }}
+
+      - name: Extract version
+        id: tag
+        uses: olegtarasov/get-tag@v2.1.1
+        with:
+          tagRegex: 'v(?:[0-9.]*)(?<rc>.*)?'
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          body: 'Auto-update dependencies'
+          prerelease: ${{ steps.tag.outputs.rc != null }}
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -7,8 +7,8 @@
       "enabled": false
     },
     {
-      "groupName": "auto-update TypeScript preset",
-      "groupSlug": "auto-update-ts-preset",
+      "groupName": "TypeScript Preset",
+      "groupSlug": "typescript-preset",
       "matchPackageNames": [
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser"
