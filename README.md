@@ -30,7 +30,6 @@
   - [Prettier](#prettier)
   - [Node](#node)
   - [React](#react)
-  - [React New JSX Transform](#react-new-jsx-transform)
   - [Effector](#effector)
   - [Next.js](#nextjs)
   - [Alias](#alias)
