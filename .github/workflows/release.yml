@@ -8,14 +8,22 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # We haven't yet merged the released tag into main
+      # So, we should checkout to released tag to create an actual build
+      # We do it before merge cause it can fail,
+      # and we don't want to have a broken code in the main branch 
+
+      - name: Checkout to released tag
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.bump.outputs.tag }}
 
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - name: Use build cache
+      - name: Check build cache
         id: cache
         uses: actions/cache@v3
         with:
@@ -29,13 +37,15 @@ jobs:
           yarn test
           yarn build
 
+      # The build might get lost between checkouts
+      # So, lets save it before
       - name: Save build
         uses: actions/upload-artifact@v3
         with:
           name: build
           path: dist
 
-      - name: Merge dev -> main
+      - name: Merge released tag into main
         uses: everlytic/branch-merge@1.1.2
         with:
           github_token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
@@ -43,13 +53,17 @@ jobs:
           target_branch: 'main'
           commit_message_template: 'ci: merge {source_ref} tag into {target_branch}'
 
-      - uses: actions/checkout@v3
+      - name: Pull the merged changes
+        uses: actions/checkout@v3
 
       - name: Restore build
         uses: actions/download-artifact@v3
         with:
           name: build
           path: dist
+
+      # Now, after the released tag got merged in main,
+      # we can extract it to use it as a version for NPM package
 
       - name: Extract version
         id: tag
