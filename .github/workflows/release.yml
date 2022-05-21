@@ -10,6 +10,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
+      - run: yarn build
+
+      - name: Save build
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: dist
+
       - name: Merge dev -> main
         uses: everlytic/branch-merge@1.1.2
         with:
@@ -20,14 +35,11 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v1
+      - name: Restore build
+        uses: actions/download-artifact@v3
         with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - run: yarn build
+          name: build
+          path: dist
 
       - name: Extract version
         id: tag
