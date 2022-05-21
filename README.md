@@ -41,6 +41,8 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
   - [Svelte](#svelte)
   - [Next.js](#nextjs)
   - [Alias](#alias)
+- [Setting up editors](#setting-up-editors)
+  - [VSCode](#vscode)
 
 ## Why?
 
@@ -283,3 +285,65 @@ configure({
   ]
 })
 ```
+
+## Setting up editors
+
+### VSCode
+
+Install ESLint VSCode extension:
+
+<img width="360" alt="CleanShot 2022-05-22 at 02 12 33@2x" src="https://user-images.githubusercontent.com/35740512/169671833-75706ff1-93c7-4002-a540-00fce3e9384d.png">
+
+Next, select from the following and click on it:
+
+<details>
+<summary>Using a keybind</summary>
+
+Click on Settings icon:
+
+<img width="47" alt="Opening settings menu" src="https://user-images.githubusercontent.com/35740512/169671780-194c01ca-bc5b-4972-a450-0c7bff70f932.png">
+
+Select "Keyboard shortcuts"
+
+<img width="314" alt="Selecting keybind settings" src="https://user-images.githubusercontent.com/35740512/169671809-6f6005f1-c7cb-4d91-b2a3-dd5e5d731c92.png">
+
+Type "eslint" and click on "edit" button:
+
+<img width="719" alt="Adding a keybind" src="https://user-images.githubusercontent.com/35740512/169671924-ad3215d9-ceff-46ff-9ee3-699fd759302a.png">
+
+Finally, choose the keybind you like.
+
+</details>
+
+<details>
+<summary>Linting on file save</summary>
+
+Click on Settings icon:
+
+<img width="47" alt="Opening settings menu" src="https://user-images.githubusercontent.com/35740512/169671780-194c01ca-bc5b-4972-a450-0c7bff70f932.png">
+
+Select "Settings"
+
+<img width="314" alt="Selecting settings" src="https://user-images.githubusercontent.com/35740512/169671992-39adbda7-b08a-4b75-963e-cba35ed61719.png">
+
+Switch to text mode:
+
+<img width="540" alt="Switching to text mode" src="https://user-images.githubusercontent.com/35740512/169672014-6673c180-fb4c-4974-8e0f-d65220d96508.png">
+
+Finally, add the following and save:
+
+```ts
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+}
+```
+
+</details>
