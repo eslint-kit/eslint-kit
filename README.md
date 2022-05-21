@@ -109,6 +109,8 @@ module.exports = configure({
 
 Now, just select the `presets` you need. The full information about them is located in [Presets](#presets) section.
 
+You can also [set up your editor](#setting-up-editors) if you haven't already.
+
 ## Presets
 
 ### TypeScript
