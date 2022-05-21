@@ -12,27 +12,32 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'renovate/typescript-preset' }}
     steps:
-      - name: Checkout Repo
+      # The auto-update is merged directly into main branch,
+      # since we don't need to include the changes from dev in the auto-release
+      - name: Checkout main branch
         uses: actions/checkout@v3
 
-      - name: Bump version and push tag
+      - name: Bump and push tag
         id: bump
         uses: anothrNick/github-tag-action@1.36.0
         env:
           WITH_V: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Checkout Repo
+      - name: Pull the new tag
         uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.bump.outputs.tag }}
 
+      # Just check if the version has a rc-like postfix
+      # If so, the Github release should be marked as prerelease
       - name: Extract version
         id: tag
         uses: olegtarasov/get-tag@v2.1.1
         with:
           tagRegex: 'v(?:[0-9.]*)(?<rc>.*)?'
 
+      # We actually don't update the package in this workflow
+      # We just create a Github release, just like in regular release-cycle
+      # The "release" workflow will handle it next
       - name: Create GitHub release
         uses: ncipollo/release-action@v1
         with:
