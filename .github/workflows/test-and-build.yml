@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -22,7 +23,7 @@ jobs:
           key: ${{ hashFiles('./yarn.lock', './src/**', './rollup.config.js', './jest.config.js') }}
 
       - name: Create a new build
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           yarn install --frozen-lockfile
           yarn test
