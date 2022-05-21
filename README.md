@@ -86,13 +86,13 @@ The ESLint Kit presets try to contain only the best-practice rules to make overw
 NPM:
 
 ```sh
-npm install -D @eslint-kit/configure@beta
+npm install -D @eslint-kit/configure
 ```
 
 Yarn:
 
 ```sh
-yarn add -D @eslint-kit/configure@beta
+yarn add -D @eslint-kit/configure
 ```
 
 After installing, add the `.eslintrc.js` file in your project root:
