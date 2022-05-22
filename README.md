@@ -45,6 +45,8 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 - [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
   - [VSCode](#vscode)
+- [Contrubuting](#contributing)
+- [Maintenance](#maintenance)
 
 ## Why?
 
@@ -115,7 +117,9 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 
 ## Presets
 
-### TypeScript
+<details>
+<summary>TypeScript</summary>
+<br>
 
 - Changes parser to `@typescript-eslint/parser`
 - Allows the usage of `.ts` and `.tsx` extensions
@@ -136,7 +140,11 @@ configure({
 })
 ```
 
-### Prettier
+</details>
+
+<details>
+<summary>Prettier</summary>
+<br>
 
 - Enables the rule `prettier/prettier` from Prettier ESLint plugin
 
@@ -182,7 +190,11 @@ The recommended Prettier config:
 
 As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports). You can find the options on its README page.
 
-### Node
+</details>
+
+<details>
+<summary>Node</summary>
+<br>
 
 - Enables `node` environment
 
@@ -192,7 +204,11 @@ configure({
 })
 ```
 
-### React
+</details>
+
+<details>
+<summary>React</summary>
+<br>
 
 - Adds some React and React Hooks rules
 - Enables `browser` environment and `jsx` ecma feature
@@ -210,7 +226,11 @@ configure({
 })
 ```
 
-### Vue
+</details>
+
+<details>
+<summary>Vue</summary>
+<br>
 
 - Adds `vue` plugin
 - Changes parser to `vue-eslint-parser`
@@ -232,7 +252,11 @@ configure({
 })
 ```
 
-### Solid.js
+</details>
+
+<details>
+<summary>Solid.js</summary>
+<br>
 
 - Adds `solid` plugin and enables `/recommended` rules
 - Enables `/typescript` rules when `typescript` preset is active
@@ -243,7 +267,11 @@ configure({
 })
 ```
 
-### Effector
+</details>
+
+<details>
+<summary>Effector</summary>
+<br>
 
 - Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
 
@@ -258,7 +286,11 @@ configure({
 })
 ```
 
-### Svelte
+</details>
+
+<details>
+<summary>Svelte</summary>
+<br>
 
 - Adds `svelte3` plugin and configures it
 - Enables some TypeScript settings when `typescript` preset is active
@@ -276,7 +308,11 @@ configure({
 })
 ```
 
-### Next.js
+</details>
+
+<details>
+<summary>Next.js</summary>
+<br>
 
 - Enables `@next/eslint-plugin-next` plugin rules
 - Allows the usage of `export default`
@@ -287,7 +323,11 @@ configure({
 })
 ```
 
-### Alias
+</details>
+
+<details>
+<summary>Alias</summary>
+<br>
 
 - Allows to set the aliases for `import` plugin
 - Automatically uses `tsconfig.json` when `typescript` preset is applied
@@ -312,6 +352,8 @@ configure({
 })
 ```
 
+</details>
+
 ## Common issues
 
 **Q**: My `.eslintrc.js` doesn't work, why?  
@@ -329,6 +371,7 @@ Next, select from the following and click on it:
 
 <details>
 <summary>Using a keybind</summary>
+<br>
 
 Click on Settings icon:
 
@@ -348,6 +391,7 @@ Finally, choose the keybind you like.
 
 <details>
 <summary>Linting on file save</summary>
+<br>
 
 Click on Settings icon:
 
@@ -378,3 +422,36 @@ Finally, add the following and save:
 ```
 
 </details>
+
+## Contributing
+
+1. Fork this repo
+2. Switch to new branch, it should start with `feat/`, `fix/`, `docs/`, `refactor/`, and etc., depending on the changes you want to propose
+3. Make changes
+4. Create a Pull Request into this repo's `main` branch
+5. When the checks is done and review is passed, I'll merge it into `main` and it will create a new record in the changelog. Then, when release is finally ready, your changes will be released.
+
+## Maintenance
+
+The dev branch is `main` - any developer changes is merged in there. Also, there is a `release` branch. It always contains the actual published release source code and tag.
+
+All changes is made using Pull Requests - push is forbidden. PR can be merged only after successfull `test-and-build` workflow checks.
+
+When PR is merged, `release-drafter` workflow creates/updates a draft release. The changelog is built from the merged branch scope (`feat`, `fix`, etc) and PR title. When release is ready - we publish the draft.
+
+Then, the `release` workflow handles everything:
+
+1. We run tests and build a package
+2. Then, we merge release tag into the `release` branch
+3. After, we restore build artifacts and publish it to NPM
+
+Also, this repo has Renovate bot set up to auto-update `typescript` preset dependencies (they change frequently).
+
+That's how it works:
+
+1. Renovate bot creates a PR into `release` branch, cause we want to create a new release from the old one, without any pending dev changes
+2. PR automatically merges after successfull checks
+3. It triggers `release-auto-update` workflow
+4. We take last tag from `release` branch, bump its minor number, and set the newly created tag at the latest commit from `release`
+5. Then, we can create a Github release using this tag
+6. A published release triggers `release` workflow, and it works just like the regular release
