@@ -1,12 +1,27 @@
 import { EXTENSIONS, importRules, importSettings } from '../../shared'
+import { readJson } from '../../shared/lib/fs'
+import { PackageJson, Jsconfig } from '../../shared/types'
 import { createPreset } from '../shared'
 
-export const base = createPreset({
+interface Options {
+  root: string
+}
+
+export const base = createPreset<'base', Options>({
   name: 'base',
-  updateMeta: ({ meta }) => ({
-    ...meta,
-    extensions: meta.extensions.concat(EXTENSIONS.JS),
-  }),
+  updateMeta: ({ options, meta }) => {
+    meta.root = options.root
+
+    meta.readPackageJson = () => {
+      return readJson<PackageJson>(options.root, 'package.json')
+    }
+
+    meta.readJsconfig = () => {
+      return readJson<Jsconfig>(options.root, 'jsconfig.json')
+    }
+
+    meta.extensions = meta.extensions.concat(EXTENSIONS.JS)
+  },
   compile: () => ({
     plugins: ['import', 'unicorn', 'sonarjs'],
     env: {

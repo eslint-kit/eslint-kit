@@ -1,29 +1,35 @@
 import fs from 'fs'
 import path from 'path'
-import { ESLint, Linter } from 'eslint'
+import { ESLint } from 'eslint'
+import { Preset, PresetName, PRIORITY, compilePresets } from '../../presets'
+import { base } from '../../presets/base'
 
 export interface Options {
-  config: Linter.Config
-  basePath: string
+  presets: Preset[]
+  priority?: PresetName[]
+  dirname: string
   files: string[]
   extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte' | 'vue'
 }
 
 export async function testConfig({
-  config,
-  basePath,
+  presets,
+  priority = PRIORITY,
+  dirname,
   files,
   extension,
 }: Options) {
+  const root = path.resolve(dirname, './tests')
+
   const cli = new ESLint({
-    baseConfig: config as Linter.Config<Linter.RulesRecord>,
+    baseConfig: compilePresets([base({ root }), ...presets], priority),
     useEslintrc: false,
-    cwd: path.resolve(basePath, './tests'),
+    cwd: root,
     ignore: false,
   })
 
   for (const file of files) {
-    const filePath = path.resolve(basePath, `./tests/${file}.${extension}`)
+    const filePath = path.resolve(root, `./${file}.${extension}`)
     const code = fs.readFileSync(filePath).toString()
     const result = await cli.lintText(code, { filePath })
     expect(result).toMatchSnapshot(`${file}`)

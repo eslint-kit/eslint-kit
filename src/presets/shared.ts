@@ -1,12 +1,13 @@
-import path from 'path'
 import { Linter } from 'eslint'
 import { mergeConfigs } from '../shared/lib/eslint'
-import { PackageJson } from '../shared/lib/packages'
+import { PackageJson, Jsconfig } from '../shared/types'
 
 type ReplaceVoid<T> = void extends T ? Exclude<T, void> | undefined : T
 
 export interface Meta {
-  packageJson: PackageJson
+  root: string
+  readPackageJson(): PackageJson | null
+  readJsconfig(): Jsconfig | null
   extensions: string[]
   typescript: {
     used: boolean
@@ -24,7 +25,7 @@ export interface Input<T = void> {
 export interface Preset<N extends string = string, T = any> {
   name: N
   options: T
-  updateMeta(input: Input<T>): Meta
+  updateMeta(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
 
@@ -32,7 +33,7 @@ type PresetFabric<N extends string, T = void> = (options: T) => Preset<N, T>
 
 interface CreatePresetParams<N, T = void> {
   name: N
-  updateMeta?(input: Input<T>): Meta
+  updateMeta?(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
 
@@ -43,7 +44,7 @@ export type ExtractName<T> = T extends PresetFabric<infer Name, any>
 
 export function createPreset<N extends string = string, T = void>({
   name,
-  updateMeta = (input) => input.meta,
+  updateMeta = () => {},
   compile,
 }: CreatePresetParams<N, T>): PresetFabric<N, T> {
   return (options) => ({
@@ -54,15 +55,17 @@ export function createPreset<N extends string = string, T = void>({
   })
 }
 
-export const INITIAL_META: Meta = {
-  packageJson: require(path.resolve(process.cwd(), './package.json')),
+export const createMeta = (): Meta => ({
+  root: process.cwd(),
+  readPackageJson: () => null,
+  readJsconfig: () => null,
   extensions: [],
   typescript: {
     used: false,
     root: './',
     tsconfig: 'tsconfig.json',
   },
-}
+})
 
 export function compilePresets(
   presets: Preset[],
@@ -72,9 +75,11 @@ export function compilePresets(
     .slice()
     .sort((a, b) => priority.indexOf(a.name) - priority.indexOf(b.name))
 
-  const meta = prioritized.reduce((final, preset) => {
-    return preset.updateMeta({ meta: final, options: preset.options })
-  }, INITIAL_META)
+  const meta = createMeta()
+
+  for (const preset of prioritized) {
+    preset.updateMeta({ meta, options: preset.options })
+  }
 
   const configs = prioritized.map((preset) =>
     preset.compile({ meta, options: preset.options })
