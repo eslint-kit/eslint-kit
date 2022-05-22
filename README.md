@@ -119,6 +119,7 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 
 <details>
 <summary>TypeScript</summary>
+<br>
 
 - Changes parser to `@typescript-eslint/parser`
 - Allows the usage of `.ts` and `.tsx` extensions
@@ -143,6 +144,7 @@ configure({
 
 <details>
 <summary>Prettier</summary>
+<br>
 
 - Enables the rule `prettier/prettier` from Prettier ESLint plugin
 
@@ -192,6 +194,7 @@ As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/tr
 
 <details>
 <summary>Node</summary>
+<br>
 
 - Enables `node` environment
 
@@ -205,6 +208,7 @@ configure({
 
 <details>
 <summary>React</summary>
+<br>
 
 - Adds some React and React Hooks rules
 - Enables `browser` environment and `jsx` ecma feature
@@ -226,6 +230,7 @@ configure({
 
 <details>
 <summary>Vue</summary>
+<br>
 
 - Adds `vue` plugin
 - Changes parser to `vue-eslint-parser`
@@ -251,6 +256,7 @@ configure({
 
 <details>
 <summary>Solid.js</summary>
+<br>
 
 - Adds `solid` plugin and enables `/recommended` rules
 - Enables `/typescript` rules when `typescript` preset is active
@@ -265,6 +271,7 @@ configure({
 
 <details>
 <summary>Effector</summary>
+<br>
 
 - Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
 
@@ -283,6 +290,7 @@ configure({
 
 <details>
 <summary>Svelte</summary>
+<br>
 
 - Adds `svelte3` plugin and configures it
 - Enables some TypeScript settings when `typescript` preset is active
@@ -304,6 +312,7 @@ configure({
 
 <details>
 <summary>Next.js</summary>
+<br>
 
 - Enables `@next/eslint-plugin-next` plugin rules
 - Allows the usage of `export default`
@@ -318,6 +327,7 @@ configure({
 
 <details>
 <summary>Alias</summary>
+<br>
 
 - Allows to set the aliases for `import` plugin
 - Automatically uses `tsconfig.json` when `typescript` preset is applied
@@ -361,6 +371,7 @@ Next, select from the following and click on it:
 
 <details>
 <summary>Using a keybind</summary>
+<br>
 
 Click on Settings icon:
 
@@ -380,6 +391,7 @@ Finally, choose the keybind you like.
 
 <details>
 <summary>Linting on file save</summary>
+<br>
 
 Click on Settings icon:
 
