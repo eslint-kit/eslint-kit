@@ -36,7 +36,7 @@ jobs:
       - name: Set new tag
         run: git tag ${{ steps.bump.outputs.new_tag }}
       
-      - name: Push tag to protected release branch
+      - name: Push the tag to protected release branch
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
