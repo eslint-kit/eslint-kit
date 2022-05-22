@@ -8,6 +8,11 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
       # We haven't yet merged the released tag into release branch
       # So, we should checkout to released tag to create an actual build
       # We do it before merge cause it can fail,
@@ -16,7 +21,7 @@ jobs:
       - name: Checkout to released tag
         uses: actions/checkout@v3
         with:
-          ref: ${{ steps.bump.outputs.tag }}
+          ref: ${{ github.event.release.tag_name }}
 
       - uses: actions/setup-node@v1
         with:
@@ -45,18 +50,22 @@ jobs:
           name: build
           path: dist
 
-      - name: Merge the tag into release branch
-        uses: everlytic/branch-merge@1.1.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_ref: ${{ github.event.release.tag_name }}
-          target_branch: 'release'
-          commit_message_template: 'ci: merge {source_ref} tag into {target_branch}'
-
-      - name: Pull the merged changes
+      - name: Checkout to release branch
         uses: actions/checkout@v3
         with:
           ref: release
+
+      - name: Merge the tag into release branch
+        run: |
+          git merge ${{ github.event.release.tag_name }} -m "ci: merge ${{ github.event.release.tag_name }} tag into release"
+
+      - name: Push tag to protected release branch
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+          branch: release
+          tags: true
+          unprotect_reviews: true
 
       - name: Restore build
         uses: actions/download-artifact@v3
