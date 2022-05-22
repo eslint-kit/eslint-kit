@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'renovate/typescript-preset' }}
     steps:
+      - name: Setup git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
       # The auto-update is merged directly into release branch,
       # since we don't need to include the dev changes from main in the auto-release
       - name: Checkout release branch
@@ -25,12 +30,19 @@ jobs:
         uses: anothrNick/github-tag-action@1.36.0
         env:
           WITH_V: true
+          DRY_RUN: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Pull the new tag
-        uses: actions/checkout@v3
+      - name: Set new tag
+        run: git tag ${{ steps.bump.outputs.new_tag }}
+      
+      - name: Push tag to protected release branch
+        uses: CasperWA/push-protected@v2
         with:
-          ref: release
+          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+          branch: release
+          tags: true
+          unprotect_reviews: true
 
       # Just check if the version has a rc-like postfix
       # If so, the Github release should be marked as prerelease
@@ -54,11 +66,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-
-      - name: Setup git
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
 
       - name: Merge update into main
         run: |
