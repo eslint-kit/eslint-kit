@@ -43,13 +43,17 @@
     "eslint-plugin-sonarjs": "0.13.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-unicorn": "42.0.0",
-    "prettier": "2.6.2"
+    "eslint-plugin-vue": "9.0.1",
+    "prettier": "2.6.2",
+    "semver": "^7.3.7",
+    "vue-eslint-parser": "9.0.2"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.2",
     "@types/jest": "^27.5.1",
     "@types/prettier": "^2.6.1",
     "@types/react": "^18.0.9",
+    "@types/semver": "^7.3.9",
     "effector": "^22.3.0",
     "esbuild": "^0.14.39",
     "jest": "^28.1.0",
@@ -63,6 +67,7 @@
     "solid-js": "^1.4.2",
     "svelte": "^3.48.0",
     "ts-jest": "^28.0.2",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "vue": "^3.2.35"
   }
 }

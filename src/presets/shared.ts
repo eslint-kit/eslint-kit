@@ -1,9 +1,12 @@
+import path from 'path'
 import { Linter } from 'eslint'
 import { mergeConfigs } from '../shared/lib/eslint'
+import { PackageJson } from '../shared/lib/packages'
 
 type ReplaceVoid<T> = void extends T ? Exclude<T, void> | undefined : T
 
 export interface Meta {
+  packageJson: PackageJson
   extensions: string[]
   typescript: {
     used: boolean
@@ -52,6 +55,7 @@ export function createPreset<N extends string = string, T = void>({
 }
 
 export const INITIAL_META: Meta = {
+  packageJson: require(path.resolve(process.cwd(), './package.json')),
   extensions: [],
   typescript: {
     used: false,
