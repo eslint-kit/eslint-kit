@@ -1,3 +1,4 @@
+import path from 'path'
 import { Linter } from '@typescript-eslint/utils/dist/ts-eslint'
 import { EXTENSIONS, importExtensionsRule } from '../../shared'
 import { createPreset } from '../shared'
@@ -96,23 +97,19 @@ export const typescriptRules: Linter.RulesRecord = {
 
 export const typescript = createPreset<'typescript', Options | void>({
   name: 'typescript',
-  updateMeta: ({ meta, options }) => ({
-    ...meta,
-    extensions: meta.extensions.concat(EXTENSIONS.TS),
-    typescript: {
-      ...meta.typescript,
-      used: true,
-      root: options?.root ?? './',
-      tsconfig: options?.tsconfig ?? 'tsconfig.json',
-    },
-  }),
-  compile: ({ options, meta }) => ({
+  updateMeta: ({ meta, options }) => {
+    meta.extensions = meta.extensions.concat(EXTENSIONS.TS)
+    meta.typescript.used = true
+    meta.typescript.root = path.resolve(meta.root, options?.root ?? './')
+    meta.typescript.tsconfig = options?.tsconfig ?? 'tsconfig.json'
+  },
+  compile: ({ meta }) => ({
     plugins: ['import', '@typescript-eslint'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-      project: options?.tsconfig ?? 'tsconfig.json',
+      project: meta.typescript.tsconfig,
       createDefaultProgram: true,
-      tsconfigRootDir: options?.root ?? './',
+      tsconfigRootDir: meta.typescript.root,
     },
     settings: {
       'import/extensions': meta.extensions,

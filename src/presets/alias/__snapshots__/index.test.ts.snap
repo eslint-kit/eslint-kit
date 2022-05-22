@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Alias should respect paths from jsconfig.json: jsconfig-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/alias/tests/jsconfig-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 1,
+        "line": 1,
+        "message": "'sumA' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 5,
+        "line": 5,
+        "message": "'sumB' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 35,
+        "endLine": 5,
+        "line": 5,
+        "message": "Unable to resolve path to module 'meow'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { sum as sumA } from \\"sum\\"
+
+// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Alias should respect paths from jsconfig.json: jsconfig-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/alias/tests/jsconfig-error.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 10,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'isOdd' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 23,
+        "endColumn": 31,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'is-odd'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { isOdd } from \\"is-odd\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Alias should respect paths from tsconfig.json: tsconfig-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/alias/tests/tsconfig-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 1,
+        "line": 1,
+        "message": "'sumA' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 5,
+        "line": 5,
+        "message": "'sumB' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 35,
+        "endLine": 5,
+        "line": 5,
+        "message": "Unable to resolve path to module 'meow'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { sum as sumA } from \\"sum\\"
+
+// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Alias should respect paths from tsconfig.json: tsconfig-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/alias/tests/tsconfig-error.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 10,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'isOdd' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 23,
+        "endColumn": 31,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'is-odd'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { isOdd } from \\"is-odd\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;

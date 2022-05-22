@@ -31,6 +31,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 
 - [Why?](#why)
 - [Installation](#installation)
+- [configure API](#configure-api)
 - [Presets](#presets)
   - [TypeScript](#typescript)
   - [Prettier](#prettier)
@@ -114,6 +115,22 @@ module.exports = configure({
 Now, just select the `presets` you need. The full information about them is located in [Presets](#presets) section.
 
 You can also [set up your editor](#setting-up-editors) if you haven't already.
+
+## configure API
+
+```ts
+configure({
+  // (optional) Project root
+  root: __dirname,
+
+  // presets
+  presets: [],
+
+  // (optional) Custom eslint config
+  // It gets merged with presets at the end
+  extend: { rules: { /* ... */ } }
+})
+```
 
 ## Presets
 
@@ -344,8 +361,8 @@ configure({
       // Defaults to empty object
       paths: { '@app': './' },
 
-      // (optional) A path to jsconfig
-      // When specified, also respects jsconfig's "compilerOptions.paths"
+      // (optional) A custom path to jsconfig
+      // Defaults to jsconfig.json
       jsconfig: 'jsconfig.json'
     })
   ]
@@ -358,6 +375,9 @@ configure({
 
 **Q**: My `.eslintrc.js` doesn't work, why?  
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
+
+**Q**: I get some error when using `eslint-kit` in monorepo  
+**A**: We didn't test monorepos much. They often have different issues with eslint and plugins resolving. And we also don't guarantee that your aliases settings will work in monorepo.
 
 ## Setting up editors
 

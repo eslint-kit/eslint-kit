@@ -1,4 +1,5 @@
-import { parse } from 'semver'
+import { parse, SemVer } from 'semver'
+import { PackageJsonNotFoundException } from '../../shared'
 import { conditional } from '../../shared/lib/eslint'
 import { getPackageSemver } from '../../shared/lib/packages'
 import { createPreset } from '../shared'
@@ -13,10 +14,15 @@ export const vue = createPreset<'vue', Options | void>({
   compile: ({ options = {}, meta }) => {
     const { version = 'detect' } = options
 
-    const semver =
-      version === 'detect'
-        ? getPackageSemver('vue', meta.packageJson)
-        : parse(version)
+    let semver: SemVer | null
+
+    if (version === 'detect') {
+      const packageJson = meta.readPackageJson()
+      if (!packageJson) throw new PackageJsonNotFoundException()
+      semver = getPackageSemver('vue', packageJson)
+    } else {
+      semver = parse(version)
+    }
 
     const major = semver?.major ?? 3
 
