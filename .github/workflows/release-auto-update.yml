@@ -13,10 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'renovate/typescript-preset' }}
     steps:
-      - name: Setup git
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+      - uses: fregante/setup-git-user@v1
 
       # The auto-update is merged directly into release branch,
       # since we don't need to include the dev changes from main in the auto-release

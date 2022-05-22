@@ -8,10 +8,7 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup git
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+      - uses: fregante/setup-git-user@v1
 
       # We haven't yet merged the released tag into release branch
       # So, we should checkout to released tag to create an actual build
