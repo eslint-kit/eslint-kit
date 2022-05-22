@@ -1,5 +1,5 @@
 {
-  "name": "@eslint-kit/configure",
+  "name": "eslint-kit",
   "version": "0.0.0-set-by-ci",
   "description": "All-in-one solution for configuring ESLint in all of your projects",
   "main": "dist/index.js",
