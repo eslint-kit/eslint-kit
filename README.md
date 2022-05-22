@@ -314,7 +314,7 @@ configure({
 
 ## Common issues
 
-**Q**: My `.eslintrc.js` doesn't work, why?
+**Q**: My `.eslintrc.js` doesn't work, why?  
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 ## Setting up editors
