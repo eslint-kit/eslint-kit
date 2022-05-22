@@ -42,6 +42,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
   - [Svelte](#svelte)
   - [Next.js](#nextjs)
   - [Alias](#alias)
+- [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
   - [VSCode](#vscode)
 
@@ -310,6 +311,11 @@ configure({
   ]
 })
 ```
+
+## Common issues
+
+**Q**: My `.eslintrc.js` doesn't work, why?  
+**A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 ## Setting up editors
 
