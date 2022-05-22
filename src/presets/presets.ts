@@ -8,12 +8,14 @@ import { ExtractName } from './shared'
 import { solidJs } from './solid'
 import { svelte } from './svelte'
 import { typescript } from './typescript'
+import { vue } from './vue'
 
 export const presets = {
   node,
   prettier,
   typescript,
   react,
+  vue,
   solidJs,
   effector,
   nextJs,

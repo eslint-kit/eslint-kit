@@ -1,0 +1,858 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Vue should lint .vue files: vue-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/vue-clear.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 2,
+    "messages": Array [
+      Object {
+        "column": 30,
+        "endColumn": 30,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            332,
+            332,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 51,
+        "endColumn": 51,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            353,
+            353,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Vue should lint .vue files: vue-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/vue-error.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 2,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 28,
+        "endLine": 5,
+        "line": 5,
+        "message": "\`<script setup>\` cannot contain ES module exports.",
+        "messageId": "forbidden",
+        "nodeType": "ExportNamedDeclaration",
+        "ruleId": "vue/no-export-in-script-setup",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 30,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            339,
+            339,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 51,
+        "endColumn": 51,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            360,
+            360,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+export const count = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Vue should lint .vue files: vue-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/vue-warn.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 4,
+    "messages": Array [
+      Object {
+        "column": 22,
+        "endColumn": 32,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            313,
+            334,
+          ],
+          "text": "id=\\"hello\\" ref=\\"meow\\"",
+        },
+        "line": 19,
+        "message": "Attribute \\"id\\" should go before \\"ref\\".",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/attributes-order",
+        "severity": 1,
+      },
+      Object {
+        "column": 22,
+        "endColumn": 32,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            323,
+            324,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "'id' should be on a new line.",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/max-attributes-per-line",
+        "severity": 1,
+      },
+      Object {
+        "column": 33,
+        "endColumn": 51,
+        "endLine": 19,
+        "line": 19,
+        "message": "'@click' should be on a new line.",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/max-attributes-per-line",
+        "severity": 1,
+      },
+      Object {
+        "column": 52,
+        "endColumn": 52,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            354,
+            354,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 73,
+        "endColumn": 73,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            375,
+            375,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button ref=\\"meow\\" id=\\"hello\\" @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 5,
+  },
+]
+`;
+
+exports[`[Presets] Vue should lint typescript in .vue files: ts-vue-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/ts-vue-clear.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Vue should lint typescript in .vue files: ts-vue-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/ts-vue-error.vue",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 2,
+    "messages": Array [
+      Object {
+        "column": 14,
+        "endColumn": 20,
+        "endLine": 5,
+        "fix": Object {
+          "range": Array [
+            84,
+            90,
+          ],
+          "text": "number",
+        },
+        "line": 5,
+        "message": "Don't use \`Number\` as a type. Use number instead",
+        "messageId": "bannedTypeMessage",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/ban-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 30,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            340,
+            340,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 51,
+        "endColumn": 51,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            361,
+            361,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count: Number = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Vue should lint typescript in .vue files: ts-vue-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/ts-vue-warn.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 2,
+    "messages": Array [
+      Object {
+        "column": 25,
+        "endColumn": 28,
+        "endLine": 5,
+        "line": 5,
+        "message": "Unexpected any. Specify a different type.",
+        "messageId": "unexpectedAny",
+        "nodeType": "TSAnyKeyword",
+        "ruleId": "@typescript-eslint/no-explicit-any",
+        "severity": 1,
+        "suggestions": Array [
+          Object {
+            "desc": "Use \`unknown\` instead, this will force you to explicitly, and safely assert the type is correct.",
+            "fix": Object {
+              "range": Array [
+                95,
+                98,
+              ],
+              "text": "unknown",
+            },
+            "messageId": "suggestUnknown",
+          },
+          Object {
+            "desc": "Use \`never\` instead, this is useful when instantiating generic type parameters that you don't need to know the type of.",
+            "fix": Object {
+              "range": Array [
+                95,
+                98,
+              ],
+              "text": "never",
+            },
+            "messageId": "suggestNever",
+          },
+        ],
+      },
+      Object {
+        "column": 30,
+        "endColumn": 30,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            339,
+            339,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 51,
+        "endColumn": 51,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            360,
+            360,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count = ref(0) as any
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 3,
+  },
+]
+`;
+
+exports[`[Presets] Vue should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Vue should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-error.js",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            3,
+          ],
+          "text": "let",
+        },
+        "line": 1,
+        "message": "Unexpected var, use let or const instead.",
+        "messageId": "unexpectedVar",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "no-var",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "line": 1,
+        "message": "Exporting mutable 'var' binding, use 'const' instead.",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "import/no-mutable-exports",
+        "severity": 2,
+      },
+    ],
+    "source": "var one = 1
+export { one }
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Vue should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 7,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'one' is assigned a value but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "const one = 1
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Vue should not conflict with prettier: vue-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/vue-warn.vue",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 6,
+    "messages": Array [
+      Object {
+        "column": 22,
+        "endColumn": 32,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            313,
+            334,
+          ],
+          "text": "id=\\"hello\\" ref=\\"meow\\"",
+        },
+        "line": 19,
+        "message": "Attribute \\"id\\" should go before \\"ref\\".",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/attributes-order",
+        "severity": 1,
+      },
+      Object {
+        "column": 22,
+        "endColumn": 32,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            323,
+            324,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "'id' should be on a new line.",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/max-attributes-per-line",
+        "severity": 1,
+      },
+      Object {
+        "column": 33,
+        "endColumn": 51,
+        "endLine": 19,
+        "line": 19,
+        "message": "'@click' should be on a new line.",
+        "nodeType": "VAttribute",
+        "ruleId": "vue/max-attributes-per-line",
+        "severity": 1,
+      },
+      Object {
+        "column": 52,
+        "endColumn": 73,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            354,
+            375,
+          ],
+          "text": "
+    Count is: {{ count }}
+  ",
+        },
+        "line": 19,
+        "message": "Replace \`Count·is:·{{·count·}}\` with \`⏎····Count·is:·{{·count·}}⏎··\`",
+        "messageId": "replace",
+        "nodeType": null,
+        "ruleId": "prettier/prettier",
+        "severity": 1,
+      },
+      Object {
+        "column": 52,
+        "endColumn": 52,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            354,
+            354,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break after opening tag (\`<button>\`), but no line breaks found.",
+        "messageId": "unexpectedAfterClosingBracket",
+        "nodeType": "HTMLTagClose",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 73,
+        "endColumn": 73,
+        "endLine": 19,
+        "fix": Object {
+          "range": Array [
+            375,
+            375,
+          ],
+          "text": "
+",
+        },
+        "line": 19,
+        "message": "Expected 1 line break before closing tag (\`</button>\`), but no line breaks found.",
+        "messageId": "unexpectedBeforeOpeningBracket",
+        "nodeType": "HTMLEndTagOpen",
+        "ruleId": "vue/singleline-html-element-content-newline",
+        "severity": 1,
+      },
+      Object {
+        "column": 12,
+        "endColumn": 12,
+        "endLine": 20,
+        "fix": Object {
+          "range": Array [
+            396,
+            396,
+          ],
+          "text": "
+",
+        },
+        "line": 20,
+        "message": "Insert \`⏎\`",
+        "messageId": "insert",
+        "nodeType": null,
+        "ruleId": "prettier/prettier",
+        "severity": 1,
+      },
+    ],
+    "source": "<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.info(\`The initial count is \${count.value}.\`)
+})
+</script>
+
+<template>
+  <button ref=\\"meow\\" id=\\"hello\\" @click=\\"increment\\">Count is: {{ count }}</button>
+</template>",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 7,
+  },
+]
+`;
+
+exports[`[Presets] Vue should work with typescript: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Vue should work with typescript: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-error.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 12,
+        "endColumn": 18,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            11,
+            17,
+          ],
+          "text": "number",
+        },
+        "line": 1,
+        "message": "Don't use \`Number\` as a type. Use number instead",
+        "messageId": "bannedTypeMessage",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/ban-types",
+        "severity": 2,
+      },
+    ],
+    "source": "const one: Number = 1
+export { one }
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Vue should work with typescript: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-warn.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            12,
+          ],
+          "text": "interface Test ",
+        },
+        "line": 1,
+        "message": "Use an \`interface\` instead of a \`type\`.",
+        "messageId": "interfaceOverType",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/consistent-type-definitions",
+        "severity": 1,
+      },
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'Test' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "type Test = {
+  one: number
+}
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;

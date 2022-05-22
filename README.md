@@ -36,6 +36,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
   - [Prettier](#prettier)
   - [Node](#node)
   - [React](#react)
+  - [Vue](#vue)
   - [Solid.js](#solidjs)
   - [Effector](#effector)
   - [Svelte](#svelte)
@@ -192,8 +193,8 @@ configure({
 
 ### React
 
-- Enables `browser` environment and `jsx` ecma feature
 - Adds some React and React Hooks rules
+- Enables `browser` environment and `jsx` ecma feature
 
 ```ts
 configure({
@@ -203,6 +204,28 @@ configure({
       version: 'detect',
       // (optional) Allows using JSX without importing `React`
       newJSXTransform: false
+    })
+  ]
+})
+```
+
+### Vue
+
+- Adds `vue` plugin
+- Changes parser to `vue-eslint-parser`
+- Detects installed vue version and enables `/recommended` rules for it
+- Enables `@typescript-eslint/parser` for `<script>` blocks when `typescript` preset is used
+- Enables `browser` environment and `jsx` ecma feature
+- Allows `export default`
+
+You still need to setup your editor / IDE to lint `.vue` files. You can use [this guide](https://eslint.vuejs.org/user-guide/#editor-integrations) from Vue documentation. 
+
+```ts
+configure({
+  presets: [
+    presets.vue({
+      // (optional) Allows to specify Vue version
+      version: 'detect'
     })
   ]
 })

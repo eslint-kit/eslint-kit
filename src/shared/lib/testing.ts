@@ -6,7 +6,7 @@ export interface Options {
   config: Linter.Config
   basePath: string
   files: string[]
-  extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte'
+  extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte' | 'vue'
 }
 
 export async function testConfig({
