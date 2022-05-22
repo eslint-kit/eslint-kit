@@ -117,7 +117,8 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 
 ## Presets
 
-### TypeScript
+<details>
+<summary>TypeScript</summary>
 
 - Changes parser to `@typescript-eslint/parser`
 - Allows the usage of `.ts` and `.tsx` extensions
@@ -138,7 +139,10 @@ configure({
 })
 ```
 
-### Prettier
+</details>
+
+<details>
+<summary>Prettier</summary>
 
 - Enables the rule `prettier/prettier` from Prettier ESLint plugin
 
@@ -184,7 +188,10 @@ The recommended Prettier config:
 
 As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports). You can find the options on its README page.
 
-### Node
+</details>
+
+<details>
+<summary>Node</summary>
 
 - Enables `node` environment
 
@@ -194,7 +201,10 @@ configure({
 })
 ```
 
-### React
+</details>
+
+<details>
+<summary>React</summary>
 
 - Adds some React and React Hooks rules
 - Enables `browser` environment and `jsx` ecma feature
@@ -212,7 +222,10 @@ configure({
 })
 ```
 
-### Vue
+</details>
+
+<details>
+<summary>Vue</summary>
 
 - Adds `vue` plugin
 - Changes parser to `vue-eslint-parser`
@@ -234,7 +247,10 @@ configure({
 })
 ```
 
-### Solid.js
+</details>
+
+<details>
+<summary>Solid.js</summary>
 
 - Adds `solid` plugin and enables `/recommended` rules
 - Enables `/typescript` rules when `typescript` preset is active
@@ -245,7 +261,10 @@ configure({
 })
 ```
 
-### Effector
+</details>
+
+<details>
+<summary>Effector</summary>
 
 - Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
 
@@ -260,7 +279,10 @@ configure({
 })
 ```
 
-### Svelte
+</details>
+
+<details>
+<summary>Svelte</summary>
 
 - Adds `svelte3` plugin and configures it
 - Enables some TypeScript settings when `typescript` preset is active
@@ -278,7 +300,10 @@ configure({
 })
 ```
 
-### Next.js
+</details>
+
+<details>
+<summary>Next.js</summary>
 
 - Enables `@next/eslint-plugin-next` plugin rules
 - Allows the usage of `export default`
@@ -289,7 +314,10 @@ configure({
 })
 ```
 
-### Alias
+</details>
+
+<details>
+<summary>Alias</summary>
 
 - Allows to set the aliases for `import` plugin
 - Automatically uses `tsconfig.json` when `typescript` preset is applied
@@ -313,6 +341,8 @@ configure({
   ]
 })
 ```
+
+</details>
 
 ## Common issues
 
