@@ -1,12 +1,5 @@
 import { parse } from 'semver'
-
-type Dependencies = Record<string, string>
-
-export interface PackageJson {
-  version: string
-  dependencies?: Dependencies
-  devDependencies?: Dependencies
-}
+import { PackageJson } from '../types'
 
 function mergeDependencies(packageJson: PackageJson) {
   const { dependencies = {}, devDependencies = {} } = packageJson

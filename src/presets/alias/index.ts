@@ -1,7 +1,8 @@
-import pathLib from 'path'
-import { Linter } from 'eslint'
+import path from 'path'
 import { conditional } from '../../shared/lib/eslint'
-import { createPreset, Meta } from '../shared'
+import { readJson } from '../../shared/lib/fs'
+import { Jsconfig } from '../../shared/types'
+import { createPreset } from '../shared'
 
 export interface Options {
   root?: string
@@ -12,46 +13,66 @@ export interface Options {
 export const alias = createPreset<'alias', Options | void>({
   name: 'alias',
   compile: ({ options = {}, meta }) => {
-    return meta.typescript.used
-      ? generateForTypeScript(meta)
-      : generateForJavaScript(options, meta)
+    const { root = meta.root, paths = {}, jsconfig = 'jsconfig.json' } = options
+
+    const jsconfigJson = readJson<Jsconfig>(meta.root, jsconfig)
+    const jsconfigAlias = generateJsconfigAlias(jsconfigJson, meta.root)
+
+    const customAlias = Object.entries(paths).reduce<Record<string, string>>(
+      (alias, [key, value]) => {
+        alias[key] = path.join(root, value)
+        return alias
+      },
+      {}
+    )
+
+    const alias = {
+      ...jsconfigAlias,
+      ...customAlias,
+    }
+
+    return {
+      settings: {
+        'import/resolver': {
+          'eslint-import-resolver-custom-alias': {
+            alias,
+            extensions: meta.extensions,
+          },
+          ...conditional.settings(meta.typescript.used, {
+            typescript: {
+              alwaysTryTypes: true,
+              project: meta.typescript.tsconfig,
+            },
+          }),
+        },
+      },
+    }
   },
 })
 
-function generateForJavaScript(options: Options, meta: Meta): Linter.Config {
-  const { root = './', paths = {}, jsconfig } = options
+function generateJsconfigAlias(jsconfig: Jsconfig | null, root: string) {
+  if (!jsconfig) return {}
+  const { compilerOptions = {} } = jsconfig
+  const { baseUrl, paths = {} } = compilerOptions
 
-  const map = Object.entries(paths).map(([alias, path]) => {
-    return [alias, path.startsWith('.') ? pathLib.resolve(root, path) : path]
-  })
+  const alias: Record<string, string> = {}
 
-  return {
-    settings: {
-      'import/resolver': {
-        alias: {
-          map,
-          extensions: meta.extensions,
-        },
-        ...conditional.settings(jsconfig, {
-          jsconfig: {
-            config: jsconfig,
-            extensions: meta.extensions,
-          },
-        }),
-      },
-    },
+  if (baseUrl) {
+    alias[''] = path.resolve(root, baseUrl)
   }
+
+  for (const [target, sources] of Object.entries(paths)) {
+    if (sources.length === 0) continue
+    const [source] = sources
+
+    alias[removeStars(target)] = baseUrl
+      ? path.resolve(root, baseUrl, removeStars(source))
+      : path.resolve(root, removeStars(source))
+  }
+
+  return alias
 }
 
-function generateForTypeScript(meta: Meta): Linter.Config {
-  return {
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-          project: meta.typescript.tsconfig,
-        },
-      },
-    },
-  }
+function removeStars(string: string) {
+  return string.replace(/\/\*/g, '')
 }
