@@ -13,10 +13,10 @@
   <a href="https://opensource.org/licenses/MIT" rel="nofollow">
     <img src="https://img.shields.io/github/license/eslint-kit/eslint-kit" alt="License">
   </a>
-  <a href="https://www.npmjs.com/package/@eslint-kit/configure" rel="nofollow">
+  <a href="https://www.npmjs.com/package/eslint-kit" rel="nofollow">
     <img src="https://img.shields.io/npm/dw/eslint-kit.svg" alt="npm">
   </a>
-  <a href="https://www.npmjs.com/package/@eslint-kit/configure" rel="nofollow">
+  <a href="https://www.npmjs.com/package/eslint-kit" rel="nofollow">
     <img src="https://img.shields.io/github/stars/eslint-kit/eslint-kit" alt="stars">
   </a>
 </p>
@@ -62,7 +62,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 You can select presets by using `configure` function in your `.eslintrc.js` file:
 
 ```js
-const { configure, presets } = require('@eslint-kit/configure')
+const { configure, presets } = require('eslint-kit')
 
 module.exports = configure({
   presets: [
@@ -83,7 +83,7 @@ module.exports = configure({
 })
 ```
 
-`@eslint-kit/configure` package contains all the dependencies you might need. It's ok - this is a development dependency, so you won't get any bundle size problems.
+`eslint-kit` package contains all the dependencies you might need. It's ok - this is a development dependency, so you won't get any bundle size problems.
 
 The ESLint Kit presets try to contain only the best-practice rules to make overwriting as rare as possible. But you can still easily override them by using `extend` property.
 
@@ -92,19 +92,19 @@ The ESLint Kit presets try to contain only the best-practice rules to make overw
 NPM:
 
 ```sh
-npm install -D @eslint-kit/configure
+npm install -D eslint-kit
 ```
 
 Yarn:
 
 ```sh
-yarn add -D @eslint-kit/configure
+yarn add -D eslint-kit
 ```
 
 After installing, add the `.eslintrc.js` file in your project root:
 
 ```js
-const { configure, presets } = require('@eslint-kit/configure')
+const { configure, presets } = require('eslint-kit')
 
 module.exports = configure({
   presets: [],
