@@ -1,0 +1,33 @@
+name: Cache build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  cache-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to main
+        uses: actions/checkout@v3
+
+      - name: Check build cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ hashFiles('./yarn.lock', './src/**', './rollup.config.js', './jest.config.js') }}
+
+      - name: Setup Node.js when no cache found
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Create a new build when no cache found
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+          yarn test
+          yarn build
