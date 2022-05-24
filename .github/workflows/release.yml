@@ -55,9 +55,8 @@ jobs:
         with:
           ref: release
 
-      - name: Merge the tag into release branch
-        run: |
-          git merge ${{ github.event.release.tag_name }} -m "ci: merge ${{ github.event.release.tag_name }} tag into release" --allow-unrelated-histories
+      - name: Rebase the tag into release branch
+        run: git rebase ${{ github.event.release.tag_name }}
 
       - name: Push the tag to protected release branch
         uses: CasperWA/push-protected@v2
