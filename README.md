@@ -33,6 +33,9 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 - [Installation](#installation)
 - [configure API](#configure-api)
 - [Presets](#presets)
+  - [Common](#common)
+  - [Frameworks](#frameworks)
+  - [Libraries](#libraries)
 - [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
   - [VSCode](#vscode)
@@ -124,6 +127,8 @@ configure({
 
 ## Presets
 
+### Common
+
 <details>
 <summary>TypeScript</summary>
 <br>
@@ -200,6 +205,35 @@ As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/tr
 </details>
 
 <details>
+<summary>Alias</summary>
+<br>
+
+- Allows to set the aliases for `import` plugin
+- Automatically uses `tsconfig.json` when `typescript` preset is applied
+
+```ts
+configure({
+  presets: [
+    presets.alias({
+      // (optional) Base path for all aliases
+      // Defaults to './'
+      root: './src',
+
+      // (optional) Alises, all paths should be relative or absolute
+      // Defaults to empty object
+      paths: { '@app': './' },
+
+      // (optional) A custom path to jsconfig
+      // Defaults to jsconfig.json
+      jsconfig: 'jsconfig.json'
+    })
+  ]
+})
+```
+
+</details>
+
+<details>
 <summary>Node</summary>
 <br>
 
@@ -212,6 +246,8 @@ configure({
 ```
 
 </details>
+
+### Frameworks
 
 <details>
 <summary>React</summary>
@@ -277,25 +313,6 @@ configure({
 </details>
 
 <details>
-<summary>Effector</summary>
-<br>
-
-- Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
-
-```ts
-configure({
-  presets: [
-    presets.effector({
-      // (optional) Enables /future rules
-      onlySample: false
-    })
-  ]
-})
-```
-
-</details>
-
-<details>
 <summary>Svelte</summary>
 <br>
 
@@ -332,28 +349,20 @@ configure({
 
 </details>
 
+### Libraries
+
 <details>
-<summary>Alias</summary>
+<summary>Effector</summary>
 <br>
 
-- Allows to set the aliases for `import` plugin
-- Automatically uses `tsconfig.json` when `typescript` preset is applied
+- Adds `effector` plugin and enables `/recommended`, `/scope`, and `/react` rules
 
 ```ts
 configure({
   presets: [
-    presets.alias({
-      // (optional) Base path for all aliases
-      // Defaults to './'
-      root: './src',
-
-      // (optional) Alises, all paths should be relative or absolute
-      // Defaults to empty object
-      paths: { '@app': './' },
-
-      // (optional) A custom path to jsconfig
-      // Defaults to jsconfig.json
-      jsconfig: 'jsconfig.json'
+    presets.effector({
+      // (optional) Enables /future rules
+      onlySample: false
     })
   ]
 })
