@@ -6,7 +6,7 @@ function parseExtension(pattern: string): string | null {
   return pattern.slice(2)
 }
 
-function splitOverrides(
+export function splitOverrides(
   overrides: Linter.ConfigOverride[]
 ): Linter.ConfigOverride[] {
   const result: Linter.ConfigOverride[] = []
@@ -62,7 +62,7 @@ export function overrideOverrides(
     result.push({ files, rules: overridedRules, ...rest })
   }
 
-  return result
+  return result.reverse()
 }
 
 export function mergeConfigs(configs: Linter.Config[]): Linter.Config {
