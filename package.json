@@ -28,7 +28,6 @@
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@typescript-eslint/eslint-plugin": "5.26.0",
     "@typescript-eslint/parser": "5.26.0",
-    "babel-eslint": "10.1.0",
     "babel-preset-solid": "^1.4.2",
     "eslint": "8.15.0",
     "eslint-import-resolver-alias": "^1.1.2",
