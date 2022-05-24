@@ -465,13 +465,4 @@ Then, the `release` workflow handles everything:
 2. Then, we merge release tag into the `release` branch
 3. After, we restore build artifacts and publish it to NPM
 
-Also, this repo has Renovate bot set up to auto-update `typescript` preset dependencies (they change frequently).
-
-That's how it works:
-
-1. Renovate bot creates a PR into `release` branch, cause we want to create a new release from the old one, without any pending dev changes
-2. PR automatically merges after successfull checks
-3. It triggers `release-auto-update` workflow
-4. We take last tag from `release` branch, bump its minor number, and set the newly created tag at the latest commit from `release`
-5. Then, we can create a Github release using this tag
-6. A published release triggers `release` workflow, and it works just like the regular release
+Also, this repo has Renovate bot set up to auto-update `typescript` preset dependencies (they change frequently). The bot creates a PR into `main` branch and automatically merges it after successful checks.

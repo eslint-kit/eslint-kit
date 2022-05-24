@@ -35,7 +35,11 @@ export function overrideOverrides(
     const [pattern] = Array.isArray(files) ? files : [files]
 
     const extension = parseExtension(pattern)
-    if (!extension) continue
+
+    if (!extension) {
+      result.push({ files, rules, ...rest })
+      continue
+    }
 
     if (!usedRules.has(extension)) {
       usedRules.set(extension, new Set<string>())

@@ -2,7 +2,7 @@ name: Test and Build
 
 on:
   pull_request:
-    branches: [main, release]
+    branches: [main]
 
 jobs:
   test-and-build:
