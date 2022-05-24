@@ -5,7 +5,7 @@ on:
     types: [published]
 
 jobs:
-  publish-npm:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Setup git
