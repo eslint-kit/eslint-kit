@@ -1,3 +1,4 @@
+import '@rushstack/eslint-patch/modern-module-resolution'
 import { Linter } from 'eslint'
 import {
   compilePresets,
