@@ -21,6 +21,8 @@
   </a>
 </p>
 
+> :warning: **May not work in your project. This is related to eslint module resolution problem, we're working on it**
+
 ## Before you start
 
 The README on `main` branch can contain some unreleased changes.
