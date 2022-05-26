@@ -1,4 +1,5 @@
 import { Linter } from 'eslint'
+import { applyModuleResolutionPatch } from './patch/patch'
 import {
   compilePresets,
   Preset,
@@ -19,10 +20,14 @@ export function configure({
   presets,
   extend = {},
 }: Options) {
-  return compilePresets(
+  const config = compilePresets(
     [base({ root }), ...presets, presetExtend(extend)],
     PRIORITY
   )
+
+  applyModuleResolutionPatch(config)
+
+  return config
 }
 
 export { presets }
