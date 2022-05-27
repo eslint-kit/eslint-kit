@@ -1,4 +1,3 @@
-import '@rushstack/eslint-patch/modern-module-resolution'
 import { Linter } from 'eslint'
 import { applyModuleResolutionPatch } from './patch/patch'
 import {
