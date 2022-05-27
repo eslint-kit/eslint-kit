@@ -17,7 +17,7 @@ const bundle = (input, config) =>
 
 const config = defineConfig([
   bundle(src('index.ts'), {
-    plugins: [esbuild(), terser()],
+    plugins: [esbuild()],
     output: [
       {
         file: dist('index.js'),
