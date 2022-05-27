@@ -1,5 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Linter } from 'eslint'
+import Module from 'module'
 import { ModuleResolver } from './rushstack'
+
+interface Resolved {
+  name: string
+  path: string
+}
 
 function getModuleNames(config: Linter.Config) {
   const { parser, plugins = [], parserOptions = {} } = config
@@ -26,21 +33,77 @@ function getModuleNames(config: Linter.Config) {
   return moduleNames
 }
 
+function patchRequire(require: NodeRequire, resolved: Resolved[]) {
+  const originalResolve = require.resolve
+
+  const resolve = function resolve(id: string, options: any) {
+    for (const { name, path } of resolved) {
+      if (id === name) return path
+    }
+
+    return originalResolve(id, options)
+  }
+
+  require.resolve = Object.assign(resolve, { paths: originalResolve.paths })
+}
+
 export function applyModuleResolutionPatch(config: Linter.Config) {
   const moduleNames = getModuleNames(config)
 
-  const resolved = moduleNames.map((name) => ({
+  /*
+   * Resolve modules relative to eslint-kit
+   */
+
+  const resolved: Resolved[] = moduleNames.map((name) => ({
     name,
     path: require.resolve(name, { paths: [__dirname] }),
   }))
 
+  /*
+   * Patch eslint ModuleResolver
+   */
+
   const originalResolve = ModuleResolver.resolve
 
-  ModuleResolver.resolve = (request, relativeTo) => {
+  ModuleResolver.resolve = (id, relativeTo) => {
     for (const { name, path } of resolved) {
-      if (request === name) return path
+      if (id === name) return path
     }
 
-    return originalResolve(request, relativeTo)
+    return originalResolve(id, relativeTo)
+  }
+
+  /*
+   * Patch default "require"
+   */
+
+  patchRequire(require, resolved)
+
+  /*
+   * Patch manually created "require" functions
+   */
+
+  const originalCreateRequire = Module.createRequire
+
+  Module.createRequire = (path) => {
+    const require = originalCreateRequire(path)
+    patchRequire(require, resolved)
+    return require
+  }
+
+  /*
+   * Patch resolver in eslint-module-utils
+   */
+
+  const ModuleRequire = require('eslint-module-utils/module-require')
+
+  const originalModuleRequire = ModuleRequire.default
+
+  ModuleRequire.default = (id: string) => {
+    for (const { name, path } of resolved) {
+      if (id === name) return require(path)
+    }
+
+    return originalModuleRequire(id)
   }
 }
