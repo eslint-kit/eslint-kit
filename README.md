@@ -30,7 +30,8 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 ## Navigation
 
 - [Why?](#why)
-- [Installation](#installation)
+- [Quick installation](#quick-installation)
+- [Manual installation](#manual-installation)
 - [configure API](#configure-api)
 - [Presets](#presets)
   - [Common](#common)
@@ -81,7 +82,15 @@ module.exports = configure({
 
 The ESLint Kit presets try to contain only the best-practice rules to make overwriting as rare as possible. But you can still easily override them by using `extend` property.
 
-## Installation
+## Quick installation
+
+```
+npx eslint-kit-cli
+```
+
+[Learn more about eslint-kit-cli](https://github.com/eslint-kit/eslint-kit-cli)
+
+## Manual installation
 
 NPM:
 
