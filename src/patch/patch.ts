@@ -9,8 +9,9 @@ interface Resolved {
 }
 
 function getModuleNames(config: Linter.Config) {
-  const { parser, plugins = [], parserOptions = {} } = config
+  const { parser, plugins = [], parserOptions = {}, settings = {} } = config
   const additionalParser: string | undefined = parserOptions.parser
+  const resolversSettings = settings['import/resolver'] || {}
 
   const moduleNames: string[] = []
 
@@ -28,6 +29,15 @@ function getModuleNames(config: Linter.Config) {
     } else {
       moduleNames.push(`eslint-plugin-${plugin}`)
     }
+  }
+
+  for (const resolver of Object.keys(resolversSettings)) {
+    if (resolver.startsWith('eslint-import-resolver')) {
+      moduleNames.push(resolver)
+      continue
+    }
+
+    moduleNames.push(`eslint-import-resolver-${resolver}`)
   }
 
   return moduleNames
