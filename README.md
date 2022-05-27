@@ -85,7 +85,7 @@ The ESLint Kit presets try to contain only the best-practice rules to make overw
 ## Quick installation
 
 ```
-npx eslint-kit-cli
+npx eslint-kit-cli@latest
 ```
 
 [Learn more about eslint-kit-cli](https://github.com/eslint-kit/eslint-kit-cli)
