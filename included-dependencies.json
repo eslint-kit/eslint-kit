@@ -1,6 +1,7 @@
 [
   "@babel/eslint-parser",
   "@next/eslint-plugin-next",
+  "eslint-config-next",
   "@trivago/prettier-plugin-sort-imports",
   "@typescript-eslint/eslint-plugin",
   "@typescript-eslint/parser",
