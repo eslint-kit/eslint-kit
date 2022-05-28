@@ -40,7 +40,6 @@ export const react = createPreset<'react', Options | void>({
       'react/sort-comp': 'warn',
       'react/state-in-constructor': ['warn', 'never'],
       'react/style-prop-object': 'error',
-      'react/jsx-key': 'warn',
       'react/no-array-index-key': 'warn',
       'react/jsx-no-bind': [
         'warn',
@@ -57,6 +56,20 @@ export const react = createPreset<'react', Options | void>({
       'react/jsx-curly-brace-presence': 'warn',
       'react/jsx-pascal-case': 'warn',
       'react/jsx-no-undef': 'error',
+      'react/jsx-sort-props': [
+        'warn',
+        {
+          noSortAlphabetically: true,
+          reservedFirst: ['key'],
+        },
+      ],
+      'react/jsx-key': [
+        'warn',
+        {
+          checkFragmentShorthand: true,
+          checkKeyMustBeforeSpread: true,
+        },
+      ],
 
       // hooks
       'react-hooks/rules-of-hooks': 'error',
