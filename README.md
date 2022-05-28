@@ -350,9 +350,11 @@ configure({
 - Enables `@next/eslint-plugin-next` plugin rules
 - Allows the usage of `export default`
 
+`nextJs` preset doesn't provide React rules, so don't forget to add `react` preset too. You may omit `newJSXTransform`, since it's already included in `nextJs`.
+
 ```ts
 configure({
-  presets: [presets.nextJs()]
+  presets: [presets.react(), presets.nextJs()]
 })
 ```
 

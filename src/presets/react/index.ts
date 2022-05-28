@@ -26,6 +26,7 @@ export const react = createPreset<'react', Options | void>({
       },
     },
     plugins: ['react', 'react-hooks'],
+    extends: ['plugin:jsx-a11y/recommended'],
     rules: {
       'react/jsx-uses-vars': 'warn',
       'react/destructuring-assignment': 'warn',
@@ -68,6 +69,10 @@ export const react = createPreset<'react', Options | void>({
         'react/jsx-uses-react': 'off',
         'react/react-in-jsx-scope': 'off',
       }),
+
+      'jsx-a11y/alt-text': 'warn',
+      'jsx-a11y/aria-role': ['warn', { ignoreNonDOM: true }],
+      'jsx-a11y/click-events-have-key-events': 'off',
     },
   }),
 })
