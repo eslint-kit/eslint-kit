@@ -34,11 +34,6 @@ export const imports = createPreset<'imports', Options | void>({
       plugins: ['import', 'simple-import-sort'],
       settings: {
         'import/extensions': meta.imports.extensions,
-        'import/resolver': {
-          node: {
-            extensions: meta.imports.extensions,
-          },
-        },
         'import/core-modules': [],
         'import/ignore': ['\\.(coffee|scss|css|less|hbs|svg|json)$'],
         'import/internal-regex': '^@types/',
