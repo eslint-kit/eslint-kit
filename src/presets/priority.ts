@@ -2,6 +2,7 @@ import { PresetName } from './presets'
 
 export const PRIORITY: PresetName[] = [
   // should be applied first
+  'imports',
   'typescript',
 
   'prettier',
@@ -16,7 +17,4 @@ export const PRIORITY: PresetName[] = [
 
   // may need next.js integration in future
   'effector',
-
-  // apply after all extensions are set
-  'alias',
 ]

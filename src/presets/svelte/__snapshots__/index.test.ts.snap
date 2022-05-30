@@ -19,22 +19,12 @@ Array [
 exports[`[Presets] Svelte should correctly lint .js: basic-error 1`] = `
 Array [
   Object {
-    "errorCount": 2,
+    "errorCount": 1,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/svelte/tests/basic-error.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [
-      Object {
-        "column": 8,
-        "endColumn": 23,
-        "endLine": 1,
-        "line": 1,
-        "message": "Exporting mutable 'var' binding, use 'const' instead.",
-        "nodeType": "VariableDeclaration",
-        "ruleId": "import/no-mutable-exports",
-        "severity": 2,
-      },
       Object {
         "column": 8,
         "endColumn": 23,

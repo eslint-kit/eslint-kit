@@ -1,6 +1,5 @@
-import { EXTENSIONS, importRules, importSettings } from '../../shared'
 import { readJson } from '../../shared/lib/fs'
-import { PackageJson, Jsconfig } from '../../shared/types'
+import { Jsconfig, PackageJson } from '../../shared/types'
 import { createPreset } from '../shared'
 
 interface Options {
@@ -19,11 +18,9 @@ export const base = createPreset<'base', Options>({
     meta.readJsconfig = () => {
       return readJson<Jsconfig>(options.root, 'jsconfig.json')
     }
-
-    meta.extensions = meta.extensions.concat(EXTENSIONS.JS)
   },
   compile: () => ({
-    plugins: ['import', 'unicorn', 'sonarjs'],
+    plugins: ['unicorn', 'sonarjs'],
     env: {
       es6: true,
     },
@@ -33,12 +30,7 @@ export const base = createPreset<'base', Options>({
       ecmaVersion: 2018,
       sourceType: 'module',
     },
-    settings: {
-      ...importSettings,
-    },
     rules: {
-      ...importRules,
-
       // eslint error-check rules
       'for-direction': 'error',
       'getter-return': 'error',

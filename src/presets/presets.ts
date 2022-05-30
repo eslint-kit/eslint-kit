@@ -1,5 +1,5 @@
-import { alias } from './alias'
 import { effector } from './effector'
+import { imports } from './imports'
 import { nextJs } from './nextjs'
 import { node } from './node'
 import { prettier } from './prettier'
@@ -11,6 +11,7 @@ import { typescript } from './typescript'
 import { vue } from './vue'
 
 export const presets = {
+  imports,
   node,
   prettier,
   typescript,
@@ -20,7 +21,6 @@ export const presets = {
   effector,
   nextJs,
   svelte,
-  alias,
 }
 
 export type PresetName = ExtractName<typeof presets[keyof typeof presets]>

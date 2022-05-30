@@ -519,7 +519,7 @@ Array [
 exports[`[Presets] Vue should match snapshots: basic-error 1`] = `
 Array [
   Object {
-    "errorCount": 2,
+    "errorCount": 1,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/vue/tests/basic-error.js",
     "fixableErrorCount": 1,
@@ -541,16 +541,6 @@ Array [
         "messageId": "unexpectedVar",
         "nodeType": "VariableDeclaration",
         "ruleId": "no-var",
-        "severity": 2,
-      },
-      Object {
-        "column": 1,
-        "endColumn": 12,
-        "endLine": 1,
-        "line": 1,
-        "message": "Exporting mutable 'var' binding, use 'const' instead.",
-        "nodeType": "VariableDeclaration",
-        "ruleId": "import/no-mutable-exports",
         "severity": 2,
       },
     ],
