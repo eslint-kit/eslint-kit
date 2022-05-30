@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { ESLint } from 'eslint'
-import { Preset, PresetName, PRIORITY, compilePresets } from '../../presets'
+import { compilePresets, Preset, PresetName, PRIORITY } from '../../presets'
 import { base } from '../../presets/base'
 
 export interface Options {

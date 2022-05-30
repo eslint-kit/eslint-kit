@@ -139,6 +139,70 @@ configure({
 ### Common
 
 <details>
+<summary>Imports</summary>
+<br>
+
+- Enables `import` and `simple-import-sort` plugins
+- Enables alias support for `jsconfig` and `tsconfig`
+- Configures file extensions depending on used presets
+
+```ts
+configure({
+  presets: [
+    presets.imports({
+      // (optional) Imports sort settings
+      sort: {
+        // (optional) Add newline between import groups
+        newline: false
+
+        // (optional) Define groups for sorting (see below)
+        groups: [/* ... */]
+      },
+
+      // (optional) Alias settings
+      alias: {
+        // (optional) Base path for all aliases
+        // Defaults to './'
+        root: './src',
+
+        // (optional) Aliases
+        // Defaults to empty object
+        paths: { '@app': './' },
+
+        // (optional) A custom path to jsconfig
+        // Defaults to jsconfig.json
+        jsconfig: 'jsconfig.json'
+      }
+    })
+  ]
+})
+```
+
+Under the hood, we use `eslint-plugin-simple-import-sort`. It provides an option to override sorting `groups` - check out [this section](https://github.com/lydell/eslint-plugin-simple-import-sort#custom-grouping) in their README.
+
+This is the default `groups` values used by `eslint-kit`:
+
+```ts
+[
+  // side effects
+  ['^\\u0000'],
+
+  // node.js libraries and scoped libraries
+  ['^(child_process|crypto|events|fs|http|https|os|path)(/.*)?$', '^@?\\w'],
+
+  // common aliases (@app, @root, @/, ~/) and anything not matched
+  ['^@app', '^@root', '^~', '^'],
+
+  // relative imports
+  ['^\\.'],
+]
+```
+
+To define your own `groups`, just pass it inside using `sort.groups`.
+
+</details>
+
+<details>
 <summary>TypeScript</summary>
 <br>
 
@@ -192,52 +256,8 @@ The recommended Prettier config:
   "semi": false,
   "singleQuote": true,
   "tabWidth": 2,
-  "quoteProps": "consistent",
-  "endOfLine": "lf",
-  "importOrder": [
-    "^(child_process|crypto|events|fs|http|https|os|path)(\\/(.*))?$",
-    "<THIRD_PARTY_MODULES>",
-    "^~(\\/(.*))?$",
-    "^@(\\/(.*))?$",
-    "^@app(\\/(.*))?$",
-    "^[./]"
-  ],
-  "experimentalBabelParserPluginsList": [
-    "jsx",
-    "typescript"
-  ]
+  "quoteProps": "consistent"
 }
-```
-
-As you see, we use [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports). You can find the options on its README page.
-
-</details>
-
-<details>
-<summary>Alias</summary>
-<br>
-
-- Allows to set the aliases for `import` plugin
-- Automatically uses `tsconfig.json` when `typescript` preset is applied
-
-```ts
-configure({
-  presets: [
-    presets.alias({
-      // (optional) Base path for all aliases
-      // Defaults to './'
-      root: './src',
-
-      // (optional) Alises, all paths should be relative or absolute
-      // Defaults to empty object
-      paths: { '@app': './' },
-
-      // (optional) A custom path to jsconfig
-      // Defaults to jsconfig.json
-      jsconfig: 'jsconfig.json'
-    })
-  ]
-})
 ```
 
 </details>

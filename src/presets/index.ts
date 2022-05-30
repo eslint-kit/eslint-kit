@@ -1,6 +1,6 @@
-export { presets } from './presets'
 export { extend as presetExtend } from './extend'
 export type { PresetName } from './presets'
+export { presets } from './presets'
 export { PRIORITY } from './priority'
-export { compilePresets } from './shared'
 export type { Preset } from './shared'
+export { compilePresets } from './shared'

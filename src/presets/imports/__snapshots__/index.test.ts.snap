@@ -1,0 +1,488 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Imports should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Imports should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/basic-error.js",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            3,
+          ],
+          "text": "let",
+        },
+        "line": 1,
+        "message": "Unexpected var, use let or const instead.",
+        "messageId": "unexpectedVar",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "no-var",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "line": 1,
+        "message": "Exporting mutable 'var' binding, use 'const' instead.",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "import/no-mutable-exports",
+        "severity": 2,
+      },
+    ],
+    "source": "var one = 1
+export { one }
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Imports should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 20,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            47,
+          ],
+          "text": "import fs from 'fs'
+import { one } from './one'",
+        },
+        "line": 1,
+        "message": "Run autofix to sort these imports!",
+        "messageId": "sort",
+        "nodeType": null,
+        "ruleId": "simple-import-sort/imports",
+        "severity": 1,
+      },
+      Object {
+        "column": 10,
+        "endColumn": 13,
+        "endLine": 1,
+        "line": 1,
+        "message": "'one' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 8,
+        "endColumn": 10,
+        "endLine": 2,
+        "line": 2,
+        "message": "'fs' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "import { one } from './one'
+import fs from 'fs'
+
+export {}
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 3,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect newline=false: newline-false 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/newline-false.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 8,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'fs' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 10,
+        "endColumn": 13,
+        "endLine": 2,
+        "line": 2,
+        "message": "'one' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "import fs from 'fs'
+import { one } from './one'
+
+export {}
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect newline=true: newline-true 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/newline-true.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 28,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            47,
+          ],
+          "text": "import fs from 'fs'
+
+import { one } from './one'",
+        },
+        "line": 1,
+        "message": "Run autofix to sort these imports!",
+        "messageId": "sort",
+        "nodeType": null,
+        "ruleId": "simple-import-sort/imports",
+        "severity": 1,
+      },
+      Object {
+        "column": 8,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'fs' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 10,
+        "endColumn": 13,
+        "endLine": 2,
+        "line": 2,
+        "message": "'one' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "import fs from 'fs'
+import { one } from './one'
+
+export {}
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 3,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect paths from jsconfig.json: alias-jsconfig-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-jsconfig-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 35,
+        "endLine": 5,
+        "fix": Object {
+          "range": Array [
+            0,
+            149,
+          ],
+          "text": "// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+import { sum as sumA } from \\"sum\\"",
+        },
+        "line": 1,
+        "message": "Run autofix to sort these imports!",
+        "messageId": "sort",
+        "nodeType": null,
+        "ruleId": "simple-import-sort/imports",
+        "severity": 1,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 1,
+        "line": 1,
+        "message": "'sumA' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 34,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'sum'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 5,
+        "line": 5,
+        "message": "'sumB' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 35,
+        "endLine": 5,
+        "line": 5,
+        "message": "Unable to resolve path to module 'meow'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { sum as sumA } from \\"sum\\"
+
+// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 3,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect paths from jsconfig.json: alias-jsconfig-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-jsconfig-error.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 10,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'isOdd' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 23,
+        "endColumn": 31,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'is-odd'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { isOdd } from \\"is-odd\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect paths from tsconfig.json: alias-tsconfig-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-tsconfig-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 35,
+        "endLine": 5,
+        "fix": Object {
+          "range": Array [
+            0,
+            149,
+          ],
+          "text": "// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+import { sum as sumA } from \\"sum\\"",
+        },
+        "line": 1,
+        "message": "Run autofix to sort these imports!",
+        "messageId": "sort",
+        "nodeType": null,
+        "ruleId": "simple-import-sort/imports",
+        "severity": 1,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 1,
+        "line": 1,
+        "message": "'sumA' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 34,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'sum'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+      Object {
+        "column": 17,
+        "endColumn": 21,
+        "endLine": 5,
+        "line": 5,
+        "message": "'sumB' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 35,
+        "endLine": 5,
+        "line": 5,
+        "message": "Unable to resolve path to module 'meow'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { sum as sumA } from \\"sum\\"
+
+// it doesn't work for the unknown reason
+// assuming it's an environment issue
+import { sum as sumB } from \\"meow\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 3,
+  },
+]
+`;
+
+exports[`[Presets] Imports should respect paths from tsconfig.json: alias-tsconfig-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-tsconfig-error.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 10,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'isOdd' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 23,
+        "endColumn": 31,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'is-odd'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "import { isOdd } from \\"is-odd\\"
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;

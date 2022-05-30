@@ -1,6 +1,6 @@
 import { conditional } from '../../shared/lib/eslint'
 import { createPreset } from '../shared'
-import { typescriptRules } from '../typescript'
+import { createTypescriptRules } from '../typescript/lib'
 
 export interface Options {
   typescriptPackage: unknown
@@ -38,7 +38,7 @@ export const svelte = createPreset<'svelte', Options | void>({
         ...conditional.overrides(useTS, [
           {
             files: ['*.svelte'],
-            rules: typescriptRules,
+            rules: createTypescriptRules(meta),
           },
         ]),
       ],

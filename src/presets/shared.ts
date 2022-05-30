@@ -1,6 +1,6 @@
 import { Linter } from 'eslint'
 import { mergeConfigs } from '../shared/lib/eslint'
-import { PackageJson, Jsconfig } from '../shared/types'
+import { Jsconfig, PackageJson } from '../shared/types'
 
 type ReplaceVoid<T> = void extends T ? Exclude<T, void> | undefined : T
 
@@ -8,7 +8,10 @@ export interface Meta {
   root: string
   readPackageJson(): PackageJson | null
   readJsconfig(): Jsconfig | null
-  extensions: string[]
+  imports: {
+    used: boolean
+    extensions: string[]
+  }
   typescript: {
     used: boolean
     root: string
@@ -59,7 +62,10 @@ export const createMeta = (): Meta => ({
   root: process.cwd(),
   readPackageJson: () => null,
   readJsconfig: () => null,
-  extensions: [],
+  imports: {
+    used: false,
+    extensions: [],
+  },
   typescript: {
     used: false,
     root: './',
