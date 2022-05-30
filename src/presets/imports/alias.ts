@@ -35,19 +35,17 @@ export function createAliasSettings({ options = {}, meta }: Input) {
   }
 
   return {
-    settings: {
-      'import/resolver': {
-        'eslint-import-resolver-custom-alias': {
-          alias,
-          extensions: meta.imports.extensions,
-        },
-        ...conditional.settings(meta.typescript.used, {
-          typescript: {
-            alwaysTryTypes: true,
-            project: meta.typescript.tsconfig,
-          },
-        }),
+    'import/resolver': {
+      'eslint-import-resolver-custom-alias': {
+        alias,
+        extensions: meta.imports.extensions,
       },
+      ...conditional.settings(meta.typescript.used, {
+        typescript: {
+          alwaysTryTypes: true,
+          project: meta.typescript.tsconfig,
+        },
+      }),
     },
   }
 }
