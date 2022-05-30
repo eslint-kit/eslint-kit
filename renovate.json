@@ -8,14 +8,12 @@
     },
     {
       "groupName": "TypeScript Preset",
-      "groupSlug": "typescript-preset",
       "matchPackageNames": [
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser"
       ],
       "enabled": true,
       "schedule": ["* */4 * * *"],
-      "labels": ["dependencies", "auto update"],
       "automerge": true,
       "commitMessageAction": null,
       "commitMessageTopic": null,
