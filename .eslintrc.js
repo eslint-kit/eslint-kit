@@ -6,6 +6,5 @@ module.exports = configure({
     presets.typescript(),
     presets.prettier(),
     presets.node(),
-    presets.alias(),
   ],
 })
