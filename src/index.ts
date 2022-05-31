@@ -8,23 +8,28 @@ import {
   PRIORITY,
 } from './presets'
 import { base } from './presets/base'
-import { mergeConfigs } from './shared/lib/eslint'
+import { applyMode, mergeConfigs, Mode } from './shared/lib/eslint'
 
 interface Options {
   root?: string
+  mode?: Mode
   presets: Preset[]
   extend?: Linter.Config
 }
 
 export function configure({
   root = process.cwd(),
+  mode = 'default',
   presets,
   extend = {},
 }: Options) {
-  const kitConfig = compilePresets(
+  let kitConfig = compilePresets(
     [base({ root }), ...presets, presetExtend(extend)],
     PRIORITY
   )
+
+  // Apply mode only for included rules
+  kitConfig = applyMode(kitConfig, mode)
 
   // Patch resolution only for included modules
   applyModuleResolutionPatch(kitConfig)

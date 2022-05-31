@@ -37,6 +37,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
   - [Common](#common)
   - [Frameworks](#frameworks)
   - [Libraries](#libraries)
+- [Linting Modes](#linting-modes)
 - [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
   - [VSCode](#vscode)
@@ -60,6 +61,7 @@ You can select presets by using `configure` function in your `.eslintrc.js` file
 const { configure, presets } = require('eslint-kit')
 
 module.exports = configure({
+  mode: 'only-errors',
   presets: [
     presets.imports(),
     presets.typescript(),
@@ -121,6 +123,10 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 configure({
   // (optional) Project root
   root: __dirname,
+
+  // (optional) Mode
+  // See "Linting Modes" section for more info 
+  mode: 'default',
 
   // presets
   presets: [],
@@ -397,6 +403,47 @@ configure({
 ```
 
 </details>
+
+## Linting Modes
+
+```js
+const { configure, presets } = require('eslint-kit')
+
+module.exports = configure({
+  mode: 'decrease-level',
+  /* ... */
+})
+```
+
+Linting Modes are useful when you want to set similar behavior to a large number of rules.
+
+#### `default`
+
+Do not transform rule levels. This is the default value.
+
+#### `decrease-level`
+
+Transform `error` to `warn`, and `warn` to `off`.
+
+It's useful for an incremental adoption: you can focus on fixing only critical issues first.
+
+#### `only-errors`
+
+Transform `warn` to `error`.
+
+It's useful when you want to completely prevent any warnings to get into your main branch.
+
+#### `only-warns`
+
+Transform `error` to `warn`.
+
+I have no idea when this may be useful, but ok.
+
+#### `disable-warns`
+
+Transform `warn` to `off`.
+
+I have no idea when this may be useful, but ok.
 
 ## Common issues
 

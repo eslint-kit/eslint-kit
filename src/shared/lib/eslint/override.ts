@@ -1,5 +1,4 @@
 import { Linter } from 'eslint'
-import { deepMerge, Strategy } from './deep-merge'
 
 function parseExtension(pattern: string): string | null {
   if (!pattern.startsWith('*.')) return null
@@ -63,42 +62,4 @@ export function overrideOverrides(
   }
 
   return result.reverse()
-}
-
-export function mergeConfigs(configs: Linter.Config[]): Linter.Config {
-  const config = configs.reduce((final, current) => {
-    return deepMerge(final, current, (path) => {
-      if (path === 'rules') return Strategy.Shallow
-      return Strategy.Deep
-    })
-  })
-
-  const splittedOverrides = splitOverrides(config.overrides ?? [])
-  const overrides = overrideOverrides(splittedOverrides)
-
-  return { ...config, overrides }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type OnlyCollections<T> = T extends any[] ? T : T extends object ? T : never
-
-function applier<
-  T extends 'rules' | 'settings' | 'extends' | 'parserOptions' | 'overrides'
->() {
-  return (
-    condition: unknown,
-    entity: OnlyCollections<Linter.Config[T]>
-  ): OnlyCollections<Linter.Config[T]> => {
-    const fallback = Array.isArray(entity) ? [] : {}
-    if (!condition) return fallback as OnlyCollections<Linter.Config[T]>
-    return entity
-  }
-}
-
-export const conditional = {
-  rules: applier<'rules'>(),
-  settings: applier<'settings'>(),
-  extends: applier<'extends'>(),
-  parserOptions: applier<'parserOptions'>(),
-  overrides: applier<'overrides'>(),
 }
