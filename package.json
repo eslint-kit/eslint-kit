@@ -29,7 +29,6 @@
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "5.27.0",
     "babel-preset-solid": "^1.4.2",
-    "eslint": "8.16.0",
     "eslint-import-resolver-custom-alias": "^1.3.0",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-effector": "0.6.0",
@@ -56,6 +55,7 @@
     "@types/semver": "^7.3.9",
     "effector": "^22.3.0",
     "esbuild": "^0.14.39",
+    "eslint": "^8.16.0",
     "jest": "^28.1.0",
     "jest-serializer-path": "^0.1.15",
     "react": "^18.1.0",
@@ -69,5 +69,8 @@
     "ts-jest": "^28.0.2",
     "typescript": "^4.6.4",
     "vue": "^3.2.35"
+  },
+  "peerDependencies": {
+    "eslint": "^8.16.0"
   }
 }
