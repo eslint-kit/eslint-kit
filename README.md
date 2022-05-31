@@ -77,7 +77,7 @@ module.exports = configure({
 })
 ```
 
-`eslint-kit` package contains all the dependencies you might need. It's ok - this is a development dependency, so you won't get any bundle size problems.
+`eslint-kit` package contains all the dependencies you might need. The only exception is `eslint` - it should be installed separately to work properly (executing `yarn eslint` and so on).
 
 The ESLint Kit presets try to contain only the best-practice rules to make overwriting as rare as possible. But you can still easily override them by using `extend` property.
 
@@ -94,14 +94,16 @@ npx eslint-kit-cli@latest
 NPM:
 
 ```sh
-npm install -D eslint-kit
+npm install -D eslint-kit eslint
 ```
 
 Yarn:
 
 ```sh
-yarn add -D eslint-kit
+yarn add -D eslint-kit eslint
 ```
+
+> **Note**: You need `^8.16.0` version of ESLint 
 
 After installing, add the `.eslintrc.js` file in your project root:
 
