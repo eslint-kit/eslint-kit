@@ -1,4 +1,4 @@
-import { overrideOverrides, splitOverrides } from './eslint'
+import { overrideOverrides, splitOverrides } from './override'
 
 describe('eslint utils', () => {
   test('split overrides', () => {
