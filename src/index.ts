@@ -8,6 +8,7 @@ import {
   PRIORITY,
 } from './presets'
 import { base } from './presets/base'
+import { mergeConfigs } from './shared/lib/eslint'
 
 interface Options {
   root?: string
@@ -20,14 +21,17 @@ export function configure({
   presets,
   extend = {},
 }: Options) {
-  const config = compilePresets(
+  const kitConfig = compilePresets(
     [base({ root }), ...presets, presetExtend(extend)],
     PRIORITY
   )
 
-  applyModuleResolutionPatch(config)
+  // Patch resolution only for included modules
+  applyModuleResolutionPatch(kitConfig)
 
-  return config
+  const userConfig = compilePresets([presetExtend(extend)], PRIORITY)
+
+  return mergeConfigs([kitConfig, userConfig])
 }
 
 export { presets }
