@@ -12,12 +12,7 @@ import { svelte } from './svelte'
 import { typescript } from './typescript'
 import { vue } from './vue'
 
-export type PresetsCompound = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [Key in keyof typeof publicPresetNames]: PresetFabric<any>
-}
-
-export const presets: PresetsCompound = {
+export const presets = {
   imports,
   node,
   prettier,
@@ -30,3 +25,11 @@ export const presets: PresetsCompound = {
   remix,
   svelte,
 }
+
+/*
+ * Typecheck presets
+ */
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PresetsCompound = Record<keyof typeof publicPresetNames, PresetFabric<any>>
+const _typedPresets: PresetsCompound = presets
