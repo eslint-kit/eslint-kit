@@ -1,4 +1,5 @@
 import { EXTENSIONS } from '../../shared'
+import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createAliasSettings } from './alias'
 import { createExtensionsRule } from './lib'
@@ -18,10 +19,9 @@ const DEFAULT_IMPORT_GROUPS: string[][] = [
   ['^\\.'],
 ]
 
-export const imports = createPreset<'imports', Options | void>({
-  name: 'imports',
+export const imports = createPreset<Options | void>({
+  name: publicPresetNames.imports,
   updateMeta: ({ meta }) => {
-    meta.imports.used = true
     meta.imports.extensions = meta.imports.extensions.concat(EXTENSIONS.JS)
   },
   compile: ({ options = {}, meta }) => {

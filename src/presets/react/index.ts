@@ -1,4 +1,5 @@
 import { conditional } from '../../shared/lib/eslint'
+import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 
 export interface Options {
@@ -6,8 +7,8 @@ export interface Options {
   newJSXTransform?: boolean
 }
 
-export const react = createPreset<'react', Options | void>({
-  name: 'react',
+export const react = createPreset<Options | void>({
+  name: publicPresetNames.react,
   compile: ({ options }) => ({
     env: {
       browser: true,

@@ -1,13 +1,14 @@
 import { readJson } from '../../shared/lib/fs'
 import { Jsconfig, PackageJson } from '../../shared/types'
+import { servicePresetNames } from '../names'
 import { createPreset } from '../shared'
 
 interface Options {
   root: string
 }
 
-export const base = createPreset<'base', Options>({
-  name: 'base',
+export const base = createPreset<Options>({
+  name: servicePresetNames.base,
   updateMeta: ({ options, meta }) => {
     meta.root = options.root
 

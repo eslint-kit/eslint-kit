@@ -1,8 +1,9 @@
 import { Linter } from 'eslint'
+import { servicePresetNames } from '../names'
 import { createPreset } from '../shared'
 
-export const extend = createPreset<'extend', Linter.Config>({
-  name: 'extend',
+export const extend = createPreset<Linter.Config>({
+  name: servicePresetNames.extend,
   compile: ({ options }) => {
     const { rules = {}, overrides = [], ...rest } = options
 

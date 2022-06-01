@@ -1,5 +1,6 @@
 [
   "@babel/eslint-parser",
+  "@remix-run/eslint-config",
   "@next/eslint-plugin-next",
   "eslint-config-next",
   "@typescript-eslint/eslint-plugin",

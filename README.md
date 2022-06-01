@@ -373,6 +373,7 @@ configure({
 <br>
 
 - Enables `@next/eslint-plugin-next` plugin rules
+- Enables new JSX transform support
 - Allows the usage of `export default`
 
 `nextJs` preset doesn't provide React rules, so don't forget to add `react` preset too. You may omit `newJSXTransform`, since it's already included in `nextJs`.
@@ -380,6 +381,23 @@ configure({
 ```ts
 configure({
   presets: [presets.react(), presets.nextJs()]
+})
+```
+
+</details>
+
+<details>
+<summary>Remix</summary>
+<br>
+
+- Enables new JSX transform support
+- Allows the usage of `export default`
+
+`remix` preset doesn't provide React rules, so don't forget to add `react` preset too. You may omit `newJSXTransform`, since it's already included in `remix`.
+
+```ts
+configure({
+  presets: [presets.react(), presets.remix()]
 })
 ```
 

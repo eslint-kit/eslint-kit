@@ -1,5 +1,5 @@
 export { extend as presetExtend } from './extend'
-export type { PresetName } from './presets'
+export type { PresetName, PublicPresetName, ServicePresetName } from './names'
 export { presets } from './presets'
 export { PRIORITY } from './priority'
 export type { Preset } from './shared'

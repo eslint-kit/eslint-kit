@@ -1,5 +1,6 @@
 import { Linter } from 'eslint'
 import { conditional } from '../../shared/lib/eslint'
+import { publicPresetNames } from '../names'
 import { Meta } from '../shared'
 
 export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
@@ -86,7 +87,7 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
     // This is already checked by Typescript.
     'no-redeclare': 'off',
 
-    ...conditional.rules(meta.imports.used, {
+    ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
       // Checked by Typescript
       'import/no-extraneous-dependencies': 'off',
     }),

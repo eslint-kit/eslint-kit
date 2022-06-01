@@ -1,6 +1,7 @@
 import { Linter } from 'eslint'
 import { mergeConfigs } from '../shared/lib/eslint'
 import { Jsconfig, PackageJson } from '../shared/types'
+import { PresetName } from './names'
 
 type ReplaceVoid<T> = void extends T ? Exclude<T, void> | undefined : T
 
@@ -8,12 +9,11 @@ export interface Meta {
   root: string
   readPackageJson(): PackageJson | null
   readJsconfig(): Jsconfig | null
+  presets: Set<PresetName>
   imports: {
-    used: boolean
     extensions: string[]
   }
   typescript: {
-    used: boolean
     root: string
     tsconfig: string
   }
@@ -25,31 +25,26 @@ export interface Input<T = void> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface Preset<N extends string = string, T = any> {
-  name: N
+export interface Preset<T = any> {
+  name: PresetName
   options: T
   updateMeta(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
 
-type PresetFabric<N extends string, T = void> = (options: T) => Preset<N, T>
+export type PresetFabric<T = void> = (options: T) => Preset<T>
 
-interface CreatePresetParams<N, T = void> {
-  name: N
+interface CreatePresetParams<T = void> {
+  name: PresetName
   updateMeta?(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ExtractName<T> = T extends PresetFabric<infer Name, any>
-  ? Name
-  : never
-
-export function createPreset<N extends string = string, T = void>({
+export function createPreset<T = void>({
   name,
   updateMeta = () => {},
   compile,
-}: CreatePresetParams<N, T>): PresetFabric<N, T> {
+}: CreatePresetParams<T>): PresetFabric<T> {
   return (options) => ({
     name,
     options,
@@ -62,12 +57,11 @@ export const createMeta = (): Meta => ({
   root: process.cwd(),
   readPackageJson: () => null,
   readJsconfig: () => null,
+  presets: new Set(),
   imports: {
-    used: false,
     extensions: [],
   },
   typescript: {
-    used: false,
     root: './',
     tsconfig: 'tsconfig.json',
   },
@@ -84,6 +78,7 @@ export function compilePresets(
   const meta = createMeta()
 
   for (const preset of prioritized) {
+    meta.presets.add(preset.name)
     preset.updateMeta({ meta, options: preset.options })
   }
 
