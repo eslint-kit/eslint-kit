@@ -1,4 +1,5 @@
 import { conditional } from '../../shared/lib/eslint'
+import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from '../typescript/lib'
 
@@ -7,11 +8,11 @@ export interface Options {
   noTypeCheck: boolean
 }
 
-export const svelte = createPreset<'svelte', Options | void>({
-  name: 'svelte',
+export const svelte = createPreset<Options | void>({
+  name: publicPresetNames.svelte,
   compile: ({ options, meta }) => {
     const useTypeCheck = !options?.noTypeCheck
-    const useTS = meta.typescript.used && useTypeCheck
+    const useTS = meta.presets.has(publicPresetNames.typescript) && useTypeCheck
 
     return {
       env: {

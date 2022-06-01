@@ -2,6 +2,7 @@ import path from 'path'
 import { conditional } from '../../shared/lib/eslint'
 import { readJson } from '../../shared/lib/fs'
 import { Jsconfig } from '../../shared/types'
+import { publicPresetNames } from '../names'
 import { Meta } from '../shared'
 import { Options } from './types'
 
@@ -40,7 +41,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
         alias,
         extensions: meta.imports.extensions,
       },
-      ...conditional.settings(meta.typescript.used, {
+      ...conditional.settings(meta.presets.has(publicPresetNames.typescript), {
         typescript: {
           alwaysTryTypes: true,
           project: meta.typescript.tsconfig,

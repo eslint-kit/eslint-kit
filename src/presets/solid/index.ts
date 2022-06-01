@@ -1,8 +1,9 @@
 import { conditional } from '../../shared/lib/eslint'
+import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 
 export const solidJs = createPreset({
-  name: 'solid.js',
+  name: publicPresetNames.solidJs,
   compile: ({ meta }) => ({
     env: {
       browser: true,
@@ -18,7 +19,9 @@ export const solidJs = createPreset({
     plugins: ['solid'],
     extends: [
       'plugin:solid/recommended',
-      ...conditional.extends(meta.typescript.used, ['plugin:solid/typescript']),
+      ...conditional.extends(meta.presets.has(publicPresetNames.typescript), [
+        'plugin:solid/typescript',
+      ]),
     ],
   }),
 })

@@ -2,6 +2,7 @@ import { parse, SemVer } from 'semver'
 import { PackageJsonNotFoundException } from '../../shared'
 import { conditional } from '../../shared/lib/eslint'
 import { getPackageSemver } from '../../shared/lib/packages'
+import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from '../typescript/lib'
 
@@ -9,8 +10,8 @@ export interface Options {
   version?: string | 'detect'
 }
 
-export const vue = createPreset<'vue', Options | void>({
-  name: 'vue',
+export const vue = createPreset<Options | void>({
+  name: publicPresetNames.vue,
   compile: ({ options = {}, meta }) => {
     const { version = 'detect' } = options
 
@@ -34,9 +35,12 @@ export const vue = createPreset<'vue', Options | void>({
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@babel/eslint-parser',
-        ...conditional.parserOptions(meta.typescript.used, {
-          parser: '@typescript-eslint/parser',
-        }),
+        ...conditional.parserOptions(
+          meta.presets.has(publicPresetNames.typescript),
+          {
+            parser: '@typescript-eslint/parser',
+          }
+        ),
         ecmaFeatures: {
           jsx: true,
         },
@@ -45,15 +49,18 @@ export const vue = createPreset<'vue', Options | void>({
         ...conditional.extends(major === 2, ['plugin:vue/recommended']),
         ...conditional.extends(major === 3, ['plugin:vue/vue3-recommended']),
       ],
-      rules: conditional.rules(meta.imports.used, {
+      rules: conditional.rules(meta.presets.has(publicPresetNames.imports), {
         'import/no-default-export': 'off',
       }),
-      overrides: conditional.overrides(meta.typescript.used, [
-        {
-          files: ['*.vue'],
-          rules: createTypescriptRules(meta),
-        },
-      ]),
+      overrides: conditional.overrides(
+        meta.presets.has(publicPresetNames.typescript),
+        [
+          {
+            files: ['*.vue'],
+            rules: createTypescriptRules(meta),
+          },
+        ]
+      ),
     }
   },
 })
