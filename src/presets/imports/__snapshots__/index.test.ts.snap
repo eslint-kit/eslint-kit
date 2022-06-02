@@ -238,7 +238,7 @@ export {}
 exports[`[Presets] Imports should respect paths from jsconfig.json: alias-jsconfig-clear 1`] = `
 Array [
   Object {
-    "errorCount": 1,
+    "errorCount": 2,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-jsconfig-clear.js",
     "fixableErrorCount": 0,
@@ -275,6 +275,16 @@ import { sum as sumA } from \\"sum\\"",
         "nodeType": "Identifier",
         "ruleId": "no-unused-vars",
         "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 34,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'sum'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
       },
       Object {
         "column": 17,
@@ -354,7 +364,7 @@ Array [
 exports[`[Presets] Imports should respect paths from tsconfig.json: alias-tsconfig-clear 1`] = `
 Array [
   Object {
-    "errorCount": 1,
+    "errorCount": 2,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-tsconfig-clear.ts",
     "fixableErrorCount": 0,
@@ -391,6 +401,16 @@ import { sum as sumA } from \\"sum\\"",
         "nodeType": "Identifier",
         "ruleId": "@typescript-eslint/no-unused-vars",
         "severity": 1,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 34,
+        "endLine": 1,
+        "line": 1,
+        "message": "Unable to resolve path to module 'sum'.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-unresolved",
+        "severity": 2,
       },
       Object {
         "column": 17,

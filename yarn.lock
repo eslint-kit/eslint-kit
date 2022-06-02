@@ -1922,6 +1922,15 @@ eslint-import-resolver-custom-alias@^1.3.0:
     glob-parent "^5.1.0"
     resolve "^1.3.0"
 
+eslint-import-resolver-jsconfig@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-jsconfig/-/eslint-import-resolver-jsconfig-1.1.0.tgz#7e2ea0868205fff33fd1d9ed79642cdeaa1e42df"
+  integrity sha512-MEiD/zyEkVVwnblRI058/0liYrKXMUwgAtM4EKrTldrThb1AvgPIQeR4emDKC2IotTuWF7KzekvGP+KLhtM3rw==
+  dependencies:
+    find-root "^1.1.0"
+    glob-parent "^6.0.1"
+    resolve "^1.20.0"
+
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.6.tgz#4048b958395da89668252001dbd9eca6b83bacbd"
@@ -1929,6 +1938,17 @@ eslint-import-resolver-node@^0.3.6:
   dependencies:
     debug "^3.2.7"
     resolve "^1.20.0"
+
+eslint-import-resolver-typescript@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-2.7.1.tgz#a90a4a1c80da8d632df25994c4c5fdcdd02b8751"
+  integrity sha512-00UbgGwV8bSgUv34igBDbTOtKhqoRMy9bFjNehT40bXg6585PNIct8HhXZ0SybqB9rWtXj9crcku8ndDn/gIqQ==
+  dependencies:
+    debug "^4.3.4"
+    glob "^7.2.0"
+    is-glob "^4.0.3"
+    resolve "^1.22.0"
+    tsconfig-paths "^3.14.1"
 
 eslint-module-utils@^2.7.3:
   version "2.7.3"
@@ -2294,6 +2314,11 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
+find-root@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
+  integrity sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==
+
 find-up@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
@@ -2420,7 +2445,7 @@ glob@7.1.7:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.1.3, glob@^7.1.4:
+glob@^7.1.3, glob@^7.1.4, glob@^7.2.0:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.3.tgz#b8df0fb802bbfa8e89bd1d938b4e16578ed44f2b"
   integrity sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==

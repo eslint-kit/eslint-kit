@@ -10,6 +10,7 @@ export interface Options {
   dirname: string
   files: string[]
   extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte' | 'vue'
+  disableLogs?: boolean
 }
 
 export async function testConfig({
@@ -18,6 +19,7 @@ export async function testConfig({
   dirname,
   files,
   extension,
+  disableLogs = false
 }: Options) {
   const root = path.resolve(dirname, './tests')
 
@@ -28,10 +30,20 @@ export async function testConfig({
     ignore: false,
   })
 
+  const log = console.log
+
+  if (disableLogs) {
+    console.log = () => {}
+  }
+
   for (const file of files) {
     const filePath = path.resolve(root, `./${file}.${extension}`)
     const code = fs.readFileSync(filePath).toString()
     const result = await cli.lintText(code, { filePath })
     expect(result).toMatchSnapshot(`${file}`)
+  }
+
+  if (disableLogs) {
+    console.log = log
   }
 }

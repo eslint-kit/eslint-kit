@@ -36,6 +36,7 @@ describe('[Presets] Imports', () => {
       dirname: __dirname,
       files: ['alias-jsconfig-clear', 'alias-jsconfig-error'],
       extension: 'js',
+      disableLogs: true
     })
   })
 
@@ -45,6 +46,7 @@ describe('[Presets] Imports', () => {
       dirname: __dirname,
       files: ['alias-tsconfig-clear', 'alias-tsconfig-error'],
       extension: 'ts',
+      disableLogs: true
     })
   })
 })
