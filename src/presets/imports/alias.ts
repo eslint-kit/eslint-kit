@@ -20,9 +20,11 @@ export function createAliasSettings({ options = {}, meta }: Input) {
   } = aliasOptions
 
   const jsconfigJson = readJson<Jsconfig>(meta.root, jsconfig)
-  const jsconfigAlias = generateJsconfigAlias(jsconfigJson, meta.root)
 
-  const customAlias = Object.entries(paths).reduce<Record<string, string>>(
+  const useTsconfig = meta.presets.has(publicPresetNames.typescript)
+  const useJsconfig = Boolean(jsconfigJson)
+
+  const alias = Object.entries(paths).reduce<Record<string, string>>(
     (alias, [key, value]) => {
       alias[key] = path.join(root, value)
       return alias
@@ -30,18 +32,19 @@ export function createAliasSettings({ options = {}, meta }: Input) {
     {}
   )
 
-  const alias = {
-    ...jsconfigAlias,
-    ...customAlias,
-  }
-
   return {
     'import/resolver': {
       'eslint-import-resolver-custom-alias': {
         alias,
         extensions: meta.imports.extensions,
       },
-      ...conditional.settings(meta.presets.has(publicPresetNames.typescript), {
+      ...conditional.settings(useJsconfig, {
+        jsconfig: {
+          config: path.resolve(meta.root, jsconfig),
+          extensions: meta.imports.extensions,
+        }
+      }),
+      ...conditional.settings(useTsconfig, {
         typescript: {
           alwaysTryTypes: true,
           project: meta.typescript.tsconfig,
@@ -49,31 +52,4 @@ export function createAliasSettings({ options = {}, meta }: Input) {
       }),
     },
   }
-}
-
-function generateJsconfigAlias(jsconfig: Jsconfig | null, root: string) {
-  if (!jsconfig) return {}
-  const { compilerOptions = {} } = jsconfig
-  const { baseUrl, paths = {} } = compilerOptions
-
-  const alias: Record<string, string> = {}
-
-  if (baseUrl) {
-    alias[''] = path.resolve(root, baseUrl)
-  }
-
-  for (const [target, sources] of Object.entries(paths)) {
-    if (sources.length === 0) continue
-    const [source] = sources
-
-    alias[removeStars(target)] = baseUrl
-      ? path.resolve(root, baseUrl, removeStars(source))
-      : path.resolve(root, removeStars(source))
-  }
-
-  return alias
-}
-
-function removeStars(string: string) {
-  return string.replace(/\/\*/g, '')
 }
