@@ -1,6 +1,8 @@
 import path from 'path'
+import { conditional } from '../../shared/lib/eslint'
 import { readJson } from '../../shared/lib/fs'
-import { Jsconfig, Tsconfig } from '../../shared/types'
+import { Jsconfig } from '../../shared/types'
+import { publicPresetNames } from '../names'
 import { Meta } from '../shared'
 import { Options } from './types'
 
@@ -18,9 +20,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
   } = aliasOptions
 
   const jsconfigJson = readJson<Jsconfig>(meta.root, jsconfig)
-  const tsconfigJson = readJson<Tsconfig>(meta.root, meta.typescript.tsconfig)
-  const jsconfigAlias = generateJsOrTsconfigAlias(jsconfigJson, meta.root)
-  const tsconfigAlias = generateJsOrTsconfigAlias(tsconfigJson, meta.root)
+  const jsconfigAlias = generateJsconfigAlias(jsconfigJson, meta.root)
 
   const customAlias = Object.entries(paths).reduce<Record<string, string>>(
     (alias, [key, value]) => {
@@ -32,7 +32,6 @@ export function createAliasSettings({ options = {}, meta }: Input) {
 
   const alias = {
     ...jsconfigAlias,
-    ...tsconfigAlias,
     ...customAlias,
   }
 
@@ -42,16 +41,19 @@ export function createAliasSettings({ options = {}, meta }: Input) {
         alias,
         extensions: meta.imports.extensions,
       },
+      ...conditional.settings(meta.presets.has(publicPresetNames.typescript), {
+        typescript: {
+          alwaysTryTypes: true,
+          project: meta.typescript.tsconfig,
+        },
+      }),
     },
   }
 }
 
-function generateJsOrTsconfigAlias(
-  config: Jsconfig | Tsconfig | null,
-  root: string
-) {
-  if (!config) return {}
-  const { compilerOptions = {} } = config
+function generateJsconfigAlias(jsconfig: Jsconfig | null, root: string) {
+  if (!jsconfig) return {}
+  const { compilerOptions = {} } = jsconfig
   const { baseUrl, paths = {} } = compilerOptions
 
   const alias: Record<string, string> = {}

@@ -12,10 +12,3 @@ export interface Jsconfig {
     paths?: Record<string, string[]>
   }
 }
-
-export interface Tsconfig {
-  compilerOptions?: {
-    baseUrl?: string
-    paths?: Record<string, string[]>
-  }
-}

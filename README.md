@@ -177,9 +177,6 @@ configure({
         // (optional) A custom path to jsconfig
         // Defaults to jsconfig.json
         jsconfig: 'jsconfig.json'
-
-        // A path to tsconfig is taken from "typescript" preset options
-        // Or defaults to tsconfig.json
       }
     })
   ]
