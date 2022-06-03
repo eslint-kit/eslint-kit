@@ -22,7 +22,8 @@ const DEFAULT_IMPORT_GROUPS: string[][] = [
 export const imports = createPreset<Options | void>({
   name: publicPresetNames.imports,
   updateMeta: ({ meta }) => {
-    meta.imports.extensions = meta.imports.extensions.concat(EXTENSIONS.JS)
+    meta.imports.extensions.push(...EXTENSIONS.MISC)
+    meta.imports.extensions.push(...EXTENSIONS.JS)
   },
   compile: ({ options = {}, meta }) => {
     const { sort = {} } = options

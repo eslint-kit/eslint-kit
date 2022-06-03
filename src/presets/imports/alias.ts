@@ -42,7 +42,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
         jsconfig: {
           config: path.resolve(meta.root, jsconfig),
           extensions: meta.imports.extensions,
-        }
+        },
       }),
       ...conditional.settings(useTsconfig, {
         typescript: {
