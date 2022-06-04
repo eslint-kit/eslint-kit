@@ -46,12 +46,7 @@ export const imports = createPreset<Options | void>({
           { commonjs: true, caseSensitive: true },
         ],
         'import/no-default-export': 'warn',
-        'import/no-anonymous-default-export': [
-          'error',
-          {
-            allowCallExpression: false,
-          },
-        ],
+        'import/no-anonymous-default-export': 'error',
         'import/export': 'error',
         'import/no-mutable-exports': 'error',
         'import/no-amd': 'error',
