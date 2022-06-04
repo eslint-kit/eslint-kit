@@ -17,7 +17,7 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
       },
       {
         selector: 'parameter',
-        format: ['camelCase'],
+        format: ['camelCase', 'PascalCase'],
         leadingUnderscore: 'allow',
       },
       {
