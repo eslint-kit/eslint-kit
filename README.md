@@ -470,8 +470,21 @@ I have no idea when this may be useful, but ok.
 **Q**: My `.eslintrc.js` doesn't work, why?  
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
+**Q**: ESLint couldn't determine the plugin "foo" uniquely  
+**A**: Most likely your `.eslintrc.js` is located inside some nested project directory, so that you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
+
+```ts
+configure({
+  presets: [/* ... */],
+  extend: {
+    root: true
+  }
+})
+```
+
 **Q**: I get some error when using `eslint-kit` in monorepo  
 **A**: We didn't test monorepos much. They often have different issues with eslint and plugins resolving. And we also don't guarantee that your aliases settings will work in monorepo.
+
 
 ## Setting up editors
 
