@@ -1,0 +1,1 @@
+export { entityModel } from './model';
