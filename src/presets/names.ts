@@ -15,6 +15,7 @@ export const publicPresetNames = {
   nextJs: 'next.js',
   remix: 'remix',
   svelte: 'svelte',
+  fsd: 'fsd',
 } as const
 
 export type ServicePresetName =
