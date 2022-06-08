@@ -281,6 +281,37 @@ configure({
 
 </details>
 
+
+<details>
+<summary>Feature-Sliced Design (FSD)</summary>
+<br>
+
+- Replaces `simple-import-sort/imports` rule when `imports` preset is included
+- Enables [fsd public-api](https://github.com/feature-sliced/eslint-config/tree/master/rules/public-api) preset
+- Enables [fsd import-order](https://github.com/feature-sliced/eslint-config/tree/master/rules/import-order) preset
+- Enables [fsd layers-slices](https://github.com/feature-sliced/eslint-config/tree/master/rules/layers-slices) preset
+
+```ts
+configure({
+  presets: [presets.fsd()]
+})
+```
+
+Available options (disabled by default)
+
+```ts
+configure({
+  presets: [presets.fsd({
+    // With reversed order ("from abstract to specific") and spaces between layers groups
+    importOrder: 'experimental',
+    // Without SegmentsAPI / InnerAPI restrictions
+    publicApi: 'lite'
+  })]
+})
+```
+
+</details>
+
 ### Frameworks
 
 <details>
