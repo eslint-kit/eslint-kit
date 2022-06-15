@@ -482,7 +482,7 @@ configure({
 })
 ```
 
-**Q**: I get some error when using `eslint-kit` in monorepo  
+**Q**: I get some another error when using `eslint-kit` in monorepo  
 **A**: We didn't test monorepos much. They often have different issues with eslint and plugins resolving. And we also don't guarantee that your aliases settings will work in monorepo.
 
 
