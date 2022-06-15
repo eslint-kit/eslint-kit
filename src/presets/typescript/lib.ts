@@ -7,7 +7,10 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
   return {
     '@typescript-eslint/adjacent-overload-signatures': 'warn',
     '@typescript-eslint/ban-ts-comment': 'error',
-    '@typescript-eslint/ban-types': 'error',
+    '@typescript-eslint/ban-types': [
+      'error',
+      { extendDefaults: true, types: { '{}': false } },
+    ],
     '@typescript-eslint/naming-convention': [
       'warn',
       {
@@ -35,7 +38,6 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/no-namespace': 'error',
-    '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {

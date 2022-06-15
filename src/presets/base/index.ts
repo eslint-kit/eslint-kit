@@ -209,7 +209,6 @@ export const base = createPreset<Options>({
       'sonarjs/no-unused-collection': 'error',
       'sonarjs/no-useless-catch': 'warn',
       'sonarjs/prefer-object-literal': 'warn',
-      'sonarjs/prefer-single-boolean-return': 'warn',
       'sonarjs/prefer-while': 'warn',
     },
   }),
