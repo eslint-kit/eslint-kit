@@ -48,12 +48,6 @@ export const react = createPreset<Options | void>({
           allowArrowFunctions: true,
         },
       ],
-      'react/jsx-props-no-spreading': [
-        'error',
-        {
-          html: 'ignore',
-        },
-      ],
       'react/jsx-curly-brace-presence': 'warn',
       'react/jsx-pascal-case': 'warn',
       'react/jsx-no-undef': 'error',
