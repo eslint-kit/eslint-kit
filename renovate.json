@@ -1,6 +1,7 @@
 {
   "masterIssue": true,
   "platformAutomerge": true,
+  "recreateClosed": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
