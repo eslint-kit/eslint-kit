@@ -467,7 +467,7 @@ I have no idea when this may be useful, but ok.
 
 ## Common issues
 
-**Q**: My `.eslintrc.js` doesn't work, why?  
+**Q**: ESLint ignores my `.eslintrc.js`, why?  
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 **Q**: ESLint couldn't determine the plugin "foo" uniquely  
@@ -479,6 +479,16 @@ configure({
   extend: {
     root: true
   }
+})
+```
+
+**Q**: In my monorepo, ESLint complains about `tsconfig.json` (or another file) location. How can I fix it?  
+**A**: Just set up `root` option inside your nested package (workspace) `.eslintrc.js` like in the example below:
+
+```ts
+configure({
+  root: __dirname,
+  presets: [/* ... */]
 })
 ```
 
