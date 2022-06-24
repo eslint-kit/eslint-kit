@@ -16,7 +16,8 @@ export const typescript = createPreset<Options | void>({
   updateMeta: ({ meta, options }) => {
     meta.imports.extensions = meta.imports.extensions.concat(EXTENSIONS.TS)
     meta.typescript.root = path.resolve(meta.root, options?.root ?? './')
-    meta.typescript.tsconfig = options?.tsconfig ?? 'tsconfig.json'
+    meta.typescript.tsconfig =
+      options?.tsconfig ?? path.resolve(meta.typescript.root, 'tsconfig.json')
   },
   compile: ({ meta }) => ({
     plugins: ['@typescript-eslint'],

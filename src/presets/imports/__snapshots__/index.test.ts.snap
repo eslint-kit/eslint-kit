@@ -367,21 +367,19 @@ Array [
     "errorCount": 2,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/imports/tests/alias-tsconfig-clear.ts",
-    "fixableErrorCount": 0,
+    "fixableErrorCount": 1,
     "fixableWarningCount": 1,
     "messages": Array [
       Object {
         "column": 1,
         "endColumn": 35,
-        "endLine": 5,
+        "endLine": 2,
         "fix": Object {
           "range": Array [
             0,
-            149,
+            68,
           ],
-          "text": "// it doesn't work for the unknown reason
-// assuming it's an environment issue
-import { sum as sumB } from \\"meow\\"
+          "text": "import { sum as sumB } from \\"meow\\"
 import { sum as sumA } from \\"sum\\"",
         },
         "line": 1,
@@ -406,17 +404,25 @@ import { sum as sumA } from \\"sum\\"",
         "column": 29,
         "endColumn": 34,
         "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            21,
+            69,
+          ],
+          "text": ", sum as sumB } from \\"sum\\"
+",
+        },
         "line": 1,
-        "message": "Unable to resolve path to module 'sum'.",
+        "message": "'<PROJECT_ROOT>/src/presets/imports/tests/sum.ts' imported multiple times.",
         "nodeType": "Literal",
-        "ruleId": "import/no-unresolved",
+        "ruleId": "import/no-duplicates",
         "severity": 2,
       },
       Object {
         "column": 17,
         "endColumn": 21,
-        "endLine": 5,
-        "line": 5,
+        "endLine": 2,
+        "line": 2,
         "message": "'sumB' is defined but never used. Allowed unused vars must match /^_/u.",
         "messageId": "unusedVar",
         "nodeType": "Identifier",
@@ -426,18 +432,15 @@ import { sum as sumA } from \\"sum\\"",
       Object {
         "column": 29,
         "endColumn": 35,
-        "endLine": 5,
-        "line": 5,
-        "message": "Unable to resolve path to module 'meow'.",
+        "endLine": 2,
+        "line": 2,
+        "message": "'<PROJECT_ROOT>/src/presets/imports/tests/sum.ts' imported multiple times.",
         "nodeType": "Literal",
-        "ruleId": "import/no-unresolved",
+        "ruleId": "import/no-duplicates",
         "severity": 2,
       },
     ],
     "source": "import { sum as sumA } from \\"sum\\"
-
-// it doesn't work for the unknown reason
-// assuming it's an environment issue
 import { sum as sumB } from \\"meow\\"
 ",
     "suppressedMessages": Array [],
