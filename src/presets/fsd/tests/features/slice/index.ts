@@ -1,0 +1,1 @@
+export { featureModel } from './model';

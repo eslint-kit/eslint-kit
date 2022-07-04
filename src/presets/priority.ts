@@ -5,6 +5,7 @@ export const PRIORITY: PresetName[] = [
   'base',
   'imports',
   'typescript',
+  'fsd',
 
   'prettier',
   'node',

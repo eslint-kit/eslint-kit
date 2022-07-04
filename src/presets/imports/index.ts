@@ -1,4 +1,5 @@
 import { EXTENSIONS } from '../../shared'
+import { conditional } from '../../shared/lib/eslint'
 import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createAliasSettings } from './alias'
@@ -59,8 +60,11 @@ export const imports = createPreset<Options | void>({
         'import/no-cycle': ['error', { maxDepth: Number.POSITIVE_INFINITY }],
         'import/no-useless-path-segments': ['warn', { commonjs: true }],
 
-        'simple-import-sort/imports': ['warn', { groups: finalGroups }],
         'simple-import-sort/exports': 'warn',
+        // will conflict with import-order rule from fsd preset
+        ...conditional.rules(!meta.presets.has('fsd'), {
+          'simple-import-sort/imports': ['warn', { groups: finalGroups }],
+        }),
       },
     }
   },

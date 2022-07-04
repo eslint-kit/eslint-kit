@@ -1,0 +1,1225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] FSD should match snapshots: entities/slice/import-order-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/entities/slice/import-order-error.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 41,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            40,
+            40,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { external } from 'external-lib';
+import { ui } from '@/shared/ui';
+
+export const foo = { ui, external };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: entities/slice/import-order-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/entities/slice/import-order-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: entities/slice/layers-slices-error 1`] = `
+Array [
+  Object {
+    "errorCount": 6,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/entities/slice/layers-slices-error.ts",
+    "fixableErrorCount": 4,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 38,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            37,
+            37,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 24,
+        "endColumn": 37,
+        "endLine": 1,
+        "line": 1,
+        "message": "\\"entities\\" is not allowed to import \\"app\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            84,
+            84,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            85,
+          ],
+          "text": "import { widgetModel } from '@/widgets/slice';
+import { appLib } from '@/app/slice';
+",
+        },
+        "line": 2,
+        "message": "\`@/widgets/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 46,
+        "endLine": 2,
+        "line": 2,
+        "message": "\\"entities\\" is not allowed to import \\"widgets\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 48,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            0,
+            133,
+          ],
+          "text": "import { entityModel } from '@/entities/slice';
+import { appLib } from '@/app/slice';
+import { widgetModel } from '@/widgets/slice';
+",
+        },
+        "line": 3,
+        "message": "\`@/entities/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { appLib } from '@/app/slice';
+import { widgetModel } from '@/widgets/slice';
+import { entityModel } from '@/entities/slice';
+
+export const foo = { appLib, widgetModel, entityModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: entities/slice/layers-slices-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/entities/slice/layers-slices-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/import-order-error 1`] = `
+Array [
+  Object {
+    "errorCount": 3,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/import-order-error.ts",
+    "fixableErrorCount": 3,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 34,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            33,
+            33,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 41,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            74,
+            74,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 41,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            75,
+          ],
+          "text": "import { external } from 'external-lib';
+import { ui } from '@/shared/ui';
+",
+        },
+        "line": 2,
+        "message": "\`external-lib\` import should occur before import of \`@/shared/ui\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+
+export const foo = { ui, external, entityModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/import-order-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/import-order-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/layers-slices-error 1`] = `
+Array [
+  Object {
+    "errorCount": 9,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/layers-slices-error.ts",
+    "fixableErrorCount": 6,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 38,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            37,
+            37,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 24,
+        "endColumn": 37,
+        "endLine": 1,
+        "line": 1,
+        "message": "\\"features\\" is not allowed to import \\"app\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 43,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            80,
+            80,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 43,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            81,
+          ],
+          "text": "import { pageModel } from '@/pages/slice';
+import { appLib } from '@/app/slice';
+",
+        },
+        "line": 2,
+        "message": "\`@/pages/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 27,
+        "endColumn": 42,
+        "endLine": 2,
+        "line": 2,
+        "message": "\\"features\\" is not allowed to import \\"pages\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            127,
+            127,
+          ],
+          "text": "
+",
+        },
+        "line": 3,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            0,
+            128,
+          ],
+          "text": "import { widgetModel } from '@/widgets/slice';
+import { appLib } from '@/app/slice';
+import { pageModel } from '@/pages/slice';
+",
+        },
+        "line": 3,
+        "message": "\`@/widgets/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 46,
+        "endLine": 3,
+        "line": 3,
+        "message": "\\"features\\" is not allowed to import \\"widgets\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 49,
+        "endLine": 4,
+        "fix": Object {
+          "range": Array [
+            0,
+            177,
+          ],
+          "text": "import { featureModel } from '@/features/slice';
+import { appLib } from '@/app/slice';
+import { pageModel } from '@/pages/slice';
+import { widgetModel } from '@/widgets/slice';
+",
+        },
+        "line": 4,
+        "message": "\`@/features/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { appLib } from '@/app/slice';
+import { pageModel } from '@/pages/slice';
+import { widgetModel } from '@/widgets/slice';
+import { featureModel } from '@/features/slice';
+
+export const foo = { appLib, pageModel, widgetModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/layers-slices-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/layers-slices-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/public-api-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/public-api-error.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 29,
+        "endColumn": 53,
+        "endLine": 1,
+        "line": 1,
+        "message": "Reaching to \\"@/entities/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+    ],
+    "source": "import { entityModel } from '@/entities/slice/model';
+
+export const foo = { entityModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: features/slice/public-api-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/features/slice/public-api-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/import-order-error 1`] = `
+Array [
+  Object {
+    "errorCount": 7,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/import-order-error.ts",
+    "fixableErrorCount": 7,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            46,
+            46,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            219,
+          ],
+          "text": "import { featureModel } from '@/features/slice';
+import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+import { widgetModel } from '@/widgets/slice';
+",
+        },
+        "line": 1,
+        "message": "\`@/widgets/slice\` import should occur after import of \`@/entities/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 49,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            95,
+            95,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 49,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            47,
+            219,
+          ],
+          "text": "import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+import { featureModel } from '@/features/slice';
+",
+        },
+        "line": 2,
+        "message": "\`@/features/slice\` import should occur after import of \`@/entities/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 34,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            129,
+            129,
+          ],
+          "text": "
+",
+        },
+        "line": 3,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 34,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            96,
+            171,
+          ],
+          "text": "import { external } from 'external-lib';
+import { ui } from '@/shared/ui';
+",
+        },
+        "line": 3,
+        "message": "\`@/shared/ui\` import should occur after import of \`external-lib\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 41,
+        "endLine": 4,
+        "fix": Object {
+          "range": Array [
+            170,
+            170,
+          ],
+          "text": "
+",
+        },
+        "line": 4,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { widgetModel } from '@/widgets/slice';
+import { featureModel } from '@/features/slice';
+import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+
+export const foo = { ui, external, widgetModel, entityModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/import-order-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/import-order-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/layers-slices-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/layers-slices-error.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 24,
+        "endColumn": 37,
+        "endLine": 1,
+        "line": 1,
+        "message": "\\"pages\\" is not allowed to import \\"app\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+    ],
+    "source": "import { appLib } from '@/app/slice';
+
+export const foo = appLib;
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/layers-slices-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/layers-slices-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/public-api-error 1`] = `
+Array [
+  Object {
+    "errorCount": 6,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/public-api-error.ts",
+    "fixableErrorCount": 3,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 53,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            52,
+            52,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 53,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            162,
+          ],
+          "text": "import { entityModel } from '@/entities/slice/model';
+import { featureModel } from '@/features/slice/model';
+import { widgetModel } from '@/widgets/slice/model';
+",
+        },
+        "line": 1,
+        "message": "\`@/widgets/slice/model\` import should occur after import of \`@/features/slice/model\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 52,
+        "endLine": 1,
+        "line": 1,
+        "message": "Reaching to \\"@/widgets/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 54,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            106,
+            106,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 53,
+        "endLine": 2,
+        "line": 2,
+        "message": "Reaching to \\"@/entities/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 54,
+        "endLine": 3,
+        "line": 3,
+        "message": "Reaching to \\"@/features/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+    ],
+    "source": "import { widgetModel } from '@/widgets/slice/model';
+import { entityModel } from '@/entities/slice/model';
+import { featureModel } from '@/features/slice/model';
+
+export const foo = { widgetModel, entityModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: pages/slice/public-api-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/pages/slice/public-api-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: shared/ui/layers-slices-error 1`] = `
+Array [
+  Object {
+    "errorCount": 4,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/shared/ui/layers-slices-error.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 29,
+        "endColumn": 47,
+        "endLine": 1,
+        "line": 1,
+        "message": "\\"shared\\" is not allowed to import \\"entities\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 48,
+        "endLine": 3,
+        "line": 3,
+        "message": "\\"shared\\" is not allowed to import \\"features\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 46,
+        "endLine": 5,
+        "line": 5,
+        "message": "\\"shared\\" is not allowed to import \\"widgets\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 24,
+        "endColumn": 37,
+        "endLine": 7,
+        "line": 7,
+        "message": "\\"shared\\" is not allowed to import \\"app\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+    ],
+    "source": "import { entityModel } from '@/entities/slice';
+
+import { featureModel } from '@/features/slice';
+
+import { widgetModel } from '@/widgets/slice';
+
+import { appLib } from '@/app/slice';
+
+export const foo = { appLib, widgetModel, entityModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/import-order-error 1`] = `
+Array [
+  Object {
+    "errorCount": 5,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/import-order-error.ts",
+    "fixableErrorCount": 5,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 49,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            48,
+            48,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 49,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            172,
+          ],
+          "text": "import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+import { featureModel } from '@/features/slice';
+",
+        },
+        "line": 1,
+        "message": "\`@/features/slice\` import should occur after import of \`@/entities/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 34,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            82,
+            82,
+          ],
+          "text": "
+",
+        },
+        "line": 2,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 34,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            49,
+            124,
+          ],
+          "text": "import { external } from 'external-lib';
+import { ui } from '@/shared/ui';
+",
+        },
+        "line": 2,
+        "message": "\`@/shared/ui\` import should occur after import of \`external-lib\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 41,
+        "endLine": 3,
+        "fix": Object {
+          "range": Array [
+            123,
+            123,
+          ],
+          "text": "
+",
+        },
+        "line": 3,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { featureModel } from '@/features/slice';
+import { ui } from '@/shared/ui';
+import { external } from 'external-lib';
+import { entityModel } from '@/entities/slice';
+
+export const foo = { ui, external, entityModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/import-order-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/import-order-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/layers-slices-error 1`] = `
+Array [
+  Object {
+    "errorCount": 3,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/layers-slices-error.ts",
+    "fixableErrorCount": 2,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 38,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            37,
+            37,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 24,
+        "endColumn": 37,
+        "endLine": 1,
+        "line": 1,
+        "message": "\\"widgets\\" is not allowed to import \\"app\\" | See rules: https://feature-sliced.design/docs/reference/layers/overview ",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "boundaries/element-types",
+        "severity": 2,
+      },
+      Object {
+        "column": 1,
+        "endColumn": 47,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            0,
+            85,
+          ],
+          "text": "import { widgetModel } from '@/widgets/slice';
+import { appLib } from '@/app/slice';
+",
+        },
+        "line": 2,
+        "message": "\`@/widgets/slice\` import should occur before import of \`@/app/slice\`",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+    ],
+    "source": "import { appLib } from '@/app/slice';
+import { widgetModel } from '@/widgets/slice';
+
+export const foo = { appLib, widgetModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/layers-slices-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/layers-slices-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/public-api-error 1`] = `
+Array [
+  Object {
+    "errorCount": 3,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/public-api-error.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 54,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            53,
+            53,
+          ],
+          "text": "
+",
+        },
+        "line": 1,
+        "message": "There should be at least one empty line between import groups",
+        "nodeType": "ImportDeclaration",
+        "ruleId": "import/order",
+        "severity": 2,
+      },
+      Object {
+        "column": 29,
+        "endColumn": 53,
+        "endLine": 1,
+        "line": 1,
+        "message": "Reaching to \\"@/entities/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+      Object {
+        "column": 30,
+        "endColumn": 54,
+        "endLine": 2,
+        "line": 2,
+        "message": "Reaching to \\"@/features/slice/model\\" is not allowed.",
+        "nodeType": "Literal",
+        "ruleId": "import/no-internal-modules",
+        "severity": 2,
+      },
+    ],
+    "source": "import { entityModel } from '@/entities/slice/model';
+import { featureModel } from '@/features/slice/model';
+
+export const foo = { entityModel, featureModel };
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] FSD should match snapshots: widgets/slice/public-api-valid 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/fsd/tests/widgets/slice/public-api-valid.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;

@@ -1,4 +1,5 @@
 import { effector } from './effector'
+import { fsd } from './fsd'
 import { imports } from './imports'
 import { publicPresetNames } from './names'
 import { nextJs } from './nextjs'
@@ -19,6 +20,7 @@ export const presets = {
   typescript,
   react,
   vue,
+  fsd,
   solidJs,
   effector,
   nextJs,
