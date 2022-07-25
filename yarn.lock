@@ -1958,10 +1958,10 @@ eslint-module-utils@^2.7.3:
     debug "^3.2.7"
     find-up "^2.1.0"
 
-eslint-plugin-effector@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.6.0.tgz#3fc11328f98d8d44c1a15de8a77cd378b504af42"
-  integrity sha512-kzw3kQNwQhVnEZTohtbvWEqptCV/pmdp/8tCcziqzEBRclZzHR7st0eiywhkb58Z8Vsb1IXM5aLz7LBdi/fbOA==
+eslint-plugin-effector@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.8.1.tgz#2bce23432b4861630e8fec84d2754fb20aaea5d2"
+  integrity sha512-r+wV4qkyxdrmBjKhuqbrhcIQReCPGFLQS5z2s0w+pmyRExZ2Ge2BkwWs6TCIN0xTYU98CmD2q31BqQOj2yUFZQ==
   dependencies:
     prettier "^2.3.2"
 
