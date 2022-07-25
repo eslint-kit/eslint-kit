@@ -416,7 +416,7 @@ configure({
   presets: [
     presets.effector({
       // (optional) Enables /future rules
-      onlySample: false
+      future: false
     })
   ]
 })

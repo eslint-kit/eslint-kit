@@ -3,19 +3,23 @@ import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 
 export interface Options {
-  onlySample?: boolean
+  future?: boolean
 }
 
 export const effector = createPreset<Options | void>({
   name: publicPresetNames.effector,
-  compile: ({ options }) => {
+  compile: ({ options = {}, meta }) => {
+    const { future = true } = options
+
     return {
       plugins: ['effector'],
       extends: [
         'plugin:effector/recommended',
         'plugin:effector/scope',
-        'plugin:effector/react',
-        ...conditional.extends(options?.onlySample, ['plugin:effector/future']),
+        ...conditional.extends(meta.presets.has('react'), [
+          'plugin:effector/react',
+        ]),
+        ...conditional.extends(future, ['plugin:effector/future']),
       ],
     }
   },
