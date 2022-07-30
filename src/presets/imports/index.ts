@@ -56,7 +56,8 @@ export const imports = createPreset<Options | void>({
         'import/newline-after-import': 'warn',
         'import/no-webpack-loader-syntax': 'error',
         'import/no-self-import': 'error',
-        'import/no-cycle': ['error', { maxDepth: Number.POSITIVE_INFINITY }],
+        'import/no-cycle': 'off', // TODO: turn on when execution time became normal
+        // 'import/no-cycle': ['error', { maxDepth: Number.POSITIVE_INFINITY }],
         'import/no-useless-path-segments': ['warn', { commonjs: true }],
 
         'simple-import-sort/imports': ['warn', { groups: finalGroups }],
