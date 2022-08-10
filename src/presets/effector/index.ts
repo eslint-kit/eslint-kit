@@ -6,7 +6,7 @@ export interface Options {
   future?: boolean
 }
 
-export const effector = createPreset<Options | void>({
+export const effector = createPreset<Options>({
   name: publicPresetNames.effector,
   compile: ({ options = {}, meta }) => {
     const { future = true } = options

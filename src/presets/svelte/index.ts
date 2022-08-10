@@ -8,7 +8,7 @@ export interface Options {
   noTypeCheck: boolean
 }
 
-export const svelte = createPreset<Options | void>({
+export const svelte = createPreset<Options>({
   name: publicPresetNames.svelte,
   compile: ({ options, meta }) => {
     const useTypeCheck = !options?.noTypeCheck

@@ -4,20 +4,21 @@ import { servicePresetNames } from '../names'
 import { createPreset } from '../shared'
 
 interface Options {
-  root: string
+  root?: string
 }
 
 export const base = createPreset<Options>({
   name: servicePresetNames.base,
-  updateMeta: ({ options, meta }) => {
-    meta.root = options.root
+  updateMeta: ({ options = {}, meta }) => {
+    const { root = process.cwd() } = options
+    meta.root = root
 
     meta.readPackageJson = () => {
-      return readJson<PackageJson>(options.root, 'package.json')
+      return readJson<PackageJson>(root, 'package.json')
     }
 
     meta.readJsconfig = () => {
-      return readJson<Jsconfig>(options.root, 'jsconfig.json')
+      return readJson<Jsconfig>(root, 'jsconfig.json')
     }
   },
   compile: () => ({

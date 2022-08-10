@@ -7,7 +7,7 @@ export interface Options {
   newJSXTransform?: boolean
 }
 
-export const react = createPreset<Options | void>({
+export const react = createPreset<Options>({
   name: publicPresetNames.react,
   compile: ({ options }) => ({
     env: {

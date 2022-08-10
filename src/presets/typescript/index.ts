@@ -11,7 +11,7 @@ export interface Options {
   tsconfig?: string
 }
 
-export const typescript = createPreset<Options | void>({
+export const typescript = createPreset<Options>({
   name: publicPresetNames.typescript,
   updateMeta: ({ meta, options }) => {
     meta.imports.extensions = meta.imports.extensions.concat(EXTENSIONS.TS)

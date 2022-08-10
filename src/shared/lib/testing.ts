@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from 'fs'
 import path from 'path'
 import { ESLint } from 'eslint'
@@ -5,7 +6,7 @@ import { compilePresets, Preset, PresetName, PRIORITY } from '../../presets'
 import { base } from '../../presets/base'
 
 export interface Options {
-  presets: Preset[]
+  presets: Preset<unknown>[]
   priority?: PresetName[]
   dirname: string
   files: string[]
@@ -19,7 +20,7 @@ export async function testConfig({
   dirname,
   files,
   extension,
-  disableLogs = false
+  disableLogs = false,
 }: Options) {
   const root = path.resolve(dirname, './tests')
 

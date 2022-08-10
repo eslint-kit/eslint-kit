@@ -1,5 +1,5 @@
 .DS_Store
-*.log
+*.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -10,6 +10,7 @@ node_modules
 .cache
 .next
 .nuxt
+.idea
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

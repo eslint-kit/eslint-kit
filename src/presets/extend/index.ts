@@ -4,7 +4,7 @@ import { createPreset } from '../shared'
 
 export const extend = createPreset<Linter.Config>({
   name: servicePresetNames.extend,
-  compile: ({ options }) => {
+  compile: ({ options = {} }) => {
     const { rules = {}, overrides = [], ...rest } = options
 
     return {
