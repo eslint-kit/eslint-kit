@@ -10,7 +10,7 @@ export interface Options {
   version?: string | 'detect'
 }
 
-export const vue = createPreset<Options | void>({
+export const vue = createPreset<Options>({
   name: publicPresetNames.vue,
   compile: ({ options = {}, meta }) => {
     const { version = 'detect' } = options

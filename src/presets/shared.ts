@@ -3,8 +3,6 @@ import { mergeConfigs } from '../shared/lib/eslint'
 import { Jsconfig, PackageJson } from '../shared/types'
 import { PresetName } from './names'
 
-type ReplaceVoid<T> = void extends T ? Exclude<T, void> | undefined : T
-
 export interface Meta {
   root: string
   readPackageJson(): PackageJson | null
@@ -19,20 +17,17 @@ export interface Meta {
   }
 }
 
-export interface Input<T = void> {
-  options: ReplaceVoid<T>
+export interface Input<T = never> {
+  options?: T
   meta: Meta
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface Preset<T = any> {
+export interface Preset<T = never> {
   name: PresetName
-  options: T
+  options?: T
   updateMeta(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
-
-export type PresetFabric<T = void> = (options: T) => Preset<T>
 
 interface CreatePresetParams<T = void> {
   name: PresetName
@@ -40,12 +35,12 @@ interface CreatePresetParams<T = void> {
   compile(input: Input<T>): Linter.Config
 }
 
-export function createPreset<T = void>({
+export function createPreset<T = never>({
   name,
   updateMeta = () => {},
   compile,
-}: CreatePresetParams<T>): PresetFabric<T> {
-  return (options) => ({
+}: CreatePresetParams<T>) {
+  return (options?: T): Preset<T> => ({
     name,
     options,
     updateMeta,
@@ -68,7 +63,7 @@ export const createMeta = (): Meta => ({
 })
 
 export function compilePresets(
-  presets: Preset[],
+  presets: Preset<unknown>[],
   priority: string[]
 ): Linter.Config {
   const prioritized = presets

@@ -2,7 +2,7 @@ import { Options } from 'prettier'
 import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 
-export const prettier = createPreset<Options | void>({
+export const prettier = createPreset<Options>({
   name: publicPresetNames.prettier,
   compile: ({ options }) => ({
     plugins: ['prettier'],

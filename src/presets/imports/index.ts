@@ -19,7 +19,7 @@ const DEFAULT_IMPORT_GROUPS: string[][] = [
   ['^\\.'],
 ]
 
-export const imports = createPreset<Options | void>({
+export const imports = createPreset<Options>({
   name: publicPresetNames.imports,
   updateMeta: ({ meta }) => {
     meta.imports.extensions.push(...EXTENSIONS.MISC)
