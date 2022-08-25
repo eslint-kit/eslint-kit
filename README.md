@@ -41,19 +41,19 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 - [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
   - [VSCode](#vscode)
-- [Contrubuting](#contributing)
+- [Contributing](#contributing)
 - [Maintenance](#maintenance)
 
 ## Why?
 
-- Most configs contain too common rules inside, so you need to do a lot of things to finalize them for your project
-- The other configs are bound to specific stack/technology, so it's hard to extend them in a way you're like
-- Sometimes, configs use formatting rules. Formatting is not the ESLint's job, so it's a high chance to get the conflict someday
-- Together, above means that most likely you'll need a different ESLint config for each of your project
+- Most configs contain too common rules inside, so you need to do a lot of things to finalize them for your project.
+- The other configs are bound to a specific stack/technology, so it's hard to extend them in a way that you like.
+- Sometimes, configs use formatting rules. Formatting is not ESLint's job, so there's a high chance to get into a conflict someday.
+- Together, the above means that most likely you'll need a different ESLint config for each of your projects.
 - You may often need to install a lot of dependencies: eslint, plugins, configs, parser, etc.
-- You may often face the problems with eslint/parser/plugin/config versions. It takes time to find the issue and solution.
+- You may often face problems with eslint/parser/plugin/config versions. It takes time to find the issue and solution.
 
-**ESLint Kit** is solving all these problems by providing a many small presets, each performing a specific task.
+**ESLint Kit** is solving all these problems by providing many small presets, each performing a specific task.
 
 You can select presets by using `configure` function in your `.eslintrc.js` file:
 
@@ -185,7 +185,7 @@ configure({
 
 Under the hood, we use `eslint-plugin-simple-import-sort`. It provides an option to override sorting `groups` - check out [this section](https://github.com/lydell/eslint-plugin-simple-import-sort#custom-grouping) in their README.
 
-This is the default `groups` values used by `eslint-kit`:
+These are the default `groups` values used by `eslint-kit`:
 
 ```ts
 [
@@ -213,7 +213,7 @@ To define your own `groups`, just pass it inside using `sort.groups`.
 
 - Changes parser to `@typescript-eslint/parser`
 - Allows the usage of `.ts` and `.tsx` extensions
-- Adds some TypeScript specific rules (for TS files)
+- Adds some TypeScript-specific rules (for TS files)
 - Replaces some default ESLint rules with their TypeScript analogues (for TS files)
 
 ```ts
@@ -316,7 +316,7 @@ configure({
 - Enables `browser` environment and `jsx` ecma feature
 - Allows `export default`
 
-You still need to setup your editor / IDE to lint `.vue` files. You can use [this guide](https://eslint.vuejs.org/user-guide/#editor-integrations) from Vue documentation. 
+You still need to set up your editor / IDE to lint `.vue` files. You can use [this guide](https://eslint.vuejs.org/user-guide/#editor-integrations) from Vue documentation. 
 
 ```ts
 configure({
@@ -353,7 +353,7 @@ configure({
 - Adds `svelte3` plugin and configures it
 - Enables some TypeScript settings when `typescript` preset is active
 
-You still need to setup your editor / IDE to lint `.svelte` files. You can use [this guide](https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/INTEGRATIONS.md) from `svelte3` plugin repo. 
+You still need to set up your editor / IDE to lint `.svelte` files. You can use [this guide](https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/INTEGRATIONS.md) from `svelte3` plugin repo.
 
 ```ts
 configure({
@@ -445,7 +445,7 @@ Do not transform rule levels. This is the default value.
 
 Transform `error` to `warn`, and `warn` to `off`.
 
-It's useful for an incremental adoption: you can focus on fixing only critical issues first.
+It's useful for incremental adoption: you can focus on fixing only critical issues first.
 
 #### `only-errors`
 
@@ -471,7 +471,7 @@ I have no idea when this may be useful, but ok.
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 **Q**: ESLint couldn't determine the plugin "foo" uniquely  
-**A**: Most likely your `.eslintrc.js` is located inside some nested project directory, so that you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
+**A**: Most likely your `.eslintrc.js` is located inside some nested project directory, and you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
 
 ```ts
 configure({
@@ -492,7 +492,7 @@ configure({
 })
 ```
 
-**Q**: I get some another error when using `eslint-kit` in monorepo  
+**Q**: I get another error when using `eslint-kit` in a monorepo
 **A**: We didn't test monorepos much. They often have different issues with eslint and plugins resolving. And we also don't guarantee that your aliases settings will work in monorepo.
 
 
@@ -563,18 +563,18 @@ Finally, add the following and save:
 ## Contributing
 
 1. Fork this repo
-2. Switch to new branch, it should start with `feat/`, `fix/`, `docs/`, `refactor/`, and etc., depending on the changes you want to propose
+2. Switch to a new branch, it should start with `feat/`, `fix/`, `docs/`, `refactor/`, etc., depending on the changes you want to propose
 3. Make changes
 4. Create a Pull Request into this repo's `main` branch
-5. When the checks is done and review is passed, I'll merge it into `main` and it will create a new record in the changelog. Then, when release is finally ready, your changes will be released.
+5. When the checks are done and the review is passed, I'll merge it into `main` and it will create a new record in the changelog. Then, when the release is finally ready, your changes will be released.
 
 ## Maintenance
 
 The dev branch is `main` - any developer changes is merged in there. Also, there is a `release` branch. It always contains the actual published release source code and tag.
 
-All changes is made using Pull Requests - push is forbidden. PR can be merged only after successfull `test-and-build` workflow checks.
+All changes are made using Pull Requests - push is forbidden. PR can be merged only after successful `test-and-build` workflow checks.
 
-When PR is merged, `release-drafter` workflow creates/updates a draft release. The changelog is built from the merged branch scope (`feat`, `fix`, etc) and PR title. When release is ready - we publish the draft.
+When PR is merged, `release-drafter` workflow creates/updates a draft release. The changelog is built from the merged branch scope (`feat`, `fix`, etc) and PR title. When the release is ready - we publish the draft.
 
 Then, the `release` workflow handles everything:
 
