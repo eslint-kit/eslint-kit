@@ -5,13 +5,16 @@ import { createPreset } from '../shared'
 
 interface Options {
   root?: string
+  allowDebug?: boolean
 }
 
 export const base = createPreset<Options>({
   name: servicePresetNames.base,
   updateMeta: ({ options = {}, meta }) => {
-    const { root = process.cwd() } = options
+    const { root = process.cwd(), allowDebug = false } = options
+
     meta.root = root
+    meta.allowDebug = allowDebug
 
     meta.readPackageJson = () => {
       return readJson<PackageJson>(root, 'package.json')
@@ -21,7 +24,7 @@ export const base = createPreset<Options>({
       return readJson<Jsconfig>(root, 'jsconfig.json')
     }
   },
-  compile: () => ({
+  compile: ({ meta }) => ({
     plugins: ['unicorn', 'sonarjs'],
     env: {
       es6: true,
@@ -41,7 +44,7 @@ export const base = createPreset<Options>({
       'no-cond-assign': 'error',
       'no-constant-condition': 'error',
       'no-control-regex': 'error',
-      'no-debugger': 'error',
+      'no-debugger': meta.allowDebug ? 'off' : 'error',
       'no-dupe-else-if': 'error',
       'no-dupe-keys': 'error',
       'no-duplicate-case': 'error',
@@ -72,9 +75,9 @@ export const base = createPreset<Options>({
       'default-case': 'error',
       'dot-notation': 'warn',
       'eqeqeq': ['error', 'smart'],
-      'no-alert': 'warn',
+      'no-alert': meta.allowDebug ? 'off' : 'warn',
       'no-console': [
-        'warn',
+        meta.allowDebug ? 'off' : 'warn',
         { allow: ['warn', 'error', 'info', 'group', 'groupEnd', 'table'] },
       ],
       'no-case-declarations': 'warn',

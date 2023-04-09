@@ -13,6 +13,7 @@ import { applyMode, mergeConfigs, Mode } from './shared/lib/eslint'
 interface Options {
   root?: string
   mode?: Mode
+  allowDebug?: boolean
   presets: Preset[]
   extend?: Linter.Config
 }
@@ -20,11 +21,12 @@ interface Options {
 export function configure({
   root = process.cwd(),
   mode = 'default',
+  allowDebug,
   presets,
   extend = {},
 }: Options) {
   let kitConfig = compilePresets(
-    [base({ root }), ...presets, presetExtend(extend)],
+    [base({ root, allowDebug }), ...presets, presetExtend(extend)],
     PRIORITY
   )
 

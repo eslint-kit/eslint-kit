@@ -37,6 +37,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
   - [Common](#common)
   - [Frameworks](#frameworks)
   - [Libraries](#libraries)
+- [Allow Debug](#allow-debug)
 - [Linting Modes](#linting-modes)
 - [Common issues](#common-issues)
 - [Setting up editors](#setting-up-editors)
@@ -125,6 +126,11 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 configure({
   // (optional) Project root
   root: __dirname,
+  
+  // (optional) Allow debug
+  // Very good option for development
+  // See "Allow Debug" section for more info
+  allowDebug: false,
 
   // (optional) Mode
   // See "Linting Modes" section for more info 
@@ -158,7 +164,7 @@ configure({
       // (optional) Imports sort settings
       sort: {
         // (optional) Add newline between import groups
-        newline: false
+        newline: false,
 
         // (optional) Define groups for sorting (see below)
         groups: [/* ... */]
@@ -424,6 +430,26 @@ configure({
 
 </details>
 
+## Allow Debug
+
+Useful in development mode.
+
+Disables the following rules:
+
+- `no-debugger`
+- `no-console`
+- `no-alert`
+- `effector/no-patronum-debug`
+
+```js
+const { configure, presets } = require('eslint-kit')
+
+module.exports = configure({
+  allowDebug: process.env.NODE_ENV !== "production",
+  /* ... */
+})
+```
+
 ## Linting Modes
 
 ```js
@@ -477,7 +503,7 @@ I have no idea when this may be useful, but ok.
 {
   "devDependencies": {
     "eslint": "8.22.0"
-  },
+  }
 }
 ```
 
@@ -561,11 +587,11 @@ Finally, add the following and save:
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact",
+    "typescriptreact"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-  },
+    "source.fixAll.eslint": true
+  }
 }
 ```
 
