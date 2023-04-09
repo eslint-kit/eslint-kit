@@ -21,6 +21,9 @@ export const effector = createPreset<Options>({
         ]),
         ...conditional.extends(future, ['plugin:effector/future']),
       ],
+      rules: {
+        'effector/no-patronum-debug': meta.allowDebug ? 'off' : 'error',
+      },
     }
   },
 })

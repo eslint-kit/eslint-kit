@@ -5,6 +5,7 @@ import { PresetName } from './names'
 
 export interface Meta {
   root: string
+  allowDebug: boolean
   readPackageJson(): PackageJson | null
   readJsconfig(): Jsconfig | null
   presets: Set<PresetName>
@@ -50,6 +51,7 @@ export function createPreset<T = never>({
 
 export const createMeta = (): Meta => ({
   root: process.cwd(),
+  allowDebug: false,
   readPackageJson: () => null,
   readJsconfig: () => null,
   presets: new Set(),
