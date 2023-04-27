@@ -2,14 +2,11 @@ name: Auto Release Draft
 
 on:
   schedule:
-    cron:  '0 1 * * *'
+    - cron:  '0 1 * * *'
 
 jobs:
-  pr-labeler:
+  auto-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
       - uses: actions/checkout@v3
 
