@@ -95,13 +95,13 @@ npx eslint-kit-cli@latest
 NPM:
 
 ```sh
-npm install -D eslint-kit eslint
+npm install -D eslint-kit eslint prettier
 ```
 
 Yarn:
 
 ```sh
-yarn add -D eslint-kit eslint
+yarn add -D eslint-kit eslint prettier
 ```
 
 > **Note**: You need `^8.16.0` version of ESLint 
