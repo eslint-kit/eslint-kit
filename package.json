@@ -44,7 +44,6 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-unicorn": "46.0.0",
     "eslint-plugin-vue": "9.10.0",
-    "prettier": "2.8.7",
     "semver": "^7.3.8",
     "vue-eslint-parser": "9.1.1"
   },
@@ -59,6 +58,7 @@
     "eslint": "^8.16.0",
     "jest": "^28.1.0",
     "jest-serializer-path": "^0.1.15",
+    "prettier": "^2.8.8",
     "react": "^18.1.0",
     "rollup": "^2.73.0",
     "rollup-plugin-bundle-size": "^1.0.3",
@@ -72,6 +72,7 @@
     "vue": "^3.2.35"
   },
   "peerDependencies": {
-    "eslint": "^8.16.0"
+    "eslint": "^8.16.0",
+    "prettier": "^2.8.0"
   }
 }
