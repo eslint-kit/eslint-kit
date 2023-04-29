@@ -1,2 +1,2 @@
-const jsx = <>Foo</>
+const jsx = <div aria-foo="123">Foo</div>
 export { jsx }

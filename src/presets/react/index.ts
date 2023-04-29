@@ -4,7 +4,7 @@ import { createPreset } from '../shared'
 
 export interface Options {
   version?: string | 'detect'
-  newJSXTransform?: boolean
+  oldJSXTransform?: boolean
 }
 
 export const react = createPreset<Options>({
@@ -70,12 +70,12 @@ export const react = createPreset<Options>({
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      'react/jsx-uses-react': 'warn',
-      'react/react-in-jsx-scope': 'error',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
 
-      ...conditional.rules(options?.newJSXTransform, {
-        'react/jsx-uses-react': 'off',
-        'react/react-in-jsx-scope': 'off',
+      ...conditional.rules(options?.oldJSXTransform, {
+        'react/jsx-uses-react': 'warn',
+        'react/react-in-jsx-scope': 'error',
       }),
 
       'jsx-a11y/alt-text': 'warn',
