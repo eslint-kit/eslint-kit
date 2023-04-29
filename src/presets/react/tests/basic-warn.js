@@ -1,5 +1,7 @@
-import React from 'react'
+const Child_Component = () => {
+  return <>Hello</>
+}
 
 export const Component = (props) => {
-  return <>{props.text}</>
+  return <Child_Component />
 }

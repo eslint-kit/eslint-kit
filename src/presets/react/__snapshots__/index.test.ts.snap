@@ -19,25 +19,35 @@ Array [
 exports[`[Presets] React should match snapshots: basic-error 1`] = `
 Array [
   Object {
-    "errorCount": 1,
+    "errorCount": 2,
     "fatalErrorCount": 0,
     "filePath": "<PROJECT_ROOT>/src/presets/react/tests/basic-error.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
     "messages": Array [
       Object {
-        "column": 13,
-        "endColumn": 15,
+        "column": 18,
+        "endColumn": 32,
         "endLine": 1,
         "line": 1,
-        "message": "'React' must be in scope when using JSX",
-        "messageId": "notInScope",
-        "nodeType": "JSXOpeningFragment",
-        "ruleId": "react/react-in-jsx-scope",
+        "message": "Unknown property 'aria-foo' found",
+        "messageId": "unknownProp",
+        "nodeType": "JSXAttribute",
+        "ruleId": "react/no-unknown-property",
+        "severity": 2,
+      },
+      Object {
+        "column": 18,
+        "endColumn": 32,
+        "endLine": 1,
+        "line": 1,
+        "message": "aria-foo: This attribute is an invalid ARIA attribute.",
+        "nodeType": "JSXAttribute",
+        "ruleId": "jsx-a11y/aria-props",
         "severity": 2,
       },
     ],
-    "source": "const jsx = <>Foo</>
+    "source": "const jsx = <div aria-foo=\\"123\\">Foo</div>
 export { jsx }
 ",
     "suppressedMessages": Array [],
@@ -57,39 +67,67 @@ Array [
     "fixableWarningCount": 0,
     "messages": Array [
       Object {
-        "column": 13,
-        "endColumn": 23,
-        "endLine": 4,
-        "line": 4,
-        "message": "Must use destructuring props assignment",
-        "messageId": "useDestructAssignment",
-        "nodeType": "MemberExpression",
-        "ruleId": "react/destructuring-assignment",
+        "column": 27,
+        "endColumn": 32,
+        "endLine": 5,
+        "line": 5,
+        "message": "'props' is defined but never used. Allowed unused args must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+      Object {
+        "column": 10,
+        "endColumn": 29,
+        "endLine": 6,
+        "line": 6,
+        "message": "Imported JSX component Child_Component must be in PascalCase",
+        "messageId": "usePascalCase",
+        "nodeType": "JSXOpeningElement",
+        "ruleId": "react/jsx-pascal-case",
         "severity": 1,
       },
     ],
-    "source": "import React from 'react'
+    "source": "const Child_Component = () => {
+  return <>Hello</>
+}
 
 export const Component = (props) => {
-  return <>{props.text}</>
+  return <Child_Component />
 }
 ",
     "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
-    "warningCount": 1,
+    "warningCount": 2,
   },
 ]
 `;
 
-exports[`[Presets] React should respect newJSXTransform option: new-jsx-transform-clear 1`] = `
+exports[`[Presets] React should respect oldJSXTransform option: old-jsx-transform-error 1`] = `
 Array [
   Object {
-    "errorCount": 0,
+    "errorCount": 1,
     "fatalErrorCount": 0,
-    "filePath": "<PROJECT_ROOT>/src/presets/react/tests/new-jsx-transform-clear.js",
+    "filePath": "<PROJECT_ROOT>/src/presets/react/tests/old-jsx-transform-error.js",
     "fixableErrorCount": 0,
     "fixableWarningCount": 0,
-    "messages": Array [],
+    "messages": Array [
+      Object {
+        "column": 13,
+        "endColumn": 15,
+        "endLine": 1,
+        "line": 1,
+        "message": "'React' must be in scope when using JSX",
+        "messageId": "notInScope",
+        "nodeType": "JSXOpeningFragment",
+        "ruleId": "react/react-in-jsx-scope",
+        "severity": 2,
+      },
+    ],
+    "source": "const jsx = <>Foo</>
+export { jsx }
+",
     "suppressedMessages": Array [],
     "usedDeprecatedRules": Array [],
     "warningCount": 0,

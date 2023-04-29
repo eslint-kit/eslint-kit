@@ -11,11 +11,11 @@ describe('[Presets] React', () => {
     })
   })
 
-  it('should respect newJSXTransform option', async () => {
+  it('should respect oldJSXTransform option', async () => {
     await testConfig({
-      presets: [react({ newJSXTransform: true })],
+      presets: [react({ oldJSXTransform: true })],
       dirname: __dirname,
-      files: ['new-jsx-transform-clear'],
+      files: ['old-jsx-transform-error'],
       extension: 'js',
     })
   })
