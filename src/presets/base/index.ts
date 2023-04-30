@@ -107,7 +107,7 @@ export const base = createPreset<Options>({
       'no-useless-call': 'warn',
       'no-useless-escape': 'warn',
       'no-useless-return': 'warn',
-      'no-void': 'warn',
+      'no-void': ['warn', { allowAsStatement: true }],
       'no-with': 'error',
       'radix': 'error',
       'yoda': 'warn',
