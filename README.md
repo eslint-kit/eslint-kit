@@ -51,8 +51,9 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 - The other configs are bound to a specific stack/technology, so it's hard to extend them in a way that you like.
 - Sometimes, configs use formatting rules. Formatting is not ESLint's job, so there's a high chance to get into a conflict someday.
 - Together, the above means that most likely you'll need a different ESLint config for each of your projects.
-- You may often need to install a lot of dependencies: eslint, plugins, configs, parser, etc.
+- You may often need to install a lot of dependencies: eslint, prettier, plugins, configs, parser, etc.
 - You may often face problems with eslint/parser/plugin/config versions. It takes time to find the issue and solution.
+- The average ESLint config UX is poor - for example, when using `no-console` rule, you will get warnings during the development. This kind of checks is useful when linting code for the production (CI environment, precommit hooks), but useless in development. ESLint Kit has `allowDebug` option to solve this problem.
 
 **ESLint Kit** is solving all these problems by providing many small presets, each performing a specific task.
 
