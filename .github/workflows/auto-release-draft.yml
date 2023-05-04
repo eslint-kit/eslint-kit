@@ -2,7 +2,7 @@ name: Auto Release Draft
 
 on:
   schedule:
-    - cron:  '* 5 * * *'
+    - cron:  '0 6 * * *'
 
 jobs:
   auto-release:
