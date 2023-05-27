@@ -25,7 +25,7 @@
 
 The README on `main` branch can contain some unreleased changes.
 
-Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch to see the actual README for the latest version from NPM.
+Go to [`release/latest`](https://github.com/eslint-kit/eslint-kit/tree/release/latest) branch to see the actual README for the latest version from NPM.
 
 ## Navigation
 
