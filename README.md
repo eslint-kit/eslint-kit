@@ -48,6 +48,7 @@ Go to [`release`](https://github.com/eslint-kit/eslint-kit/tree/release) branch 
 ## Why?
 
 - Most configs contain too common rules inside, so you need to do a lot of things to finalize them for your project.
+- You have to update config dependencies manually.
 - The other configs are bound to a specific stack/technology, so it's hard to extend them in a way that you like.
 - Sometimes, configs use formatting rules. Formatting is not ESLint's job, so there's a high chance to get into a conflict someday.
 - Together, the above means that most likely you'll need a different ESLint config for each of your projects.
@@ -79,7 +80,9 @@ module.exports = configure({
 })
 ```
 
-`eslint-kit` package contains all the dependencies you might need. The only exception is `eslint` - it should be installed separately to work properly (executing `yarn eslint` and so on).
+`eslint-kit` dependencies are automatically updated. The configs are covered with tests, and each package update is tested. Broken plugins/rules/configs will not be deployed and will stuck at the review process, waiting for the fix by a developers.
+
+`eslint-kit` package contains all the dependencies you might need. The only exception are `eslint` and `prettier` - they should be installed separately to work properly (executing `yarn eslint` and so on).
 
 The ESLint Kit presets try to contain only the best-practice rules to make overwriting as rare as possible. But you can still easily override them by using `extend` property.
 
