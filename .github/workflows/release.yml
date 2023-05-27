@@ -61,14 +61,8 @@ jobs:
         if: ${{ steps.version.outputs.prerelease != null }}
         run: npm publish --tag ${{ steps.version.outputs.prerelease }}
 
-      - name: Create latest release branch
-        run: git branch release/latest -f
-
       - name: Force update remote latest release branch
-        run: git push origin release/latest:release/latest -f
-
-      - name: Create major release branch
-        run: git branch release/${{ steps.version.outputs.major }} -f
+        run: git push origin ${{ steps.version.outputs.tag }}:release/latest -f
 
       - name: Force update remote major release branch
-        run: git push origin release/${{ steps.version.outputs.major }}:release/${{ steps.version.outputs.major }} -f
+        run: git push origin ${{ steps.version.outputs.tag }}:release/${{ steps.version.outputs.major }} -f
