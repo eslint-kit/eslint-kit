@@ -62,7 +62,7 @@ jobs:
         run: npm publish --tag ${{ steps.version.outputs.prerelease }}
 
       - name: Force update remote latest release branch
-        run: git push origin ${{ steps.version.outputs.tag }}:release/latest -f
+        run: git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/latest -f
 
       - name: Force update remote major release branch
-        run: git push origin ${{ steps.version.outputs.tag }}:release/${{ steps.version.outputs.major }} -f
+        run: git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/${{ steps.version.outputs.major }} -f
