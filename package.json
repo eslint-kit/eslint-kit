@@ -55,7 +55,7 @@
     "@types/semver": "^7.3.9",
     "effector": "^22.3.0",
     "esbuild": "^0.14.39",
-    "eslint": "^8.16.0",
+    "eslint": "^8.41.0",
     "jest": "^28.1.0",
     "jest-serializer-path": "^0.1.15",
     "prettier": "^2.8.8",
@@ -72,7 +72,7 @@
     "vue": "^3.2.35"
   },
   "peerDependencies": {
-    "eslint": "^8.16.0",
+    "eslint": "^8.41.0",
     "prettier": "^2.8.0"
   }
 }
