@@ -13,6 +13,12 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "<>"
 
+      - name: Parse version from tag
+        id: version
+        uses: release-kit/semver@v1
+        with:
+          input: ${{ github.event.release.tag_name }}
+
       - name: Checkout to latest release branch
         uses: actions/checkout@v3
         with:
@@ -20,13 +26,31 @@ jobs:
           fetch-depth: 0
 
       - name: Sync latest release branch with released tag
-        run: git reset --hard ${{ github.event.release.tag_name }}
+        run: git reset --hard ${{ steps.version.outputs.tag }}
 
       - name: Push latest release branch to remote
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
           branch: release/latest
+          tags: true
+          force: true
+          unprotect_reviews: true
+
+      - name: Checkout to major release branch
+        uses: actions/checkout@v3
+        with:
+          ref: release/${{ steps.version.outputs.major }}
+          fetch-depth: 0
+
+      - name: Sync major release branch with released tag
+        run: git reset --hard ${{ steps.version.outputs.tag }}
+
+      - name: Push major release branch to remote
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+          branch: release/${{ steps.version.outputs.major }}
           tags: true
           force: true
           unprotect_reviews: true
@@ -50,19 +74,10 @@ jobs:
           yarn test
           yarn build
 
-      # Now, when the released tag is synced with latest release branch,
-      # we can extract it to use it as a version for NPM package
-
-      - name: Extract version
-        id: tag
-        uses: olegtarasov/get-tag@v2.1.1
-        with:
-          tagRegex: 'v(?<full>(?<version>[0-9.]*)(?:-(?<rc>.*))?)'
-
       - name: Set version from release
         uses: reedyuk/npm-version@1.0.1
         with:
-          version: ${{ steps.tag.outputs.full }}
+          version: ${{ steps.version.outputs.tag }}
 
       - name: Create NPM config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
@@ -70,9 +85,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish latest
-        if: ${{ steps.tag.outputs.rc == null }}
+        if: ${{ steps.version.outputs.prerelease == null }}
         run: npm publish
 
       - name: Publish RC
-        if: ${{ steps.tag.outputs.rc != null }}
-        run: npm publish --tag ${{ steps.tag.outputs.rc }}
+        if: ${{ steps.version.outputs.prerelease != null }}
+        run: npm publish --tag ${{ steps.version.outputs.prerelease }}
