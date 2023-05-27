@@ -96,6 +96,8 @@ npx eslint-kit-cli@latest
 
 ## Manual installation
 
+> **Note**: You need at least `8.41.0` version of ESLint
+
 NPM:
 
 ```sh
@@ -107,8 +109,6 @@ Yarn:
 ```sh
 yarn add -D eslint-kit eslint prettier
 ```
-
-> **Note**: You need `^8.16.0` version of ESLint 
 
 After installing, add the `.eslintrc.js` file in your project root:
 
