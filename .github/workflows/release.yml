@@ -13,20 +13,20 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "<>"
 
-      - name: Checkout to release branch
+      - name: Checkout to latest release branch
         uses: actions/checkout@v3
         with:
-          ref: release
+          ref: release/latest
           fetch-depth: 0
 
-      - name: Sync release branch with released tag
+      - name: Sync latest release branch with released tag
         run: git reset --hard ${{ github.event.release.tag_name }}
 
-      - name: Push release branch to remote
+      - name: Push latest release branch to remote
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
-          branch: release
+          branch: release/latest
           tags: true
           force: true
           unprotect_reviews: true
@@ -50,7 +50,7 @@ jobs:
           yarn test
           yarn build
 
-      # Now, when the released tag is synced with release branch,
+      # Now, when the released tag is synced with latest release branch,
       # we can extract it to use it as a version for NPM package
 
       - name: Extract version
