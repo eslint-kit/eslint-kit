@@ -19,50 +19,10 @@ jobs:
         with:
           input: ${{ github.event.release.tag_name }}
 
-      - name: Checkout to major release branch
-        uses: actions/checkout@v3
-
-      - name: Create latest release branch
-        run: git branch release/latest -f
-
-      - name: Checkout to latest release branch
+      - name: Checkout to released tag
         uses: actions/checkout@v3
         with:
-          ref: release/latest
-          fetch-depth: 0
-
-      - name: Sync latest release branch with released tag
-        run: git reset --hard ${{ steps.version.outputs.tag }}
-
-      - name: Push latest release branch to remote
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
-          branch: release/latest
-          tags: true
-          force: true
-          unprotect_reviews: true
-
-      - name: Create major release branch
-        run: git branch release/${{ steps.version.outputs.major }} -f
-
-      - name: Checkout to major release branch
-        uses: actions/checkout@v3
-        with:
-          ref: release/${{ steps.version.outputs.major }}
-          fetch-depth: 0
-
-      - name: Sync major release branch with released tag
-        run: git reset --hard ${{ steps.version.outputs.tag }}
-
-      - name: Push major release branch to remote
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
-          branch: release/${{ steps.version.outputs.major }}
-          tags: true
-          force: true
-          unprotect_reviews: true
+          ref: ${{ steps.version.outputs.tag }}
 
       - uses: actions/setup-node@v1
         with:
@@ -100,3 +60,15 @@ jobs:
       - name: Publish RC
         if: ${{ steps.version.outputs.prerelease != null }}
         run: npm publish --tag ${{ steps.version.outputs.prerelease }}
+
+      - name: Create latest release branch
+        run: git branch release/latest -f
+
+      - name: Force update remote latest release branch
+        run: git push origin release/latest:release/latest -f
+
+      - name: Create major release branch
+        run: git branch release/${{ steps.version.outputs.major }} -f
+
+      - name: Force update remote major release branch
+        run: git push origin release/${{ steps.version.outputs.major }}:release/${{ steps.version.outputs.major }} -f
