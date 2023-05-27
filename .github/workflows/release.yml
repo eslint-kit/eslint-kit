@@ -19,6 +19,9 @@ jobs:
         with:
           input: ${{ github.event.release.tag_name }}
 
+      - name: Create latest release branch
+        run: git branch release/latest -f
+
       - name: Checkout to latest release branch
         uses: actions/checkout@v3
         with:
@@ -36,6 +39,9 @@ jobs:
           tags: true
           force: true
           unprotect_reviews: true
+
+      - name: Create major release branch
+        run: git branch release/${{ steps.version.outputs.major }} -f
 
       - name: Checkout to major release branch
         uses: actions/checkout@v3
