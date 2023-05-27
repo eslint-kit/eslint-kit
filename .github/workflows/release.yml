@@ -13,16 +13,12 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "<>"
 
+      - name: Checkout to released tag
+        uses: actions/checkout@v3
+
       - name: Parse version from tag
         id: version
         uses: release-kit/semver@v1
-        with:
-          input: ${{ github.event.release.tag_name }}
-
-      - name: Checkout to released tag
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.version.outputs.tag }}
 
       - uses: actions/setup-node@v1
         with:
