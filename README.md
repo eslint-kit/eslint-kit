@@ -506,15 +506,7 @@ I have no idea when this may be useful, but ok.
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 **Q**: ESLint: TypeError: this.libOptions.parse is not a function  
-**A**: Most likely you're using broken ESLint version. `8.22.0` is tested and can be safely used:
-
-```json
-{
-  "devDependencies": {
-    "eslint": "8.22.0"
-  }
-}
-```
+**A**: Most likely you're using old broken ESLint version. `8.44.0` is tested and can be safely used.
 
 **Q**: ESLint couldn't determine the plugin "foo" uniquely  
 **A**: Most likely your `.eslintrc.js` is located inside some nested project directory, and you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
