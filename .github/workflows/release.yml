@@ -51,19 +51,17 @@ jobs:
 
       - name: Publish latest
         if: ${{ contains(github.event.release.target_commitish, 'main') && steps.version.outputs.prerelease == null }}
-        run: npm publish
+        run: |
+          npm publish
+          git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/latest -f
+          git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/${{ steps.version.outputs.major }} -f
 
       - name: Publish RC
         if: ${{ contains(github.event.release.target_commitish, 'main') && steps.version.outputs.prerelease != null }}
-        run: npm publish --tag ${{ steps.version.outputs.prerelease }}
+        run: |
+          npm publish --tag ${{ steps.version.outputs.prerelease }}
+          git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/${{ steps.version.outputs.prerelease }} -f
 
       - name: Publish previous major
         if: ${{ contains(github.event.release.target_commitish, 'release/') }}
         run: npm publish --tag v${{ steps.version.outputs.major }}
-
-      - name: Force update remote latest release branch
-        if: ${{ contains(github.event.release.target_commitish, 'main') }}
-        run: git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/latest -f
-
-      - name: Force update remote major release branch
-        run: git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/${{ steps.version.outputs.major }} -f
