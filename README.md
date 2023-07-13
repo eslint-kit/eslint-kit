@@ -101,7 +101,7 @@ npx eslint-kit-cli@latest
 Or if you want to use exactly **10** version of `eslint-kit`:
 
 ```
-npx eslint-kit-cli@10
+npx eslint-kit-cli@^10
 ```
 
 [Learn more about eslint-kit-cli](https://github.com/eslint-kit/eslint-kit-cli)
