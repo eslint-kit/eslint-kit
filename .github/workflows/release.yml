@@ -50,14 +50,19 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish latest
-        if: ${{ steps.version.outputs.prerelease == null }}
+        if: ${{ contains(github.event.release.target_commitish, 'main') && steps.version.outputs.prerelease == null }}
         run: npm publish
 
       - name: Publish RC
-        if: ${{ steps.version.outputs.prerelease != null }}
+        if: ${{ contains(github.event.release.target_commitish, 'main') && steps.version.outputs.prerelease != null }}
         run: npm publish --tag ${{ steps.version.outputs.prerelease }}
 
+      - name: Publish previous major
+        if: ${{ contains(github.event.release.target_commitish, 'release/') }}
+        run: npm publish --tag v${{ steps.version.outputs.major }}
+
       - name: Force update remote latest release branch
+        if: ${{ contains(github.event.release.target_commitish, 'main') }}
         run: git push origin ${{ steps.version.outputs.tag }}:refs/heads/release/latest -f
 
       - name: Force update remote major release branch
