@@ -106,13 +106,13 @@ npx eslint-kit-cli@latest
 NPM:
 
 ```sh
-npm install -D eslint-kit eslint prettier
+npm install -D eslint-kit eslint@^8.41.0 prettier@^2
 ```
 
 Yarn:
 
 ```sh
-yarn add -D eslint-kit eslint prettier
+yarn add -D eslint-kit eslint@^8.41.0 prettier@^2
 ```
 
 After installing, add the `.eslintrc.js` file in your project root:
