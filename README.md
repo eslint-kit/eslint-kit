@@ -97,22 +97,26 @@ The ESLint Kit presets try to contain only the best-practice rules to make overw
 npx eslint-kit-cli@latest
 ```
 
+Or if you want to use exactly **9** version of `eslint-kit`:
+
+```
+npx eslint-kit-cli@^9
+```
+
 [Learn more about eslint-kit-cli](https://github.com/eslint-kit/eslint-kit-cli)
 
 ## Manual installation
 
-> **Note**: You need at least `8.41.0` version of ESLint
-
 NPM:
 
 ```sh
-npm install -D eslint-kit eslint prettier
+npm install -D eslint-kit@^9.0.0 eslint@^8.41.0 prettier@^2.0.0
 ```
 
 Yarn:
 
 ```sh
-yarn add -D eslint-kit eslint prettier
+yarn add -D eslint-kit@^9.0.0 eslint@^8.41.0 prettier@^2.0.0
 ```
 
 After installing, add the `.eslintrc.js` file in your project root:
