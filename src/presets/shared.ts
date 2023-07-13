@@ -66,7 +66,7 @@ export const createMeta = (): Meta => ({
 
 export function compilePresets(
   presets: Preset<unknown>[],
-  priority: string[]
+  priority: string[],
 ): Linter.Config {
   const prioritized = presets
     .slice()
@@ -80,7 +80,7 @@ export function compilePresets(
   }
 
   const configs = prioritized.map((preset) =>
-    preset.compile({ meta, options: preset.options })
+    preset.compile({ meta, options: preset.options }),
   )
 
   return mergeConfigs(configs)

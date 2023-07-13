@@ -27,7 +27,7 @@ export function configure({
 }: Options) {
   let kitConfig = compilePresets(
     [base({ root, allowDebug }), ...presets, presetExtend(extend)],
-    PRIORITY
+    PRIORITY,
   )
 
   // Apply mode only for included rules

@@ -4,7 +4,7 @@ export class PackageJsonNotFoundException extends Error {
   constructor() {
     super(
       'Cannot find package.json in the root. ' +
-        'Please specify root directory manually using "configure" parameters'
+        'Please specify root directory manually using "configure" parameters',
     )
   }
 }
@@ -16,7 +16,7 @@ export class JsconfigNotFoundException extends Error {
     super(
       'Cannot find jsconfig.json in the root. ' +
         'Please specify root directory manually using "configure" parameters, ' +
-        'or use "jsconfig" option in "alias" preset'
+        'or use "jsconfig" option in "alias" preset',
     )
   }
 }

@@ -6,7 +6,7 @@ function parseExtension(pattern: string): string | null {
 }
 
 export function splitOverrides(
-  overrides: Linter.ConfigOverride[]
+  overrides: Linter.ConfigOverride[],
 ): Linter.ConfigOverride[] {
   const result: Linter.ConfigOverride[] = []
 
@@ -21,7 +21,7 @@ export function splitOverrides(
 }
 
 export function overrideOverrides(
-  overrides: Linter.ConfigOverride[]
+  overrides: Linter.ConfigOverride[],
 ): Linter.ConfigOverride[] {
   const result: Linter.ConfigOverride[] = []
 

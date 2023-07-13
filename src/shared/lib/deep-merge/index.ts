@@ -34,7 +34,7 @@ export function deepMerge<A, B>(
   a: A,
   b: B,
   strategy: (path: AllPaths<A, B>) => Strategy = () => Strategy.Deep,
-  basePath: AllPaths<A, B> = null
+  basePath: AllPaths<A, B> = null,
 ): Merge<A, B> {
   if (strategy(basePath) === Strategy.Shallow) {
     return shallowMerge(a, b)
@@ -59,7 +59,7 @@ export function deepMerge<A, B>(
         (a as any)[key],
         (b as any)[key],
         strategy,
-        path as AllPaths<A, B>
+        path as AllPaths<A, B>,
       )
     }
 

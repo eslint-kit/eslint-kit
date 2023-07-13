@@ -30,7 +30,7 @@ describe('deepMerge', () => {
   it('should deep merge objects with arrays', () => {
     const merged = deepMerge(
       { yuuki: { xyu: 123, array: [1, 2] } },
-      { yuuki: { loh: '123', array: ['321'] } }
+      { yuuki: { loh: '123', array: ['321'] } },
     )
 
     expect(merged).toEqual({
@@ -47,7 +47,7 @@ describe('deepMerge', () => {
       const merged = deepMerge(
         { yuuki: { xyu: 123, array: [1, 2] } },
         { yuuki: { loh: '123', array: ['321'] } },
-        () => Strategy.Override
+        () => Strategy.Override,
       )
 
       expect(merged).toEqual({ yuuki: { loh: '123', array: ['321'] } })
@@ -57,7 +57,7 @@ describe('deepMerge', () => {
       const merged = deepMerge(
         { yuuki: { xyu: 123, array: [1, 2] }, test: 123 },
         { yuuki: { loh: '123', array: ['321'] } },
-        () => Strategy.Shallow
+        () => Strategy.Shallow,
       )
 
       expect(merged).toEqual({
@@ -73,7 +73,7 @@ describe('deepMerge', () => {
         (path) => {
           if (path === 'yuuki') return Strategy.Shallow
           return Strategy.Deep
-        }
+        },
       )
 
       expect(merged).toEqual({
@@ -89,7 +89,7 @@ describe('deepMerge', () => {
         (path) => {
           if (path === 'yuuki') return Strategy.Override
           return Strategy.Deep
-        }
+        },
       )
 
       expect(merged).toEqual({
