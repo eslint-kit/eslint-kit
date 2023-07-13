@@ -39,7 +39,7 @@ export const vue = createPreset<Options>({
           meta.presets.has(publicPresetNames.typescript),
           {
             parser: '@typescript-eslint/parser',
-          }
+          },
         ),
         ecmaFeatures: {
           jsx: true,
@@ -59,7 +59,7 @@ export const vue = createPreset<Options>({
             files: ['*.vue'],
             rules: createTypescriptRules(meta),
           },
-        ]
+        ],
       ),
     }
   },

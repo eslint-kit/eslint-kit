@@ -35,7 +35,7 @@ for (let currentModule = module; ; ) {
       const eslintrcFolder = path.dirname(
         require.resolve('@eslint/eslintrc/package.json', {
           paths: [currentModule.path],
-        })
+        }),
       )
 
       // Make sure we actually resolved the module in our call path
@@ -61,7 +61,7 @@ for (let currentModule = module; ; ) {
       const eslintCandidateFolder = path.dirname(
         require.resolve('eslint/package.json', {
           paths: [currentModule.path],
-        })
+        }),
       )
 
       // Make sure we actually resolved the module in our call path
@@ -99,7 +99,7 @@ if (!eslintFolder) {
         const eslintrcFolder = path.dirname(
           require.resolve('@eslint/eslintrc/package.json', {
             paths: [currentModule.path],
-          })
+          }),
         )
 
         if (
@@ -108,11 +108,11 @@ if (!eslintFolder) {
         ) {
           configArrayFactoryPath = path.join(
             eslintrcFolder,
-            'lib/config-array-factory.js'
+            'lib/config-array-factory.js',
           )
           moduleResolverPath = path.join(
             eslintrcFolder,
-            'lib/shared/relative-module-resolver'
+            'lib/shared/relative-module-resolver',
           )
         }
       } catch (error: unknown) {
@@ -130,7 +130,7 @@ if (!eslintFolder) {
         const eslintCandidateFolder = path.dirname(
           require.resolve('eslint/package.json', {
             paths: [currentModule.path],
-          })
+          }),
         )
 
         if (
@@ -164,17 +164,17 @@ if (!eslintFolder) {
     //   .../eslint/lib/cli-engine/config-array-factory.js
     if (
       /[\\/]eslint[\\/]lib[\\/]cli-engine[\\/]config-array-factory\.js$/i.test(
-        currentModule.filename
+        currentModule.filename,
       )
     ) {
       eslintFolder = path.join(path.dirname(currentModule.filename), '../..')
       configArrayFactoryPath = path.join(
         eslintFolder,
-        'lib/cli-engine/config-array-factory'
+        'lib/cli-engine/config-array-factory',
       )
       moduleResolverPath = path.join(
         eslintFolder,
-        'lib/shared/relative-module-resolver'
+        'lib/shared/relative-module-resolver',
       )
       break
     }
@@ -184,7 +184,7 @@ if (!eslintFolder) {
       throw new Error(
         'Failed to patch ESLint because the calling module was not recognized.\n' +
           'If you are using a newer ESLint version that may be unsupported, please create a GitHub issue:\n' +
-          'https://github.com/microsoft/rushstack/issues'
+          'https://github.com/microsoft/rushstack/issues',
       )
     }
     currentModule = currentModule.parent
@@ -207,7 +207,7 @@ if (!(eslintMajorVersion >= 6 && eslintMajorVersion <= 8)) {
     'The patch-eslint.js script has only been tested with ESLint version 6.x, 7.x, and 8.x.' +
       ` (Your version: ${eslintPackageVersion})\n` +
       'Consider reporting a GitHub issue:\n' +
-      'https://github.com/microsoft/rushstack/issues'
+      'https://github.com/microsoft/rushstack/issues',
   )
 }
 

@@ -29,7 +29,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
       alias[key] = path.join(root, value)
       return alias
     },
-    {}
+    {},
   )
 
   return {

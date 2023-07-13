@@ -50,7 +50,7 @@ const mappers: Record<Mode, MapLevel> = {
 
 function mapRuleEntry(
   ruleEntry: Linter.RuleEntry,
-  mapper: MapLevel
+  mapper: MapLevel,
 ): Linter.RuleEntry {
   if (!Array.isArray(ruleEntry)) {
     const normalized = normalizeLevel(ruleEntry)
@@ -64,13 +64,13 @@ function mapRuleEntry(
 
 function mapRules(
   rules: Partial<Linter.RulesRecord> | undefined = {},
-  mapper: MapLevel
+  mapper: MapLevel,
 ): Partial<Linter.RulesRecord> {
   return Object.fromEntries(
     Object.entries(rules).map(([ruleName, ruleEntry]) => [
       ruleName,
       ruleEntry ? mapRuleEntry(ruleEntry, mapper) : 'off',
-    ])
+    ]),
   )
 }
 

@@ -44,7 +44,7 @@ export const typescript = createPreset<Options>({
         'import/parsers': {
           '@typescript-eslint/parser': EXTENSIONS.TS,
         },
-      }
+      },
     ),
     rules: conditional.rules(meta.presets.has(publicPresetNames.imports), {
       'import/extensions': createExtensionsRule(meta.imports.extensions),

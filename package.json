@@ -35,7 +35,7 @@
     "eslint-plugin-effector": "0.10.5",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/eslint": "^8.4.2",
     "@types/jest": "^27.5.1",
-    "@types/prettier": "^2",
+    "@types/prettier": "^2.7.3",
     "@types/react": "^18.0.9",
     "@types/semver": "^7.3.9",
     "effector": "^22.3.0",
@@ -58,7 +58,7 @@
     "eslint": "^8.44.0",
     "jest": "^28.1.0",
     "jest-serializer-path": "^0.1.15",
-    "prettier": "^2",
+    "prettier": "^3.0.0",
     "react": "^18.1.0",
     "rollup": "^2.73.0",
     "rollup-plugin-bundle-size": "^1.0.3",
@@ -73,6 +73,6 @@
   },
   "peerDependencies": {
     "eslint": "^8.41.0",
-    "prettier": "^2"
+    "prettier": "^3.0.0"
   }
 }

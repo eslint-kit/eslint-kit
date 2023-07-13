@@ -23,7 +23,7 @@ describe('eslint utils', () => {
             four: 'error',
           },
         },
-      ])
+      ]),
     ).toEqual([
       {
         files: ['*.ts'],
@@ -92,7 +92,7 @@ describe('eslint utils', () => {
             three: 'off',
           },
         },
-      ])
+      ]),
     ).toEqual([
       {
         files: ['*.ts'],

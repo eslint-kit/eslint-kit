@@ -4,11 +4,11 @@ import { Linter } from 'eslint'
 type OnlyCollections<T> = T extends any[] ? T : T extends object ? T : never
 
 function applier<
-  T extends 'rules' | 'settings' | 'extends' | 'parserOptions' | 'overrides'
+  T extends 'rules' | 'settings' | 'extends' | 'parserOptions' | 'overrides',
 >() {
   return (
     condition: unknown,
-    entity: OnlyCollections<Linter.Config[T]>
+    entity: OnlyCollections<Linter.Config[T]>,
   ): OnlyCollections<Linter.Config[T]> => {
     const fallback = Array.isArray(entity) ? [] : {}
     if (!condition) return fallback as OnlyCollections<Linter.Config[T]>
