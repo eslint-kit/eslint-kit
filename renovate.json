@@ -15,10 +15,7 @@
       ],
       "enabled": true,
       "schedule": ["* 4 * * *"],
-      "automerge": true,
-      "commitMessageAction": null,
-      "commitMessageTopic": null,
-      "commitMessageExtra": null
+      "automerge": true
     },
     {
       "groupName": "ESLint plugins",
@@ -38,10 +35,7 @@
       ],
       "enabled": true,
       "schedule": ["* 4 * * *"],
-      "automerge": true,
-      "commitMessageAction": null,
-      "commitMessageTopic": null,
-      "commitMessageExtra": null
+      "automerge": true
     }
   ]
 }
