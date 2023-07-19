@@ -1,6 +1,6 @@
 const MISC = ['.json']
 const JS = ['.js', '.mjs', '.cjs', '.jsx']
-const TS = ['.ts', '.tsx', '.d.ts']
+const TS = ['.ts', '.mts', '.tsx', '.d.ts']
 
 export const EXTENSIONS = {
   MISC,
