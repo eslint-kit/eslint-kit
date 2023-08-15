@@ -23,6 +23,13 @@ export const effector = createPreset<Options>({
       ],
       rules: {
         'effector/no-patronum-debug': meta.allowDebug ? 'off' : 'error',
+        'effector/mandatory-scope-binding': 'off', // required only in SSR
+        ...conditional.rules(
+          meta.presets.has('next.js') || meta.presets.has('remix'),
+          {
+            'effector/mandatory-scope-binding': 'error',
+          },
+        ),
       },
     }
   },

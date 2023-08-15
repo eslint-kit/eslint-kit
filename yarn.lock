@@ -2331,10 +2331,10 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-effector@0.10.5:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.10.5.tgz#bbc28b6b0d976fa73965004f4c5ba55ead00cd3a"
-  integrity sha512-aM8V/aMfMoKNOUZx2I4iuGd+2bJFVVA1mZMR+88F88LoePuqIobiS2xhLmS9p053jJatzhz5T3iQ9qL5p5X1QQ==
+eslint-plugin-effector@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.11.0.tgz#c5dbded40713fa84c949e3150d6b3daa8473b77d"
+  integrity sha512-iujBwqh8z09lxrnTF3jAj2WHwxdKYWzf2DXn6ambdBjx3wgHgLt2vjpzctXxWR1+PPyoj3GyQYY7tsnc/RTNTw==
   dependencies:
     prettier "^2.3.2"
 
