@@ -52,7 +52,6 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
     '@typescript-eslint/prefer-optional-chain': 'warn',
     '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
     '@typescript-eslint/require-array-sort-compare': 'error',
-    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
     '@typescript-eslint/triple-slash-reference': 'error',
 
     // Specific rules that are enabled using @typescript-eslint, but have analogues in common eslint
