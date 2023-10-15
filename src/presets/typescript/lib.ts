@@ -16,6 +16,11 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
         leadingUnderscore: 'allow',
       },
       {
+        selector: 'variable',
+        modifiers: ['destructured'],
+        format: null,
+      },
+      {
         selector: 'parameter',
         format: ['camelCase', 'PascalCase'],
         leadingUnderscore: 'allow',
