@@ -70,7 +70,7 @@ export const imports = createPreset<Options>({
       // Duplicate imports often occur with import-layout
       overrides: conditional.overrides(meta.imports.layout, [
         {
-          files: EXTENSIONS.JS_AND_TS,
+          files: ['*.*'],
           rules: {
             'import/no-duplicates': 'off',
           },
