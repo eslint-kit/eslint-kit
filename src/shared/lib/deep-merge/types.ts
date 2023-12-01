@@ -22,38 +22,27 @@ type Join<K, P> = K extends string | number
     : never
   : never
 
-type Prev = [
-  never,
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  ...0[],
-]
+type LengthToArray<
+  N extends string,
+  T extends any[] = [],
+> = `${T['length']}` extends N ? T : LengthToArray<N, [any, ...T]>
+
+type MinusPositiveOne<T extends number> = T extends 0
+  ? never
+  : LengthToArray<`${T}`> extends [infer _, ...infer S]
+  ? S['length']
+  : never
 
 export type PathsOf<T, D extends number = 10> = [D] extends [never]
   ? never
   : T extends object
   ? {
       [K in keyof T]-?: K extends string | number
-        ? `${K}` | (PathsOf<T[K], Prev[D]> extends infer R ? Join<K, R> : never)
+        ?
+            | `${K}`
+            | (PathsOf<T[K], MinusPositiveOne<D>> extends infer R
+                ? Join<K, R>
+                : never)
         : never
     }[keyof T]
   : ''

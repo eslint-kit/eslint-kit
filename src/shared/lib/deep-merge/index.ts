@@ -49,7 +49,8 @@ export function deepMerge<A, B>(
   }
 
   if (isObject(a) && isObject(b)) {
-    const keys = [...Object.keys(a), ...Object.keys(b)]
+    // Objects sometimes have multiple duplicate properties
+    const keys = new Set([...Object.keys(a), ...Object.keys(b)])
     const final: any = {}
 
     for (const key of keys) {

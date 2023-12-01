@@ -58,7 +58,7 @@ export const createMeta = (): Meta => ({
   presets: new Set(),
   imports: {
     extensions: [],
-    layout: false
+    layout: false,
   },
   typescript: {
     root: './',
