@@ -59,6 +59,7 @@
     "jest": "^28.1.0",
     "jest-serializer-path": "^0.1.15",
     "prettier": "^3.0.0",
+    "prettier-plugin-layout": "^0.0.2",
     "react": "^18.1.0",
     "rollup": "^2.73.0",
     "rollup-plugin-bundle-size": "^1.0.3",

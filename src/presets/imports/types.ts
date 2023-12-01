@@ -8,4 +8,5 @@ export interface Options {
     paths?: Record<string, string>
     jsconfig?: string
   }
+  layout?: boolean
 }

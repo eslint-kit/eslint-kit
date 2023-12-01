@@ -21,9 +21,11 @@ const DEFAULT_IMPORT_GROUPS: string[][] = [
 
 export const imports = createPreset<Options>({
   name: publicPresetNames.imports,
-  updateMeta: ({ meta }) => {
+  updateMeta: ({ meta, options }) => {
     meta.imports.extensions.push(...EXTENSIONS.MISC)
     meta.imports.extensions.push(...EXTENSIONS.JS)
+
+    meta.imports.layout = options?.layout ?? false
   },
   compile: ({ options = {}, meta }) => {
     const { sort = {} } = options
@@ -51,7 +53,7 @@ export const imports = createPreset<Options>({
         'import/no-mutable-exports': 'error',
         'import/no-amd': 'error',
         'import/first': 'error',
-        'import/no-duplicates': 'error',
+        'import/no-duplicates': meta.imports.layout ? 'off' : 'error',
         'import/extensions': createExtensionsRule(meta.imports.extensions),
         'import/newline-after-import': 'warn',
         'import/no-webpack-loader-syntax': 'error',

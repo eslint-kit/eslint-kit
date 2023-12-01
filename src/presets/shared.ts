@@ -11,6 +11,7 @@ export interface Meta {
   presets: Set<PresetName>
   imports: {
     extensions: string[]
+    layout: boolean
   }
   typescript: {
     root: string
@@ -57,6 +58,7 @@ export const createMeta = (): Meta => ({
   presets: new Set(),
   imports: {
     extensions: [],
+    layout: false
   },
   typescript: {
     root: './',
