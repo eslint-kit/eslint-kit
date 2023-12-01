@@ -1,4 +1,5 @@
 import { testConfig } from '../../shared/lib/testing'
+import { prettier } from '../prettier'
 import { typescript } from '../typescript'
 import { imports } from './index'
 
@@ -46,6 +47,16 @@ describe('[Presets] Imports', () => {
       dirname: __dirname,
       files: ['alias-tsconfig-clear', 'alias-tsconfig-error'],
       extension: 'ts',
+      disableLogs: true,
+    })
+  })
+
+  it('should arrange imports in the form of a grid', async () => {
+    await testConfig({
+      presets: [imports({ layout: true }), prettier()],
+      dirname: __dirname,
+      files: ['import-layout-clear', 'import-layout-error'],
+      extension: 'js',
       disableLogs: true,
     })
   })
