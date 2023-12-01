@@ -1,4 +1,5 @@
 import { EXTENSIONS } from '../../shared'
+import { conditional } from '../../shared/lib/eslint'
 import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createAliasSettings } from './alias'
@@ -53,7 +54,7 @@ export const imports = createPreset<Options>({
         'import/no-mutable-exports': 'error',
         'import/no-amd': 'error',
         'import/first': 'error',
-        'import/no-duplicates': meta.imports.layout ? 'off' : 'error',
+        'import/no-duplicates': 'error',
         'import/extensions': createExtensionsRule(meta.imports.extensions),
         'import/newline-after-import': 'warn',
         'import/no-webpack-loader-syntax': 'error',
@@ -65,6 +66,14 @@ export const imports = createPreset<Options>({
         'simple-import-sort/imports': ['warn', { groups: finalGroups }],
         'simple-import-sort/exports': 'warn',
       },
+      overrides: conditional.overrides(meta.imports.layout, [
+        {
+          files: EXTENSIONS.JS_AND_TS,
+          rules: {
+            'import/no-duplicates': 'off',
+          },
+        },
+      ]),
     }
   },
 })
