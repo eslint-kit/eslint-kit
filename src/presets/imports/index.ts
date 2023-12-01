@@ -66,6 +66,8 @@ export const imports = createPreset<Options>({
         'simple-import-sort/imports': ['warn', { groups: finalGroups }],
         'simple-import-sort/exports': 'warn',
       },
+
+      // Duplicate imports often occur with import-layout
       overrides: conditional.overrides(meta.imports.layout, [
         {
           files: EXTENSIONS.JS_AND_TS,

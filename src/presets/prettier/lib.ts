@@ -10,6 +10,10 @@ export interface Input {
 export function createPrettierRule({ meta, options }: Input) {
   const plugins: string[] = []
 
+  /**
+   * Add plugin layout only if import layout
+   * included
+   */
   if (meta.imports.layout) {
     plugins.push('prettier-plugin-layout')
   }

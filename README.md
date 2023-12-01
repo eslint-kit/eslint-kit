@@ -197,7 +197,11 @@ configure({
         // (optional) A custom path to jsconfig
         // Defaults to jsconfig.json
         jsconfig: 'jsconfig.json'
-      }
+      },
+      
+      // (optional) Adds import arrangement by grid
+      // Works together only with prettier preset
+      layout: true
     })
   ]
 })
