@@ -50,9 +50,15 @@ export const vue = createPreset<Options>({
         ...conditional.extends(major === 2, ['plugin:vue/recommended']),
         ...conditional.extends(major === 3, ['plugin:vue/vue3-recommended']),
       ],
-      rules: conditional.rules(meta.presets.has(publicPresetNames.imports), {
-        'import/no-default-export': 'off',
-      }),
+      rules: {
+        "vue/component-tags-order": "off",
+        "vue/block-order": ["warn", {
+          "order": [ [ "script", "template" ], "style" ]
+        }],
+        ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
+          'import/no-default-export': 'off',
+        })
+      },
       overrides: conditional.overrides(
         meta.presets.has(publicPresetNames.typescript),
         [

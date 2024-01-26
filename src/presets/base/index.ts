@@ -203,7 +203,7 @@ export const base = createPreset<Options>({
       'sonarjs/max-switch-cases': ['warn', 20],
       'sonarjs/no-collapsible-if': 'warn',
       'sonarjs/no-collection-size-mischeck': 'error',
-      'sonarjs/no-duplicate-string': ['warn', 6],
+      'sonarjs/no-duplicate-string': ['warn', { "threshold": 6 }],
       'sonarjs/no-identical-functions': 'warn',
       'sonarjs/no-inverted-boolean-check': 'error',
       'sonarjs/no-redundant-boolean': 'warn',
