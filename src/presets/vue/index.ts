@@ -44,6 +44,7 @@ export const vue = createPreset<Options>({
         ecmaFeatures: {
           jsx: true,
         },
+        extraFileExtensions: ['vue'],
       },
       extends: [
         ...conditional.extends(major === 2, ['plugin:vue/recommended']),
