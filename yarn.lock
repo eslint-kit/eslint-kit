@@ -3512,7 +3512,7 @@ __metadata:
     eslint-plugin-sonarjs: "npm:0.23.0"
     eslint-plugin-svelte3: "npm:^4.0.0"
     eslint-plugin-unicorn: "npm:50.0.1"
-    eslint-plugin-vue: "npm:9.21.0"
+    eslint-plugin-vue: "npm:9.21.1"
     jest: "npm:^28.1.0"
     jest-serializer-path: "npm:^0.1.15"
     prettier: "npm:^3.0.0"
@@ -3748,9 +3748,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:9.21.0":
-  version: 9.21.0
-  resolution: "eslint-plugin-vue@npm:9.21.0"
+"eslint-plugin-vue@npm:9.21.1":
+  version: 9.21.1
+  resolution: "eslint-plugin-vue@npm:9.21.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     natural-compare: "npm:^1.4.0"
@@ -3761,7 +3761,7 @@ __metadata:
     xml-name-validator: "npm:^4.0.0"
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: 795e9d3c486427a1bc45fce676d411d75ead314beb152f94d85e34488d31b1e978427227d45eaa01aa6d55f52f2a57af1f06b6922a44609a4759f34e20d562ca
+  checksum: 475e3ac855f5356f3d43eff788615803f7f13a278465b9629694d9dc8e97db9f2c1b13b572b01598b47342903d47f28c267b00fbfdc60b8ecbe37af62a179d79
   languageName: node
   linkType: hard
 
