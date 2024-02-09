@@ -29,6 +29,7 @@
     "src/presets/*/tests/*"
   ],
   "include": [
-    "src"
+    "src",
+    ".eslintrc.js"
   ]
 }
