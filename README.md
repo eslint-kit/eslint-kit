@@ -140,6 +140,13 @@ You can also [set up your editor](#setting-up-editors) if you haven't already.
 configure({
   // (optional) Project root
   root: __dirname,
+
+  // (optional) Base ESLint Config to extend from
+  // May be used in monorepos to declare shared ESLint Kit options for all packages
+  // See "Extends" section for more info
+  extends: '../../my-root-eslintrc.js',
+  // Also accepts ESLint Config object, but only if it was created using ESLint Kit
+  extends: require(path.resolve(__dirname, '../../my-root-eslintrc.js')),
   
   // (optional) Allow debug
   // Very good option for development
@@ -150,7 +157,7 @@ configure({
   // See "Linting Modes" section for more info 
   mode: 'default',
 
-  // presets
+  // (optional) ESLint Kit presets
   presets: [],
 
   // (optional) Custom eslint config
@@ -443,6 +450,70 @@ configure({
 ```
 
 </details>
+
+## Extends
+
+> [!IMPORTANT]
+> The paths from "extend.ignorePatterns", "extend.overrides" and similar options defined in "extends" ESLint config are resolved relative to the current ESLint config
+
+May be used in monorepos to declare shared ESLint Kit options for all packages.
+
+Root .eslintrc.js example:
+
+```js
+// <root>/.eslintrc.js
+const { configure, presets } = require('eslint-kit')
+
+module.exports = configure({
+  presets: [
+    presets.imports(),
+    presets.typescript(),
+    presets.prettier(),
+    presets.node(),
+  ],
+})
+```
+
+Package .eslintrc.js example:
+
+```js
+// <root>/libs/my-library/.eslintrc.js
+const { configure } = require('eslint-kit')
+
+module.exports = configure({
+  root: __dirname,
+  extends: '../../.eslintrc.js', // Resolved relative to "root"
+})
+```
+
+Also accepts ESLint Config object, but only if it was created using ESLint Kit:
+
+```js
+// <root>/libs/my-library/.eslintrc.js
+const { configure } = require('eslint-kit')
+const path = require('path')
+
+module.exports = configure({
+  extends: require(path.resolve(__dirname, '../../.eslintrc.js')),
+})
+```
+
+Internally, the local ESLint Kit options is just merged with the ESLint Kit options from "extends" config.
+
+Some properties are deep merged, but some are simply overwritten.
+
+The complete list of deep merged options:
+
+- `presets`
+- `extend`
+- `extend.rules`
+- `extend.env`
+- `extend.globals`
+- `extend.plugins`
+- `extend.settings`
+- `extend.overrides`
+
+You may find the merging implementation in [this source file](./src/index.ts).
 
 ## Allow Debug
 
