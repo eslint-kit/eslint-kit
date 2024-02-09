@@ -145,9 +145,9 @@ configure({
   // (optional) Base ESLint Config to extend from
   // May be used in monorepos to declare shared ESLint Kit options for all packages
   // See "Extends" section for more info
-  extends: '../../my-root-eslintrc.js',
+  extends: '../../base.eslintrc.js',
   // Also accepts ESLint Config object, but only if it was created using ESLint Kit
-  extends: require(path.resolve(__dirname, '../../my-root-eslintrc.js')),
+  extends: require(path.resolve(__dirname, '../../base.eslintrc.js')),
   
   // (optional) Allow debug
   // Very good option for development
@@ -462,7 +462,7 @@ May be used in monorepos to declare shared ESLint Kit options for all packages.
 Root .eslintrc.js example:
 
 ```js
-// <root>/.eslintrc.js
+// <root>/base.eslintrc.js
 const { configure, presets } = require('eslint-kit')
 
 module.exports = configure({
@@ -483,7 +483,7 @@ const { configure } = require('eslint-kit')
 
 module.exports = configure({
   root: __dirname,
-  extends: '../../.eslintrc.js', // Resolved relative to "root"
+  extends: '../../base.eslintrc.js', // Resolved relative to "root"
 })
 ```
 
@@ -495,7 +495,7 @@ const { configure } = require('eslint-kit')
 const path = require('path')
 
 module.exports = configure({
-  extends: require(path.resolve(__dirname, '../../.eslintrc.js')),
+  extends: require(path.resolve(__dirname, '../../base.eslintrc.js')),
 })
 ```
 
