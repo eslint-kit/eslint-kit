@@ -43,6 +43,7 @@ Go to [`release/latest`](https://github.com/eslint-kit/eslint-kit/tree/release/l
   - [Common](#common)
   - [Frameworks](#frameworks)
   - [Libraries](#libraries)
+- [Extends](#extends)
 - [Allow Debug](#allow-debug)
 - [Linting Modes](#linting-modes)
 - [Common issues](#common-issues)
