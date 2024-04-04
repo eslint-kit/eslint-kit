@@ -3728,7 +3728,7 @@ __metadata:
     eslint-plugin-solid: "npm:0.13.2"
     eslint-plugin-sonarjs: "npm:0.25.1"
     eslint-plugin-svelte3: "npm:^4.0.0"
-    eslint-plugin-unicorn: "npm:51.0.1"
+    eslint-plugin-unicorn: "npm:52.0.0"
     eslint-plugin-vue: "npm:9.24.0"
     jest: "npm:^28.1.0"
     jest-serializer-path: "npm:^0.1.15"
@@ -3942,9 +3942,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:51.0.1":
-  version: 51.0.1
-  resolution: "eslint-plugin-unicorn@npm:51.0.1"
+"eslint-plugin-unicorn@npm:52.0.0":
+  version: 52.0.0
+  resolution: "eslint-plugin-unicorn@npm:52.0.0"
   dependencies:
     "@babel/helper-validator-identifier": "npm:^7.22.20"
     "@eslint-community/eslint-utils": "npm:^4.4.0"
@@ -3964,7 +3964,7 @@ __metadata:
     strip-indent: "npm:^3.0.0"
   peerDependencies:
     eslint: ">=8.56.0"
-  checksum: e3b019e55d60511c18aec081ff512366f917d0162db3ee122e1f881657b9a1c89e0d505bb7aec968d612ff3c757c055d5b734aaf0b3078a283315bb7db56ca04
+  checksum: c68055ccbbdd4af50fd902f4fd88737f4047cbb727c8135efc578f747007a6c30a65c30af460b667f86e7a8f68d5a8ca031631018a4bdc719bb85114c77d319e
   languageName: node
   linkType: hard
 
