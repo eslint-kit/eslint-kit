@@ -18,12 +18,12 @@ export interface Meta {
   }
 }
 
-export interface Input<T = never> {
+export interface Input<T = void> {
   options?: T
   meta: Meta
 }
 
-export interface Preset<T = never> {
+export interface Preset<T = void> {
   name: PresetName
   options?: T
   updateMeta(input: Input<T>): void
@@ -36,7 +36,7 @@ interface CreatePresetParams<T = void> {
   compile(input: Input<T>): Linter.Config
 }
 
-export function createPreset<T = never>({
+export function createPreset<T = void>({
   name,
   updateMeta = () => {},
   compile,
