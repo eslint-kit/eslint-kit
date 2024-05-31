@@ -1,4 +1,5 @@
 import { Linter } from 'eslint'
+import path from 'node:path'
 import { applyModuleResolutionPatch } from './patch/patch'
 import {
   compilePresets,
@@ -8,8 +9,7 @@ import {
   PRIORITY,
 } from './presets'
 import { base } from './presets/base'
-import { applyMode, mergeConfigs, Mode } from './shared/lib/eslint';
-import path from 'node:path'
+import { applyMode, mergeConfigs, Mode } from './shared/lib/eslint'
 
 const ESLintKitOptionsSymbol = Symbol('ESLintKitOptions')
 interface ExtendedLinterConfig<
@@ -23,7 +23,7 @@ interface Options {
   root?: string
   mode?: Mode
   allowDebug?: boolean
-  presets?: Preset[]
+  presets?: Preset<unknown>[]
   extend?: Linter.Config
 }
 
@@ -49,7 +49,10 @@ function finalizeOptions(options: Options): FinalOptions {
     let extendedOptions: FinalOptions
 
     if (typeof options.extends === 'string') {
-      const config = require(path.resolve(ownFinalOptions.root, options.extends))
+      const config = require(path.resolve(
+        ownFinalOptions.root,
+        options.extends,
+      ))
 
       if (!config) {
         throw new Error(`Cannot find config ${options.extends}`)
