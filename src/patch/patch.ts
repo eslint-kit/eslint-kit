@@ -3,7 +3,7 @@ import { Linter } from 'eslint'
 import Module from 'module'
 import { ModuleResolver } from './rushstack'
 
-interface Resolved {
+type Resolved = {
   name: string
   path: string
 }

@@ -5,9 +5,10 @@ import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from './lib'
 
-export interface Options {
+export type Options = {
   root?: string
   tsconfig?: string
+  enforceUsingType?: boolean
 }
 
 export const typescript = createPreset<Options>({
@@ -17,6 +18,7 @@ export const typescript = createPreset<Options>({
     meta.typescript.root = path.resolve(meta.root, options?.root ?? './')
     meta.typescript.tsconfig =
       options?.tsconfig ?? path.resolve(meta.typescript.root, 'tsconfig.json')
+    meta.typescript.enforceUsingType = options?.enforceUsingType ?? false
   },
   compile: ({ meta }) => ({
     plugins: ['@typescript-eslint'],

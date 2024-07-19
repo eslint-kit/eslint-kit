@@ -6,7 +6,7 @@ import { publicPresetNames } from '../names'
 import { Meta } from '../shared'
 import { Options } from './types'
 
-export interface Input {
+export type Input = {
   options?: Options
   meta: Meta
 }

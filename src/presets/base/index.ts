@@ -3,7 +3,7 @@ import { Jsconfig, PackageJson } from '../../shared/types'
 import { servicePresetNames } from '../names'
 import { createPreset } from '../shared'
 
-interface Options {
+type Options = {
   root?: string
   allowDebug?: boolean
 }

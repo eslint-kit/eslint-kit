@@ -5,7 +5,7 @@ import { ESLint } from 'eslint'
 import { compilePresets, Preset, PresetName, PRIORITY } from '../../presets'
 import { base } from '../../presets/base'
 
-export interface Options {
+export type Options = {
   presets: Preset<unknown>[]
   priority?: PresetName[]
   dirname: string

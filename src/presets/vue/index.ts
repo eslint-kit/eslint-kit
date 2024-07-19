@@ -6,7 +6,7 @@ import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from '../typescript/lib'
 
-export interface Options {
+export type Options = {
   version?: string | 'detect'
 }
 

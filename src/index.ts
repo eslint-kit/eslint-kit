@@ -12,13 +12,11 @@ import { base } from './presets/base'
 import { applyMode, mergeConfigs, Mode } from './shared/lib/eslint'
 
 const ESLintKitOptionsSymbol = Symbol('ESLintKitOptions')
-interface ExtendedLinterConfig<
-  T extends Linter.RulesRecord = Linter.RulesRecord,
-> extends Linter.Config<T> {
+type ExtendedLinterConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = {
   [ESLintKitOptionsSymbol]: FinalOptions
-}
+} & Linter.Config<T>
 
-interface Options {
+type Options = {
   extends?: string | ExtendedLinterConfig
   root?: string
   mode?: Mode
@@ -27,7 +25,7 @@ interface Options {
   extend?: Linter.Config
 }
 
-interface FinalOptions {
+type FinalOptions = {
   extends?: Options['extends']
   root: Required<Options>['root']
   mode: Required<Options>['mode']

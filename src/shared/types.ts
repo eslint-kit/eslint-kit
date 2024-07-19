@@ -1,12 +1,12 @@
 export type Dependencies = Record<string, string>
 
-export interface PackageJson {
+export type PackageJson = {
   version: string
   dependencies?: Dependencies
   devDependencies?: Dependencies
 }
 
-export interface Jsconfig {
+export type Jsconfig = {
   compilerOptions?: {
     baseUrl?: string
     paths?: Record<string, string[]>
