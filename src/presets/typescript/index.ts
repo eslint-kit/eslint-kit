@@ -51,6 +51,15 @@ export const typescript = createPreset<Options>({
         files: ['*.ts', '*.tsx'],
         rules: createTypescriptRules(meta),
       },
+      {
+        /**
+         * Disable the rule for enforcing `type` for .d.ts because it can break the global type definitions
+         */
+        files: ['*.d.ts'],
+        rules: {
+          '@typescript-eslint/consistent-type-definitions': 'off',
+        },
+      },
     ],
   }),
 })
