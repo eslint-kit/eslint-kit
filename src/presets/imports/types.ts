@@ -1,4 +1,4 @@
-export interface Options {
+export type Options = {
   sort?: {
     newline?: boolean
     groups?: string[][]

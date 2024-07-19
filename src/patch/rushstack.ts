@@ -211,7 +211,7 @@ if (!(eslintMajorVersion >= 6 && eslintMajorVersion <= 8)) {
   )
 }
 
-interface ModuleResolver {
+type ModuleResolver = {
   resolve: (request: string, relativeTo: string) => string
 }
 

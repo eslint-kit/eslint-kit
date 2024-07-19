@@ -29,6 +29,7 @@ Go to [`release/latest`](https://github.com/eslint-kit/eslint-kit/tree/release/l
 
 ## Previous releases
 
+- [v10.x.x](https://github.com/eslint-kit/eslint-kit/tree/release/10)
 - [v9.x.x](https://github.com/eslint-kit/eslint-kit/tree/release/9)
 - [v8.x.x](https://github.com/eslint-kit/eslint-kit/tree/release/8)
 - [v7.x.x](https://github.com/eslint-kit/eslint-kit/tree/release/7)
@@ -65,7 +66,7 @@ Go to [`release/latest`](https://github.com/eslint-kit/eslint-kit/tree/release/l
 
 **ESLint Kit** is solving all these problems by providing many small presets, each performing a specific task.
 
-You can select presets by using `configure` function in your `.eslintrc.js` file:
+You can select presets by using `configure` function in your `.eslintrc.cjs` file:
 
 ```js
 const { configure, presets } = require('eslint-kit')
@@ -99,10 +100,10 @@ The ESLint Kit presets try to contain only the best-practice rules to make overw
 npx eslint-kit-cli@latest
 ```
 
-Or if you want to use exactly **10** version of `eslint-kit`:
+Or if you want to use exactly **11** version of `eslint-kit`:
 
 ```
-npx eslint-kit-cli@^10
+npx eslint-kit-cli@^11
 ```
 
 [Learn more about eslint-kit-cli](https://github.com/eslint-kit/eslint-kit-cli)
@@ -112,16 +113,16 @@ npx eslint-kit-cli@^10
 NPM:
 
 ```sh
-npm install -D eslint-kit@^10.0.0 eslint@^8.41.0 prettier@^3.0.0
+npm install -D eslint-kit@^11.0.0 eslint@^8.56.0 prettier@^3.0.0
 ```
 
 Yarn:
 
 ```sh
-yarn add -D eslint-kit@^10.0.0 eslint@^8.41.0 prettier@^3.0.0
+yarn add -D eslint-kit@^11.0.0 eslint@^8.56.0 prettier@^3.0.0
 ```
 
-After installing, add the `.eslintrc.js` file in your project root:
+After installing, add the `.eslintrc.cjs` file in your project root:
 
 ```js
 const { configure, presets } = require('eslint-kit')
@@ -145,9 +146,9 @@ configure({
   // (optional) Base ESLint Config to extend from
   // May be used in monorepos to declare shared ESLint Kit options for all packages
   // See "Extends" section for more info
-  extends: '../../base.eslintrc.js',
+  extends: '../../base.eslintrc.cjs',
   // Also accepts ESLint Config object, but only if it was created using ESLint Kit
-  extends: require(path.resolve(__dirname, '../../base.eslintrc.js')),
+  extends: require(path.resolve(__dirname, '../../base.eslintrc.cjs')),
   
   // (optional) Allow debug
   // Very good option for development
@@ -172,10 +173,21 @@ configure({
 ### Common
 
 <details>
+<summary>Base (always included automatically)</summary>
+<br>
+
+- Enables `unicorn`, 'sonarjs', and `@stylistic/eslint-plugin` plugins
+- Enables `@babel/eslint-parser`
+- Adds commonly used JavaScript rules
+- No need to include it in presets manually
+
+</details>
+
+<details>
 <summary>Imports</summary>
 <br>
 
-- Enables `import` and `simple-import-sort` plugins
+- Enables `import-x` and `simple-import-sort` plugins
 - Enables alias support for `jsconfig` and `tsconfig`
 - Configures file extensions depending on used presets
 
@@ -240,7 +252,7 @@ To define your own `groups`, just pass it inside using `sort.groups`.
 <br>
 
 - Changes parser to `@typescript-eslint/parser`
-- Allows the usage of `.ts` and `.tsx` extensions
+- Allows the usage of `.ts`, `.mts` and `.tsx` extensions
 - Adds some TypeScript-specific rules (for TS files)
 - Replaces some default ESLint rules with their TypeScript analogues (for TS files)
 
@@ -252,7 +264,12 @@ configure({
       root: './',
 
       // (optional) A path to tsconfig file
-      tsconfig: 'tsconfig.json'
+      tsconfig: 'tsconfig.json',
+
+      // (optional) Enforce using `type` insead of `interface`
+      // Default to `false` in v11, will become `true` in v12, and will be removed in v13
+      // ESLint Kit CLI will set `true` on bootstrap
+      enforceType: false,
     })
   ]
 })
@@ -459,10 +476,10 @@ configure({
 
 May be used in monorepos to declare shared ESLint Kit options for all packages.
 
-Root .eslintrc.js example:
+Root .eslintrc.cjs example:
 
 ```js
-// <root>/base.eslintrc.js
+// <root>/base.eslintrc.cjs
 const { configure, presets } = require('eslint-kit')
 
 module.exports = configure({
@@ -475,27 +492,27 @@ module.exports = configure({
 })
 ```
 
-Package .eslintrc.js example:
+Package .eslintrc.cjs example:
 
 ```js
-// <root>/libs/my-library/.eslintrc.js
+// <root>/libs/my-library/.eslintrc.cjs
 const { configure } = require('eslint-kit')
 
 module.exports = configure({
   root: __dirname,
-  extends: '../../base.eslintrc.js', // Resolved relative to "root"
+  extends: '../../base.eslintrc.cjs', // Resolved relative to "root"
 })
 ```
 
 Also accepts ESLint Config object, but only if it was created using ESLint Kit:
 
 ```js
-// <root>/libs/my-library/.eslintrc.js
+// <root>/libs/my-library/.eslintrc.cjs
 const { configure } = require('eslint-kit')
 const path = require('path')
 
 module.exports = configure({
-  extends: require(path.resolve(__dirname, '../../base.eslintrc.js')),
+  extends: require(path.resolve(__dirname, '../../base.eslintrc.cjs')),
 })
 ```
 
@@ -579,14 +596,14 @@ I have no idea when this may be useful, but ok.
 
 ## Common issues
 
-**Q**: ESLint ignores my `.eslintrc.js`, why?  
+**Q**: ESLint ignores my `.eslintrc.cjs`, why?  
 **A**: It's a regular issue with tools like `@vue/cli` and `create-react-app`. Check `package.json` and remove `eslintConfig` if you find it. Otherwise, try to restart your editor.
 
 **Q**: ESLint: TypeError: this.libOptions.parse is not a function  
 **A**: Most likely you're using old broken ESLint version. `8.44.0` is tested and can be safely used.
 
 **Q**: ESLint couldn't determine the plugin "foo" uniquely  
-**A**: Most likely your `.eslintrc.js` is located inside some nested project directory, and you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
+**A**: Most likely your `.eslintrc.cjs` is located inside some nested project directory, and you have `eslint` package installed in the high-level `node_modules`. You can try setting `extend.root` to `true` like in the example below:
 
 ```ts
 configure({
@@ -598,7 +615,7 @@ configure({
 ```
 
 **Q**: In my monorepo, ESLint complains about `tsconfig.json` (or another file) location. How can I fix it?  
-**A**: Just set up `root` option inside your nested package (workspace) `.eslintrc.js` like in the example below:
+**A**: Just set up `root` option inside your nested package (workspace) `.eslintrc.cjs` like in the example below:
 
 ```ts
 configure({

@@ -9,7 +9,7 @@
   "eslint-import-resolver-typescript",
   "eslint-import-resolver-jsconfig",
   "eslint-plugin-effector",
-  "eslint-plugin-import",
+  "eslint-plugin-import-x",
   "eslint-plugin-prettier",
   "eslint-plugin-react",
   "eslint-plugin-react-hooks",
@@ -20,5 +20,6 @@
   "eslint-plugin-unicorn",
   "eslint-plugin-vue",
   "prettier",
-  "vue-eslint-parser"
+  "vue-eslint-parser",
+  "@stylistic/eslint-plugin"
 ]

@@ -31,7 +31,10 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
       },
     ],
     '@typescript-eslint/consistent-type-assertions': 'warn',
-    '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+    '@typescript-eslint/consistent-type-definitions': [
+      'warn',
+      meta.typescript.enforceUsingType ? 'type' : 'interface',
+    ],
     '@typescript-eslint/no-array-constructor': 'warn',
     '@typescript-eslint/no-empty-interface': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
@@ -48,7 +51,6 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
         argsIgnorePattern: '^_',
       },
     ],
-    '@typescript-eslint/no-unnecessary-condition': 'warn',
     '@typescript-eslint/no-unused-expressions': 'warn',
     '@typescript-eslint/no-useless-constructor': 'warn',
     '@typescript-eslint/prefer-for-of': 'warn',
@@ -92,7 +94,7 @@ export function createTypescriptRules(meta: Meta): Linter.RulesRecord {
 
     ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
       // Checked by Typescript
-      'import/no-extraneous-dependencies': 'off',
+      'import-x/no-extraneous-dependencies': 'off',
     }),
   }
 }

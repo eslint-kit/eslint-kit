@@ -53,7 +53,6 @@ export function deepMerge<A, B>(
     const final: any = {}
 
     for (const key of keys) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const path = basePath ? [basePath, key].join('.') : key
       final[key] = deepMerge(
         (a as any)[key],

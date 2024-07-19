@@ -3,7 +3,7 @@ import { mergeConfigs } from '../shared/lib/eslint'
 import { Jsconfig, PackageJson } from '../shared/types'
 import { PresetName } from './names'
 
-export interface Meta {
+export type Meta = {
   root: string
   allowDebug: boolean
   readPackageJson(): PackageJson | null
@@ -15,22 +15,23 @@ export interface Meta {
   typescript: {
     root: string
     tsconfig: string
+    enforceUsingType: boolean
   }
 }
 
-export interface Input<T = void> {
+export type Input<T = void> = {
   options?: T
   meta: Meta
 }
 
-export interface Preset<T = void> {
+export type Preset<T = void> = {
   name: PresetName
   options?: T
   updateMeta(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
 }
 
-interface CreatePresetParams<T = void> {
+type CreatePresetParams<T = void> = {
   name: PresetName
   updateMeta?(input: Input<T>): void
   compile(input: Input<T>): Linter.Config
@@ -61,6 +62,7 @@ export const createMeta = (): Meta => ({
   typescript: {
     root: './',
     tsconfig: 'tsconfig.json',
+    enforceUsingType: false,
   },
 })
 

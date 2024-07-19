@@ -88,7 +88,7 @@ Array [
         "line": 1,
         "message": "'Test' is defined but never used. Allowed unused vars must match /^_/u.",
         "messageId": "unusedVar",
-        "nodeType": "Identifier",
+        "nodeType": null,
         "ruleId": "@typescript-eslint/no-unused-vars",
         "severity": 1,
       },

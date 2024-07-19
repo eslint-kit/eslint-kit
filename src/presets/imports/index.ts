@@ -2,7 +2,6 @@ import { EXTENSIONS } from '../../shared'
 import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createAliasSettings } from './alias'
-import { createExtensionsRule } from './lib'
 import { Options } from './types'
 
 const DEFAULT_IMPORT_GROUPS: string[][] = [
@@ -32,33 +31,29 @@ export const imports = createPreset<Options>({
     const finalGroups = newline ? groups : [groups.flat()]
 
     return {
-      plugins: ['import', 'simple-import-sort'],
+      plugins: ['import-x', 'simple-import-sort'],
       settings: {
-        'import/extensions': meta.imports.extensions,
-        'import/core-modules': [],
-        'import/ignore': ['\\.(coffee|scss|css|less|hbs|svg|json)$'],
-        'import/internal-regex': '^@types/',
+        'import-x/core-modules': [],
+        'import-x/ignore': ['\\.(coffee|scss|css|less|hbs|svg|json)$'],
+        'import-x/internal-regex': '^@types/',
         ...createAliasSettings({ options, meta }),
       },
       rules: {
-        'import/no-unresolved': [
+        'import-x/no-unresolved': [
           'error',
           { commonjs: true, caseSensitive: true },
         ],
-        'import/no-default-export': 'warn',
-        'import/no-anonymous-default-export': 'error',
-        'import/export': 'error',
-        'import/no-mutable-exports': 'error',
-        'import/no-amd': 'error',
-        'import/first': 'error',
-        'import/no-duplicates': 'error',
-        'import/extensions': createExtensionsRule(meta.imports.extensions),
-        'import/newline-after-import': 'warn',
-        'import/no-webpack-loader-syntax': 'error',
-        'import/no-self-import': 'error',
-        'import/no-cycle': 'off', // TODO: turn on when execution time became normal
-        // 'import/no-cycle': ['error', { maxDepth: Number.POSITIVE_INFINITY }],
-        'import/no-useless-path-segments': ['warn', { commonjs: true }],
+        'import-x/no-default-export': 'warn',
+        'import-x/no-anonymous-default-export': 'error',
+        'import-x/export': 'error',
+        'import-x/no-mutable-exports': 'error',
+        'import-x/no-amd': 'error',
+        'import-x/first': 'error',
+        'import-x/no-duplicates': 'error',
+        'import-x/newline-after-import': 'warn',
+        'import-x/no-webpack-loader-syntax': 'error',
+        'import-x/no-self-import': 'error',
+        'import-x/no-useless-path-segments': ['warn', { commonjs: true }],
 
         'simple-import-sort/imports': ['warn', { groups: finalGroups }],
         'simple-import-sort/exports': 'warn',

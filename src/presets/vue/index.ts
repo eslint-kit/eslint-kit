@@ -6,7 +6,7 @@ import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from '../typescript/lib'
 
-export interface Options {
+export type Options = {
   version?: string | 'detect'
 }
 
@@ -59,7 +59,7 @@ export const vue = createPreset<Options>({
           },
         ],
         ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
-          'import/no-default-export': 'off',
+          'import-x/no-default-export': 'off',
         }),
       },
       overrides: conditional.overrides(

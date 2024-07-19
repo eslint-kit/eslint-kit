@@ -10,7 +10,7 @@ export const remix = createPreset({
       'react/react-in-jsx-scope': 'off',
 
       ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
-        'import/no-default-export': 'off',
+        'import-x/no-default-export': 'off',
       }),
     },
   }),

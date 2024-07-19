@@ -20,8 +20,9 @@
     {
       "groupName": "ESLint plugins",
       "matchPackageNames": [
+        "@stylistic/eslint-plugin",
         "eslint-plugin-effector",
-        "eslint-plugin-import",
+        "eslint-plugin-import-x",
         "eslint-plugin-jsx-a11y",
         "eslint-plugin-prettier",
         "eslint-plugin-react",

@@ -6,7 +6,7 @@ import { publicPresetNames } from '../names'
 import { Meta } from '../shared'
 import { Options } from './types'
 
-export interface Input {
+export type Input = {
   options?: Options
   meta: Meta
 }
@@ -33,7 +33,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
   )
 
   return {
-    'import/resolver': {
+    'import-x/resolver': {
       'eslint-import-resolver-custom-alias': {
         alias,
         extensions: meta.imports.extensions,
