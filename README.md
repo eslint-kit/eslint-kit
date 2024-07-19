@@ -252,7 +252,7 @@ To define your own `groups`, just pass it inside using `sort.groups`.
 <br>
 
 - Changes parser to `@typescript-eslint/parser`
-- Allows the usage of `.ts` and `.tsx` extensions
+- Allows the usage of `.ts`, `.mts` and `.tsx` extensions
 - Adds some TypeScript-specific rules (for TS files)
 - Replaces some default ESLint rules with their TypeScript analogues (for TS files)
 
@@ -264,7 +264,12 @@ configure({
       root: './',
 
       // (optional) A path to tsconfig file
-      tsconfig: 'tsconfig.json'
+      tsconfig: 'tsconfig.json',
+
+      // (optional) Enforce using `type` insead of `interface`
+      // Default to `false` in v11, will become `true` in v12, and will be removed in v13
+      // ESLint Kit CLI will set `true` on bootstrap
+      enforceType: false,
     })
   ]
 })
