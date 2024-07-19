@@ -25,7 +25,7 @@ export const base = createPreset<Options>({
     }
   },
   compile: ({ meta }) => ({
-    plugins: ['unicorn', 'sonarjs'],
+    plugins: ['unicorn', 'sonarjs', '@stylistic'],
     env: {
       es6: true,
     },
@@ -93,11 +93,9 @@ export const base = createPreset<Options>({
       'no-new-wrappers': 'error',
       'no-octal': 'error',
       'no-octal-escape': 'error',
-      'no-param-reassign': ['warn', { props: false }],
       'no-proto': 'error',
       'no-redeclare': 'error',
       'no-return-assign': 'warn',
-      'no-return-await': 'warn',
       'no-self-assign': 'error',
       'no-self-compare': 'error',
       'no-sequences': 'error',
@@ -107,7 +105,6 @@ export const base = createPreset<Options>({
       'no-useless-call': 'warn',
       'no-useless-escape': 'warn',
       'no-useless-return': 'warn',
-      'no-void': ['warn', { allowAsStatement: true }],
       'no-with': 'error',
       'radix': 'error',
       'yoda': 'warn',
@@ -127,7 +124,7 @@ export const base = createPreset<Options>({
       ],
 
       // eslint stylistic rules
-      'lines-between-class-members': [
+      '@stylistic/lines-between-class-members': [
         'warn',
         'always',
         { exceptAfterSingleLine: true },
@@ -135,7 +132,7 @@ export const base = createPreset<Options>({
       'no-lonely-if': 'warn',
       'no-bitwise': 'warn',
       'no-array-constructor': 'warn',
-      'no-new-object': 'warn',
+      'no-object-constructor': 'warn',
       'no-unneeded-ternary': 'warn',
       'operator-assignment': 'warn',
       'prefer-exponentiation-operator': 'warn',

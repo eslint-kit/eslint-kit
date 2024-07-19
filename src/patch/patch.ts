@@ -11,7 +11,7 @@ interface Resolved {
 function getModuleNames(config: Linter.Config) {
   const { parser, plugins = [], parserOptions = {}, settings = {} } = config
   const additionalParser: string | undefined = parserOptions.parser
-  const resolversSettings = settings['import/resolver'] || {}
+  const resolversSettings = settings['import-x/resolver'] || {}
 
   const moduleNames: string[] = []
 

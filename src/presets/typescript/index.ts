@@ -1,7 +1,6 @@
 import path from 'path'
 import { EXTENSIONS } from '../../shared'
 import { conditional } from '../../shared/lib/eslint'
-import { createExtensionsRule } from '../imports/lib'
 import { publicPresetNames } from '../names'
 import { createPreset } from '../shared'
 import { createTypescriptRules } from './lib'
@@ -30,25 +29,21 @@ export const typescript = createPreset<Options>({
     settings: conditional.settings(
       meta.presets.has(publicPresetNames.imports),
       {
-        'import/extensions': meta.imports.extensions,
-        'import/resolver': {
+        'import-x/resolver': {
           node: {
             extensions: meta.imports.extensions,
           },
         },
-        'import/ignore': ['\\.(coffee|scss|css|less|hbs|svg|json)$'],
-        'import/external-module-folders': [
+        'import-x/ignore': ['\\.(coffee|scss|css|less|hbs|svg|json)$'],
+        'import-x/external-module-folders': [
           'node_modules',
           'node_modules/@types',
         ],
-        'import/parsers': {
+        'import-x/parsers': {
           '@typescript-eslint/parser': EXTENSIONS.TS,
         },
       },
     ),
-    rules: conditional.rules(meta.presets.has(publicPresetNames.imports), {
-      'import/extensions': createExtensionsRule(meta.imports.extensions),
-    }),
     overrides: [
       {
         files: ['*.ts', '*.tsx'],

@@ -111,12 +111,12 @@ Array [
     "messages": Array [
       Object {
         "column": 8,
-        "endColumn": 21,
+        "endColumn": 13,
         "endLine": 2,
         "line": 2,
         "message": "'value' is assigned a value but never used. Allowed unused vars must match /^_/u.",
         "messageId": "unusedVar",
-        "nodeType": "Identifier",
+        "nodeType": null,
         "ruleId": "@typescript-eslint/no-unused-vars",
         "severity": 1,
       },

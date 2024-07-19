@@ -2,7 +2,6 @@ import { defineConfig } from 'rollup'
 import bundleSize from 'rollup-plugin-bundle-size'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
-import { terser } from 'rollup-plugin-terser'
 
 const src = (file) => `src/${file}`
 const dist = (file) => `dist/${file}`
@@ -40,4 +39,5 @@ const config = defineConfig([
   }),
 ])
 
+// eslint-disable-next-line import-x/no-default-export
 export default config

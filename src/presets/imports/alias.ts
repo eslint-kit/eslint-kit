@@ -33,7 +33,7 @@ export function createAliasSettings({ options = {}, meta }: Input) {
   )
 
   return {
-    'import/resolver': {
+    'import-x/resolver': {
       'eslint-import-resolver-custom-alias': {
         alias,
         extensions: meta.imports.extensions,

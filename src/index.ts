@@ -66,7 +66,6 @@ function finalizeOptions(options: Options): FinalOptions {
 
       extendedOptions = config[ESLintKitOptionsSymbol]
     } else {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (!options.extends[ESLintKitOptionsSymbol]) {
         throw new Error(
           `The config specified in "extends" is not produced by ESLint Kit`,

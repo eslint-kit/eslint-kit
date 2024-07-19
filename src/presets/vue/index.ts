@@ -59,7 +59,7 @@ export const vue = createPreset<Options>({
           },
         ],
         ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
-          'import/no-default-export': 'off',
+          'import-x/no-default-export': 'off',
         }),
       },
       overrides: conditional.overrides(

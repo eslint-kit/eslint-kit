@@ -30,6 +30,7 @@
   ],
   "include": [
     "src",
-    ".eslintrc.js"
+    ".eslintrc.cjs",
+    "rollup.config.js"
   ]
 }
