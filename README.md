@@ -269,7 +269,7 @@ configure({
       // (optional) Enforce using `type` insead of `interface`
       // Default to `false` in v11, will become `true` in v12, and will be removed in v13
       // ESLint Kit CLI will set `true` on bootstrap
-      enforceType: false,
+      enforceUsingType: false,
     })
   ]
 })
