@@ -377,6 +377,27 @@ configure({
 </details>
 
 <details>
+<summary>Astro</summary>
+<br>
+
+- Adds `astro` plugin
+- Uses parser to `astro-eslint-parser` for `.astro` files
+- Enables `/recommended` rules and environment for Astro
+- Enables `@typescript-eslint/parser` for `<script>` tags when `typescript` preset is used
+
+You still need to set up your editor / IDE to lint `.astro` files. You can use [this guide](https://ota-meshi.github.io/eslint-plugin-astro/user-guide/#-editor-integrations) from Astro documentation. 
+
+```ts
+configure({
+  presets: [presets.astro()]
+})
+```
+
+If you use Prettier, you also need to install `prettier-plugin-astro`. Use [this guide](https://github.com/withastro/prettier-plugin-astro?tab=readme-ov-file#recommended-configuration) from plugin documentation.
+
+</details>
+
+<details>
 <summary>Solid.js</summary>
 <br>
 

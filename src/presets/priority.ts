@@ -10,6 +10,7 @@ export const PRIORITY: PresetName[] = [
   'node',
   'react',
   'vue',
+  'astro',
   'solid.js',
   'svelte',
 

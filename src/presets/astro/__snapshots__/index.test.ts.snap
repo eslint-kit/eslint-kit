@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Presets] Astro should lint .astro files: astro-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-clear.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should lint .astro files: astro-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-error.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 22,
+        "endColumn": 40,
+        "endLine": 2,
+        "line": 2,
+        "message": "'Astro.canonicalURL' is deprecated. Use 'Astro.url' helper instead.",
+        "messageId": "deprecated",
+        "nodeType": "MemberExpression",
+        "ruleId": "astro/no-deprecated-astro-canonicalurl",
+        "severity": 2,
+      },
+    ],
+    "source": "---
+const canonicalURL = Astro.canonicalURL
+console.info(canonicalURL)
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should lint .astro files: astro-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-warn.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 23,
+        "endColumn": 32,
+        "endLine": 10,
+        "line": 10,
+        "message": "'textColor' is defined but never used.",
+        "messageId": "unused",
+        "nodeType": "Identifier",
+        "ruleId": "astro/no-unused-define-vars-in-style",
+        "severity": 1,
+      },
+    ],
+    "source": "---
+const foregroundColor = 'rgb(221 243 228)'
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style define:vars={{ textColor: foregroundColor }}>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Astro should lint typescript in .astro files: ts-astro-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/ts-astro-clear.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should lint typescript in .astro files: ts-astro-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/ts-astro-error.astro",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 12,
+        "endColumn": 18,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            15,
+            21,
+          ],
+          "text": "number",
+        },
+        "line": 2,
+        "message": "Don't use \`Number\` as a type. Use number instead",
+        "messageId": "bannedTypeMessage",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/ban-types",
+        "severity": 2,
+      },
+    ],
+    "source": "---
+const one: Number = 1
+console.info(one)
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should lint typescript in .astro files: ts-astro-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/ts-astro-warn.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 2,
+        "fix": Object {
+          "range": Array [
+            4,
+            16,
+          ],
+          "text": "interface Test ",
+        },
+        "line": 2,
+        "message": "Use an \`interface\` instead of a \`type\`.",
+        "messageId": "interfaceOverType",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/consistent-type-definitions",
+        "severity": 1,
+      },
+    ],
+    "source": "---
+type Test = {
+  one: number
+}
+const test: Test = { one: 1 }
+console.info(test)
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Astro should match snapshots: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-clear.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should match snapshots: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-error.js",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 1,
+        "endColumn": 12,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            3,
+          ],
+          "text": "let",
+        },
+        "line": 1,
+        "message": "Unexpected var, use let or const instead.",
+        "messageId": "unexpectedVar",
+        "nodeType": "VariableDeclaration",
+        "ruleId": "no-var",
+        "severity": 2,
+      },
+    ],
+    "source": "var one = 1
+export { one }
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should match snapshots: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-warn.js",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 7,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'one' is assigned a value but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": "Identifier",
+        "ruleId": "no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "const one = 1
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Astro should not conflict with prettier: astro-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-warn.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 23,
+        "endColumn": 32,
+        "endLine": 10,
+        "line": 10,
+        "message": "'textColor' is defined but never used.",
+        "messageId": "unused",
+        "nodeType": "Identifier",
+        "ruleId": "astro/no-unused-define-vars-in-style",
+        "severity": 1,
+      },
+    ],
+    "source": "---
+const foregroundColor = 'rgb(221 243 228)'
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style define:vars={{ textColor: foregroundColor }}>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 1,
+  },
+]
+`;
+
+exports[`[Presets] Astro should work with typescript: basic-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-clear.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should work with typescript: basic-error 1`] = `
+Array [
+  Object {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-error.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 12,
+        "endColumn": 18,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            11,
+            17,
+          ],
+          "text": "number",
+        },
+        "line": 1,
+        "message": "Don't use \`Number\` as a type. Use number instead",
+        "messageId": "bannedTypeMessage",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/ban-types",
+        "severity": 2,
+      },
+    ],
+    "source": "const one: Number = 1
+export { one }
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should work with typescript: basic-warn 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/basic-warn.ts",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 1,
+    "messages": Array [
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "fix": Object {
+          "range": Array [
+            0,
+            12,
+          ],
+          "text": "interface Test ",
+        },
+        "line": 1,
+        "message": "Use an \`interface\` instead of a \`type\`.",
+        "messageId": "interfaceOverType",
+        "nodeType": "Identifier",
+        "ruleId": "@typescript-eslint/consistent-type-definitions",
+        "severity": 1,
+      },
+      Object {
+        "column": 6,
+        "endColumn": 10,
+        "endLine": 1,
+        "line": 1,
+        "message": "'Test' is defined but never used. Allowed unused vars must match /^_/u.",
+        "messageId": "unusedVar",
+        "nodeType": null,
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 1,
+      },
+    ],
+    "source": "type Test = {
+  one: number
+}
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 2,
+  },
+]
+`;

@@ -9,6 +9,7 @@ export const publicPresetNames = {
   prettier: 'prettier',
   typescript: 'typescript',
   react: 'react',
+  astro: 'astro',
   vue: 'vue',
   solidJs: 'solid.js',
   effector: 'effector',

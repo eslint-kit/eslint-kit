@@ -4,7 +4,9 @@
   "recreateClosed": true,
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
+      "matchPackagePatterns": [
+        "*"
+      ],
       "enabled": false
     },
     {
@@ -14,13 +16,16 @@
         "@typescript-eslint/parser"
       ],
       "enabled": true,
-      "schedule": ["* 4 * * *"],
+      "schedule": [
+        "* 4 * * *"
+      ],
       "automerge": true
     },
     {
       "groupName": "ESLint plugins",
       "matchPackageNames": [
         "@stylistic/eslint-plugin",
+        "eslint-plugin-astro",
         "eslint-plugin-effector",
         "eslint-plugin-import-x",
         "eslint-plugin-jsx-a11y",
@@ -35,7 +40,20 @@
         "eslint-plugin-vue"
       ],
       "enabled": true,
-      "schedule": ["* 4 * * *"],
+      "schedule": [
+        "* 4 * * *"
+      ],
+      "automerge": true
+    },
+    {
+      "groupName": "Astro Parser",
+      "matchPackageNames": [
+        "astro-eslint-parser"
+      ],
+      "enabled": true,
+      "schedule": [
+        "* 4 * * *"
+      ],
       "automerge": true
     }
   ]
