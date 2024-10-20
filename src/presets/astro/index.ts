@@ -30,6 +30,9 @@ export const astro = createPreset({
               meta.presets.has(publicPresetNames.typescript),
               createTypescriptRules(meta),
             ),
+            ...conditional.rules(meta.presets.has(publicPresetNames.react), {
+              'react/no-unknown-property': 'off',
+            }),
           },
         },
       ],
