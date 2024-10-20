@@ -1,3 +1,4 @@
+import { astro } from './astro'
 import { effector } from './effector'
 import { imports } from './imports'
 import { publicPresetNames } from './names'
@@ -18,6 +19,7 @@ export const presets = {
   typescript,
   react,
   vue,
+  astro,
   solidJs,
   effector,
   nextJs,

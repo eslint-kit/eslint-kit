@@ -10,7 +10,7 @@ export type Options = {
   priority?: PresetName[]
   dirname: string
   files: string[]
-  extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte' | 'vue'
+  extension: 'js' | 'jsx' | 'ts' | 'tsx' | 'svelte' | 'vue' | 'astro'
   disableLogs?: boolean
 }
 
