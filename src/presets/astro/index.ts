@@ -32,6 +32,10 @@ export const astro = createPreset({
             ),
             ...conditional.rules(meta.presets.has(publicPresetNames.react), {
               'react/no-unknown-property': 'off',
+              'react/self-closing-comp': [
+                'warn',
+                { component: true, html: false },
+              ],
             }),
             ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
               'import-x/no-unresolved': [
