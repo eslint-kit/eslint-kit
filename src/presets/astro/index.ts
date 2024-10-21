@@ -30,6 +30,16 @@ export const astro = createPreset({
               meta.presets.has(publicPresetNames.typescript),
               createTypescriptRules(meta),
             ),
+
+            /**
+             * Enforcing "type" is disabled for Astro because Props should be defined using "interface"
+             */
+            ...conditional.rules(
+              meta.presets.has(publicPresetNames.typescript) &&
+                meta.typescript.enforceUsingType,
+              { '@typescript-eslint/consistent-type-definitions': 'off' },
+            ),
+
             ...conditional.rules(meta.presets.has(publicPresetNames.react), {
               'react/no-unknown-property': 'off',
             }),
