@@ -308,6 +308,148 @@ Array [
 ]
 `;
 
+exports[`[Presets] Astro should not complain about astro imports (typescript): ts-astro-import-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/ts-astro-import-clear.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should not complain about astro imports (typescript): ts-astro-import-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/ts-astro-import-error.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 2,
+        "line": 2,
+        "message": "Unable to resolve path to module 'astro:assetss'.",
+        "messageId": "unresolved",
+        "nodeType": "Literal",
+        "ruleId": "import-x/no-unresolved",
+        "severity": 2,
+      },
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 3,
+        "line": 3,
+        "message": "Unable to resolve path to module 'aastro:assets'.",
+        "messageId": "unresolved",
+        "nodeType": "Literal",
+        "ruleId": "import-x/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "---
+import 'astro:assetss'
+import 'aastro:assets'
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should not complain about astro imports: astro-import-clear 1`] = `
+Array [
+  Object {
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-import-clear.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [],
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
+exports[`[Presets] Astro should not complain about astro imports: astro-import-error 1`] = `
+Array [
+  Object {
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "filePath": "<PROJECT_ROOT>/src/presets/astro/tests/astro-import-error.astro",
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "messages": Array [
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 2,
+        "line": 2,
+        "message": "Unable to resolve path to module 'astro:assetss'.",
+        "messageId": "unresolved",
+        "nodeType": "Literal",
+        "ruleId": "import-x/no-unresolved",
+        "severity": 2,
+      },
+      Object {
+        "column": 8,
+        "endColumn": 23,
+        "endLine": 3,
+        "line": 3,
+        "message": "Unable to resolve path to module 'aastro:assets'.",
+        "messageId": "unresolved",
+        "nodeType": "Literal",
+        "ruleId": "import-x/no-unresolved",
+        "severity": 2,
+      },
+    ],
+    "source": "---
+import 'astro:assetss'
+import 'aastro:assets'
+---
+
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+",
+    "suppressedMessages": Array [],
+    "usedDeprecatedRules": Array [],
+    "warningCount": 0,
+  },
+]
+`;
+
 exports[`[Presets] Astro should not conflict with prettier: astro-warn 1`] = `
 Array [
   Object {

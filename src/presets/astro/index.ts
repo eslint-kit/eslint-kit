@@ -33,6 +33,28 @@ export const astro = createPreset({
             ...conditional.rules(meta.presets.has(publicPresetNames.react), {
               'react/no-unknown-property': 'off',
             }),
+            ...conditional.rules(meta.presets.has(publicPresetNames.imports), {
+              'import-x/no-unresolved': [
+                'error',
+                {
+                  commonjs: true,
+                  caseSensitive: true,
+                  ignore: [
+                    '^astro:actions$',
+                    '^astro:assets$',
+                    '^astro:components$',
+                    '^astro:container$',
+                    '^astro:content$',
+                    '^astro:i18n$',
+                    '^astro:middleware$',
+                    '^astro:prefetch$',
+                    '^astro:schema$',
+                    '^astro:transitions$',
+                    '^astro:transitions/client$',
+                  ],
+                },
+              ],
+            }),
           },
         },
       ],
