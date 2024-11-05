@@ -6791,7 +6791,7 @@ __metadata:
     eslint-import-resolver-jsconfig: "npm:^1.1.0"
     eslint-import-resolver-typescript: "npm:^3.6.1"
     eslint-plugin-astro: "npm:1.3.0"
-    eslint-plugin-effector: "npm:0.14.0"
+    eslint-plugin-effector: "npm:0.15.0"
     eslint-plugin-import-x: "npm:^4.0.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
     eslint-plugin-prettier: "npm:5.2.1"
@@ -6868,15 +6868,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-effector@npm:0.14.0":
-  version: 0.14.0
-  resolution: "eslint-plugin-effector@npm:0.14.0"
+"eslint-plugin-effector@npm:0.15.0":
+  version: 0.15.0
+  resolution: "eslint-plugin-effector@npm:0.15.0"
   dependencies:
     prettier: "npm:^2.3.2"
   peerDependencies:
     effector: ^23
     eslint: 7 || 8
-  checksum: 06dfd4dee54558b58269bb4ce2b5f752ed8cad6dea531c9c7a648d6322e007da1a26c96c122edd96d02cdf3ee79aa478097fa0f14a256f70fbe0afdaa5fb73cc
+  checksum: 89b670def4ecf3a8cf610066611d4a5ce1825aeb8b72810810d59b935e47b0dfac6030e1e60e25b5c2b754ee8ec04d3d5ebee146372949a12c4dbf8d9d15ba57
   languageName: node
   linkType: hard
 
