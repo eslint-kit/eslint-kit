@@ -6702,14 +6702,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-compat-utils@npm:^0.5.0":
-  version: 0.5.1
-  resolution: "eslint-compat-utils@npm:0.5.1"
+"eslint-compat-utils@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "eslint-compat-utils@npm:0.6.0"
   dependencies:
     semver: "npm:^7.5.4"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 325e815205fab70ebcd379f6d4b5d44c7d791bb8dfe0c9888233f30ebabd9418422595b53a781b946c768d9244d858540e5e6129a6b3dd6d606f467d599edc6c
+  checksum: 04f575f6019612394727dead40e7e5acaa8a9e6ee17b6adcc687d9b786047cd74b65f65eb1a95aa5189bc1cfb89e9b179929bb41d56de18541257b82a3b98ba5
   languageName: node
   linkType: hard
 
@@ -6790,7 +6790,7 @@ __metadata:
     eslint-import-resolver-custom-alias: "npm:^1.3.2"
     eslint-import-resolver-jsconfig: "npm:^1.1.0"
     eslint-import-resolver-typescript: "npm:^3.6.1"
-    eslint-plugin-astro: "npm:1.3.0"
+    eslint-plugin-astro: "npm:1.3.1"
     eslint-plugin-effector: "npm:0.15.0"
     eslint-plugin-import-x: "npm:^4.0.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
@@ -6850,21 +6850,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@npm:1.3.0":
-  version: 1.3.0
-  resolution: "eslint-plugin-astro@npm:1.3.0"
+"eslint-plugin-astro@npm:1.3.1":
+  version: 1.3.1
+  resolution: "eslint-plugin-astro@npm:1.3.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
     "@typescript-eslint/types": "npm:^7.7.1 || ^8"
     astro-eslint-parser: "npm:^1.0.2"
-    eslint-compat-utils: "npm:^0.5.0"
+    eslint-compat-utils: "npm:^0.6.0"
     globals: "npm:^15.0.0"
     postcss: "npm:^8.4.14"
-    postcss-selector-parser: "npm:^6.0.10"
+    postcss-selector-parser: "npm:^7.0.0"
   peerDependencies:
     eslint: ">=8.57.0"
-  checksum: c8cf9b2fba1856fe3404886a51b0593c93ab99bbde315d5be598741fe6a33721b1b25e8d8e8f81b263112cf4ad17c51e7995fa41b8fb4cbb68b942c3c07835d8
+  checksum: 640c2c0d53e8d5063bdbf4b2c68c5b5356331c8ae6f22b9432c6a2c0d1062b9b12d83c91fdd24a6ee3d54d717cddb11407d75c57d49a446f269baba9713326aa
   languageName: node
   linkType: hard
 
@@ -11416,16 +11416,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.10":
-  version: 6.1.2
-  resolution: "postcss-selector-parser@npm:6.1.2"
-  dependencies:
-    cssesc: "npm:^3.0.0"
-    util-deprecate: "npm:^1.0.2"
-  checksum: 523196a6bd8cf660bdf537ad95abd79e546d54180f9afb165a4ab3e651ac705d0f8b8ce6b3164fb9e3279ce482c5f751a69eb2d3a1e8eb0fd5e82294fb3ef13e
-  languageName: node
-  linkType: hard
-
 "postcss-selector-parser@npm:^6.0.15":
   version: 6.0.15
   resolution: "postcss-selector-parser@npm:6.0.15"
@@ -11433,6 +11423,16 @@ __metadata:
     cssesc: "npm:^3.0.0"
     util-deprecate: "npm:^1.0.2"
   checksum: 48b425d6cef497bcf6b7d136f6fd95cfca43026955e07ec9290d3c15457de3a862dbf251dd36f42c07a0d5b5ab6f31e41acefeff02528995a989b955505e440b
+  languageName: node
+  linkType: hard
+
+"postcss-selector-parser@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "postcss-selector-parser@npm:7.0.0"
+  dependencies:
+    cssesc: "npm:^3.0.0"
+    util-deprecate: "npm:^1.0.2"
+  checksum: e96e096afcce70bf5c97789f5ea09d7415ae5eb701d82b05b5e8532885d31363b484fcb1ca9488c9a331f30508d9e5bb6c3109eb2eb5067ef3d3919f9928cd9d
   languageName: node
   linkType: hard
 
