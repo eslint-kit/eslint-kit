@@ -46,7 +46,7 @@
     "eslint-plugin-sonarjs": "2.0.4",
     "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-unicorn": "56.0.1",
-    "eslint-plugin-vue": "9.31.0",
+    "eslint-plugin-vue": "9.32.0",
     "semver": "^7.3.8",
     "vue-eslint-parser": "9.4.3"
   },
