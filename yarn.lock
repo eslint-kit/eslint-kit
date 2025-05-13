@@ -4615,9 +4615,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:1.2.1":
-  version: 1.2.1
-  resolution: "astro-eslint-parser@npm:1.2.1"
+"astro-eslint-parser@npm:1.2.2":
+  version: 1.2.2
+  resolution: "astro-eslint-parser@npm:1.2.2"
   dependencies:
     "@astrojs/compiler": "npm:^2.0.0"
     "@typescript-eslint/scope-manager": "npm:^7.0.0 || ^8.0.0"
@@ -4631,7 +4631,7 @@ __metadata:
     fast-glob: "npm:^3.3.3"
     is-glob: "npm:^4.0.3"
     semver: "npm:^7.3.8"
-  checksum: 2e46d6f0e2913e56801e51d5f418cb1e3480c199943a025794d88ff9195b9ffe262feded3308700eecaab286312ec697461791f575c81604b9dba69ffba739d6
+  checksum: e4010f5506bc0be29f8f119a6e10d91d6186f18715a14f02f2b5921d79311620015ed02a68bb352e90ce2d1766a5b3118083d526ba30d2eac3db841ea631822e
   languageName: node
   linkType: hard
 
@@ -6681,7 +6681,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
     astro: "npm:^4.16.6"
-    astro-eslint-parser: "npm:1.2.1"
+    astro-eslint-parser: "npm:1.2.2"
     babel-preset-solid: "npm:^1.8.18"
     effector: "npm:^22.3.0"
     esbuild: "npm:^0.14.39"
